@@ -47,19 +47,21 @@ class Puzzle:
 
     def __init__(self, puzzle_definition, verbose=False):
         # Nodes in the puzzle
-        self.nodes, self.starts = self.parse_puzzle(puzzle_definition)
+        self.nodes, self.starts = self.generate_nodes(puzzle_definition)
 
         # Edges of the puzzle. Invalid edges (triangle to square) already removed
         self.edges = self.generate_edges()
 
         # Lookup table {node_id:[edge_id,...], ...}
-        self.node_edges = defaultdict(list)
-        self.generate_node_edges()
+        self.node_edges = self.generate_node_edges()
+
+        # Lookup table {node_id:[edge_id,...], ...}
+        self.edge_overlaps = self.generate_edge_overlaps()
 
         if verbose:
             self.print_info()
 
-    def parse_puzzle(self, puzzle):
+    def generate_nodes(self, puzzle):
         ''' Parse human-read puzzle into a list of nodes
         '''
         nodes = []
@@ -164,9 +166,58 @@ class Puzzle:
     def generate_node_edges(self):
         ''' Create a node_edges dict from available edges
         '''
+        node_edges = defaultdict(list)
         for edge_id, edge in enumerate(self.edges):
             for node_id in edge:
-                self.node_edges[node_id].append(edge_id)
+                node_edges[node_id].append(edge_id)
+        return node_edges
+
+    def generate_edge_overlaps(self):
+        edge_overlaps = {}
+
+        # (smaller_node_id, larger_node_id) -> edge_id
+        edge_lookup = {
+            edge: edge_id
+            for edge_id, edge in enumerate(self.edges)
+        }
+
+        for edge_id, (a_id, b_id) in enumerate(self.edges):
+
+            a = self.nodes[a_id]
+            b = self.nodes[b_id]
+
+            # Only diagonals can cross
+            if abs(a.row - b.row) != 1 or abs(a.col - b.col) != 1:
+                continue
+
+            # Corners of the square
+            c1 = (a.row, b.col)
+            c2 = (b.row, a.col)
+
+            # Do those corners contain nodes?
+            node1 = next(
+                (n for n in self.nodes if (n.row, n.col) == c1),
+                None
+            )
+            node2 = next(
+                (n for n in self.nodes if (n.row, n.col) == c2),
+                None
+            )
+
+            if node1 is None or node2 is None:
+                continue
+
+            other_edge = tuple(sorted((node1.id, node2.id)))
+
+            if other_edge not in edge_lookup:
+                continue
+
+            other_edge_id = edge_lookup[other_edge]
+
+            if other_edge_id != edge_id:
+                edge_overlaps[edge_id] = other_edge_id
+
+        return edge_overlaps
 
     def print_info(self):
         ''' Nice print of puzzle internal data structure
@@ -192,6 +243,8 @@ class Puzzle:
         for node_id, edges in self.node_edges.items():
             print(f"  {node_id}: {edges}")
 
+        print("\nEdge overlaps:")
+        print(self.edge_overlaps)
 
 @dataclass
 class GameState:
