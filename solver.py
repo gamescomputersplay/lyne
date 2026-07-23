@@ -17,7 +17,10 @@ test_puzzle = [
     "tT22d",
     "Dd22D",
 ]
-
+test_puzzle = [
+    "Tt",
+    "Tt",
+]
 
 class NodeShape(Enum):
     ''' Enumeration for the node shapes
@@ -49,14 +52,23 @@ class Puzzle:
         # Nodes in the puzzle
         self.nodes, self.starts = self.generate_nodes(puzzle_definition)
 
+        # Lookup for node positions
+        self.node_position_lookup = {
+            (node.row, node.col): node
+            for node in self.nodes
+        }
+
         # Edges of the puzzle. Invalid edges (triangle to square) already removed
         self.edges = self.generate_edges()
 
         # Lookup table {node_id:[edge_id,...], ...}
         self.node_edges = self.generate_node_edges()
 
+
         # Lookup table {node_id:[edge_id,...], ...}
         self.edge_overlaps = self.generate_edge_overlaps()
+
+
 
         if verbose:
             self.print_info()
@@ -175,7 +187,7 @@ class Puzzle:
     def generate_edge_overlaps(self):
         edge_overlaps = {}
 
-        # (smaller_node_id, larger_node_id) -> edge_id
+        # (node1_id, node2_id) -> edge_id
         edge_lookup = {
             edge: edge_id
             for edge_id, edge in enumerate(self.edges)
@@ -190,32 +202,22 @@ class Puzzle:
             if abs(a.row - b.row) != 1 or abs(a.col - b.col) != 1:
                 continue
 
-            # Corners of the square
-            c1 = (a.row, b.col)
-            c2 = (b.row, a.col)
+            # Opposite corners of the square
+            node1 = self.node_position_lookup.get((a.row, b.col))
+            node2 = self.node_position_lookup.get((b.row, a.col))
 
-            # Do those corners contain nodes?
-            node1 = next(
-                (n for n in self.nodes if (n.row, n.col) == c1),
-                None
-            )
-            node2 = next(
-                (n for n in self.nodes if (n.row, n.col) == c2),
-                None
-            )
-
+            # One of the corners is missing
             if node1 is None or node2 is None:
                 continue
 
+            # Does the opposite diagonal exist?
             other_edge = tuple(sorted((node1.id, node2.id)))
+            other_edge_id = edge_lookup.get(other_edge)
 
-            if other_edge not in edge_lookup:
+            if other_edge_id is None or other_edge_id == edge_id:
                 continue
 
-            other_edge_id = edge_lookup[other_edge]
-
-            if other_edge_id != edge_id:
-                edge_overlaps[edge_id] = other_edge_id
+            edge_overlaps[edge_id] = other_edge_id
 
         return edge_overlaps
 
