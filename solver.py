@@ -91,24 +91,28 @@ class Puzzle:
 
                 node_id = len(nodes)
 
+                is_start = char.isupper()
+
                 if char.lower() == "t":
                     shape = NodeShape.TRIANGLE
-                    visits = 1
 
                 elif char.lower() == "s":
                     shape = NodeShape.SQUARE
-                    visits = 1
 
                 elif char.lower() == "d":
                     shape = NodeShape.DIAMOND
-                    visits = 1
 
                 elif char.isdigit():
                     shape = NodeShape.ANY
-                    visits = int(char)
 
                 else:
                     raise ValueError(f"Unknown symbol: {char}")
+
+
+                if shape == NodeShape.ANY:
+                    visits = int(char)
+                else:
+                    visits = 0 if is_start else 1
 
                 nodes.append(
                     Node(
@@ -120,7 +124,7 @@ class Puzzle:
                     )
                 )
 
-                if char.isupper():
+                if is_start:
                     starts[shape].append(node_id)
 
         return nodes, starts
@@ -185,6 +189,8 @@ class Puzzle:
         return node_edges
 
     def generate_edge_overlaps(self):
+        ''' Generate a dict of edges that overlap (diagonally)
+        '''
         edge_overlaps = {}
 
         # (node1_id, node2_id) -> edge_id
@@ -248,6 +254,25 @@ class Puzzle:
         print("\nEdge overlaps:")
         print(self.edge_overlaps)
 
+
+@dataclass
+class Path:
+    ''' A path from a starting point
+    '''
+    shape: NodeShape
+    start_node: int
+    current_node: int | None # None for the complete path
+    edges: list[int]
+
+    def copy(self):
+        ''' Create a deep copy of the path '''
+        return Path(
+            shape=self.shape,
+            start_node=self.start_node,
+            current_node=self.current_node,
+            edges=self.edges.copy()
+        )
+
 @dataclass
 class GameState:
     ''' One iteration in the search of the solution.
@@ -255,29 +280,227 @@ class GameState:
     '''
     remaining_visits: list[int]
     edge_available: list[bool]
-    frontier: dict[NodeShape, list[int]]
-    path: list[int]
+    active_paths: list[Path]
+    complete_paths: list[Path]
+
+    @classmethod
+    def from_puzzle(cls, puzzle):
+        ''' Create new GameState object from a parsed puzzle
+        '''
+        remaining_visits = [
+            node.required_visits
+            for node in puzzle.nodes
+        ]
+
+        edge_available = [
+            True
+            for _ in puzzle.edges
+        ]
+
+        paths = []
+
+        for shape, starts in puzzle.starts.items():
+            for node_id in starts:
+                paths.append(
+                    Path(
+                        shape=shape,
+                        start_node=node_id,
+                        current_node=node_id,
+                        edges=[]
+                    )
+                )
+
+        return cls(
+            remaining_visits=remaining_visits,
+            edge_available=edge_available,
+            active_paths=paths,
+            complete_paths=[]
+        )
 
     def copy(self):
-        ''' Create a copy of itself
+        ''' Copy the Game state (deep copy)
         '''
         return GameState(
             remaining_visits=self.remaining_visits.copy(),
             edge_available=self.edge_available.copy(),
-            frontier={
-                shape: nodes.copy()
-                for shape, nodes in self.frontier.items()
-            },
-            path=self.path.copy()
+            active_paths=[
+                    path.copy()
+                    for path in self.active_paths
+                ],
+            complete_paths=[
+                    path.copy()
+                    for path in self.complete_paths
+                ]
         )
 
+    def available_moves(self, puzzle):
+        ''' Return list of available moves from this state as:
+        [ (<Path>, [egde_id_1, edge_id_2, edge_id_3]),...]
+        '''
 
+        def can_enter_node(path, destination):
+            if self.remaining_visits[destination] > 0:
+                return True
+
+            for other_path in self.active_paths:
+                if (
+                    other_path is not path
+                    and other_path.shape == path.shape
+                    and other_path.current_node == destination
+                ):
+                    return True
+
+            return False
+
+        result = []
+
+        for path in self.active_paths:
+            moves = []
+            current = path.current_node
+
+            for edge_id in puzzle.node_edges[current]:
+                if not self.edge_available[edge_id]:
+                    continue
+
+                a, b = puzzle.edges[edge_id]
+                destination = b if a == current else a
+
+                if not can_enter_node(path, destination):
+                    continue
+
+                moves.append(edge_id)
+
+            result.append((path, moves))
+
+        return result
+
+    def find_matching_path(self, shape, node_id, exclude_path):
+        ''' Helper for merging paths:
+        Find another active path of the same shape ending at node_id.
+        '''
+        for path in self.active_paths:
+            if (
+                path is not exclude_path
+                and path.shape == shape
+                and path.current_node == node_id
+            ):
+                return path
+        return None
+
+    def apply_move(self, puzzle, path, edge_id):
+        ''' Create a new state with a move applied.
+        input: the puzzle,
+        Path object (from where to start the move)
+        Edge id where to go
+        '''
+
+        new_state = self.copy()
+
+        # Find the same path in copied state
+        path_index = self.active_paths.index(path)
+        new_path = new_state.active_paths[path_index]
+
+        # Find destination node
+        a, b = puzzle.edges[edge_id]
+
+        if new_path.current_node == a:
+            destination = b
+        else:
+            destination = a
+
+        # Consume destination visit
+        if new_state.remaining_visits[destination] > 0:
+            new_state.remaining_visits[destination] -= 1
+
+        else:
+            # Destination must be a frontier: merge paths and mark them complete
+            # Which two paths to merge
+            path1 = new_path
+            path2 = new_state.find_matching_path(
+                shape=path1.shape,
+                node_id=destination,
+                exclude_path=path1
+                )
+            merged = Path(
+                shape=path1.shape,
+                start_node=path1.start_node,
+                current_node=path2.start_node,
+                edges=(
+                    path1.edges
+                    + [edge_id]
+                    + list(reversed(path2.edges))
+                )
+                )
+            # Add complete paths, remove those we just merged
+            new_state.complete_paths.append(merged)
+            new_state.active_paths.remove(path1)
+            new_state.active_paths.remove(path2)
+
+
+        # Disable used edge
+        new_state.edge_available[edge_id] = False
+
+        # Disable conflicting edges
+        if edge_id in puzzle.edge_overlaps:
+            overlapping_edge = puzzle.edge_overlaps[edge_id]
+            new_state.edge_available[overlapping_edge] = False
+
+        # Extend path
+        new_path.current_node = destination
+        new_path.edges.append(edge_id)
+
+        return new_state
+
+    def print_info(self):
+        ''' List current state information: remaining visits and available edges
+        '''
+        print("\nRemaining visits")
+        print(" ", self.remaining_visits)
+        print("Available nodes")
+        print(" ", self.edge_available)
+        print("Active paths")
+        for path in self.active_paths:
+            print(" ", path)
+        print("Complete paths")
+        for path in self.complete_paths:
+            print(" ", path)
 
 def main():
     ''' Lyne solver
     '''
 
     puzzle = Puzzle(test_puzzle, verbose=True)
+
+    state = GameState.from_puzzle(puzzle)
+    state.print_info()
+
+    print("Available moves")
+    moves = state.available_moves(puzzle)
+    for move in moves:
+        print(" ", move)
+
+    path = moves[0][0]
+
+    state2 = state.apply_move(puzzle, path, 0)
+    state2.print_info()
+
+    print("Available moves")
+    moves = state2.available_moves(puzzle)
+    for move in moves:
+        print(" ", move)
+
+    path = moves[0][0]
+    state3 = state2.apply_move(puzzle, path, 4)
+    state3.print_info()
+
+    print("Available moves")
+    moves = state3.available_moves(puzzle)
+    for move in moves:
+        print(" ", move)
+
+    path = moves[0][0]
+    state4 = state3.apply_move(puzzle, path, 5)
+    state4.print_info()
 
 if __name__ == "__main__":
     main()
