@@ -27,12 +27,12 @@ puzzle_b1 = [
     "2 ",
     "TT",
 ]
-puzzle_b14 = [
-    "T2t",
-    "DdT",
-    "2DS",
-    "Ss ",
-]
+# puzzle_b14 = [
+#     "T2t",
+#     "DdT",
+#     "2DS",
+#     "Ss ",
+# ]
 
 class NodeShape(Enum):
     ''' Enumeration for the node shapes
@@ -55,6 +55,10 @@ class Node:
 
     shape: NodeShape
     required_visits: int
+
+    @property
+    def position(self):
+        return (self.col, self.row)
 
 class Puzzle:
     ''' Class that holds all information about the puzzle setup
@@ -263,6 +267,34 @@ class Puzzle:
         print("\nEdge overlaps:")
         print(self.edge_overlaps)
 
+    def export_solution(self, state):
+
+        solution = []
+
+        for path in state.complete_paths:
+
+            coordinates = []
+
+            current = path.start_node
+            coordinates.append(
+                self.nodes[current].position
+            )
+
+            for edge_id in path.edges:
+                a, b = self.edges[edge_id]
+
+                if a == current:
+                    current = b
+                else:
+                    current = a
+
+                coordinates.append(
+                    self.nodes[current].position
+                )
+
+            solution.append(coordinates)
+
+        return solution
 
 @dataclass
 class Path:
@@ -563,7 +595,6 @@ class Solver:
             print("Puzzle is not solved")
         else:
             print("Puzzle is solved")
-            print(f"Solution: {self.solution}")
 
 
 def main():
@@ -589,10 +620,13 @@ def main():
     # print("Is solved:", state2.is_solved())
     # print("Is viable:", state2.is_viable(puzzle))
 
-    puzzle = Puzzle(puzzle_b1, verbose=True)
+    puzzle = Puzzle(puzzle_b1, verbose=False)
     solver = Solver(puzzle)
     solver.solve_bfs()
     solver.print_stats()
+    human_solution = puzzle.export_solution(solver.solution)
+    for line in human_solution:
+        print(line)
 
 if __name__ == "__main__":
     main()
