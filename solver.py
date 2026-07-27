@@ -64,11 +64,8 @@ class Puzzle:
         # Lookup table {node_id:[edge_id,...], ...}
         self.node_edges = self.generate_node_edges()
 
-
-        # Lookup table {node_id:[edge_id,...], ...}
+        # Overlapping edges (crossing diagonally)
         self.edge_overlaps = self.generate_edge_overlaps()
-
-
 
         if verbose:
             self.print_info()
@@ -335,13 +332,18 @@ class GameState:
 
     def available_moves(self, puzzle):
         ''' Return list of available moves from this state as:
-        [ (<Path>, [egde_id_1, edge_id_2, edge_id_3]),...]
+        [ (<Path>, [edge_id_1, edge_id_2, edge_id_3]),...]
         '''
 
         def can_enter_node(path, destination):
+            ''' Can a path go into that destination node
+            '''
+            # Node has remaining visits - legit
             if self.remaining_visits[destination] > 0:
                 return True
 
+            # If does not have remaining visits,
+            # but it is a frontier of the same shape - legit
             for other_path in self.active_paths:
                 if (
                     other_path is not path
@@ -451,6 +453,41 @@ class GameState:
 
         return new_state
 
+    def is_solved(self):
+        ''' Check whether the puzzle has been solved.
+        '''
+        return (
+            # All node were visited required number of times
+            sum(self.remaining_visits) == 0
+            # All paths were connected
+            and len(self.active_paths) == 0
+        )
+
+    def is_viable(self, puzzle):
+        '''Return False if the puzzle can no longer be solved.
+        '''
+
+        # Check that each node has 2 available edges for each required visit
+        for node_id, remaining in enumerate(self.remaining_visits):
+
+            if remaining == 0:
+                continue
+
+            available_edges = sum(
+                self.edge_available[edge_id]
+                for edge_id in puzzle.node_edges[node_id]
+            )
+
+            if available_edges < remaining * 2:
+                return False
+
+        # Check every active path can continue
+        for _, moves in self.available_moves(puzzle):
+            if len(moves) == 0:
+                return False
+
+        return True
+
     def print_info(self):
         ''' List current state information: remaining visits and available edges
         '''
@@ -473,6 +510,8 @@ def main():
 
     state = GameState.from_puzzle(puzzle)
     state.print_info()
+    print("Is solved:", state.is_solved())
+    print("Is viable:", state.is_viable(puzzle))
 
     print("Available moves")
     moves = state.available_moves(puzzle)
@@ -481,8 +520,10 @@ def main():
 
     path = moves[0][0]
 
-    state2 = state.apply_move(puzzle, path, 0)
+    state2 = state.apply_move(puzzle, path, 2)
     state2.print_info()
+    print("Is solved:", state2.is_solved())
+    print("Is viable:", state2.is_viable(puzzle))
 
     print("Available moves")
     moves = state2.available_moves(puzzle)
@@ -492,15 +533,19 @@ def main():
     path = moves[0][0]
     state3 = state2.apply_move(puzzle, path, 4)
     state3.print_info()
+    print("Is solved:", state3.is_solved())
+    print("Is viable:", state3.is_viable(puzzle))
 
     print("Available moves")
     moves = state3.available_moves(puzzle)
     for move in moves:
         print(" ", move)
 
-    path = moves[0][0]
-    state4 = state3.apply_move(puzzle, path, 5)
-    state4.print_info()
+    # path = moves[0][0]
+    # state4 = state3.apply_move(puzzle, path, 5)
+    # state4.print_info()
+    # print("Is solved:", state4.is_solved())
+    # print("Is viable:", state4.is_viable(puzzle))
 
 if __name__ == "__main__":
     main()
