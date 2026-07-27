@@ -4,6 +4,7 @@
 from dataclasses import dataclass
 from enum import Enum, auto
 from collections import defaultdict
+from collections import deque
 
 ## Legend:
 # d|s|t - diamond | square | triangle - basic node
@@ -17,9 +18,20 @@ test_puzzle = [
     "tT22d",
     "Dd22D",
 ]
-test_puzzle = [
-    "Tt",
-    "Tt",
+# test_puzzle = [
+#     "Tt",
+#     "Tt",
+# ]
+puzzle_b1 = [
+    "tt",
+    "2 ",
+    "TT",
+]
+puzzle_b14 = [
+    "T2t",
+    "DdT",
+    "2DS",
+    "Ss ",
 ]
 
 class NodeShape(Enum):
@@ -502,50 +514,85 @@ class GameState:
         for path in self.complete_paths:
             print(" ", path)
 
+
+class Solver:
+
+    def __init__(self,puzzle):
+        self.puzzle = puzzle
+        self.states_explored = 0
+        self.is_solved = False
+        self.solution = None
+
+    def solve_bfs(self):
+
+        queue = deque([
+            GameState.from_puzzle(self.puzzle)
+        ])
+
+        while queue:
+
+            state = queue.popleft()
+
+            self.states_explored += 1
+
+            if state.is_solved():
+                self.is_solved = True
+                self.solution = state
+                return state
+
+            if not state.is_viable(self.puzzle):
+                continue
+
+            for path, moves in state.available_moves(self.puzzle):
+
+                for edge_id in moves:
+
+                    new_state = state.apply_move(
+                        self.puzzle,
+                        path,
+                        edge_id
+                    )
+
+                    queue.append(new_state)
+
+        return None
+
+    def print_stats(self):
+        print(f"States explored: {self.states_explored}")
+        if self.solution is None:
+            print("Puzzle is not solved")
+        else:
+            print("Puzzle is solved")
+            print(f"Solution: {self.solution}")
+
+
 def main():
     ''' Lyne solver
     '''
 
-    puzzle = Puzzle(test_puzzle, verbose=True)
+    # puzzle = Puzzle(test_puzzle, verbose=True)
 
-    state = GameState.from_puzzle(puzzle)
-    state.print_info()
-    print("Is solved:", state.is_solved())
-    print("Is viable:", state.is_viable(puzzle))
+    # state = GameState.from_puzzle(puzzle)
+    # state.print_info()
+    # print("Is solved:", state.is_solved())
+    # print("Is viable:", state.is_viable(puzzle))
 
-    print("Available moves")
-    moves = state.available_moves(puzzle)
-    for move in moves:
-        print(" ", move)
-
-    path = moves[0][0]
-
-    state2 = state.apply_move(puzzle, path, 2)
-    state2.print_info()
-    print("Is solved:", state2.is_solved())
-    print("Is viable:", state2.is_viable(puzzle))
-
-    print("Available moves")
-    moves = state2.available_moves(puzzle)
-    for move in moves:
-        print(" ", move)
-
-    path = moves[0][0]
-    state3 = state2.apply_move(puzzle, path, 4)
-    state3.print_info()
-    print("Is solved:", state3.is_solved())
-    print("Is viable:", state3.is_viable(puzzle))
-
-    print("Available moves")
-    moves = state3.available_moves(puzzle)
-    for move in moves:
-        print(" ", move)
+    # print("Available moves")
+    # moves = state.available_moves(puzzle)
+    # for move in moves:
+    #     print(" ", move)
 
     # path = moves[0][0]
-    # state4 = state3.apply_move(puzzle, path, 5)
-    # state4.print_info()
-    # print("Is solved:", state4.is_solved())
-    # print("Is viable:", state4.is_viable(puzzle))
+
+    # state2 = state.apply_move(puzzle, path, 2)
+    # state2.print_info()
+    # print("Is solved:", state2.is_solved())
+    # print("Is viable:", state2.is_viable(puzzle))
+
+    puzzle = Puzzle(puzzle_b1, verbose=True)
+    solver = Solver(puzzle)
+    solver.solve_bfs()
+    solver.print_stats()
 
 if __name__ == "__main__":
     main()
