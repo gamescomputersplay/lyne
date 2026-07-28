@@ -9,76 +9,37 @@ from scipy.ndimage import label
 # Configuration
 # -----------------------------
 
-TARGET_COLORS = {
-    'S': (84, 99, 109), 
-    'T': (198, 162, 59), 
-    'D': (135, 79, 41), 
-    'N': (204, 185, 162)}
-WHITE_COLOR = {    
-    "W": (230, 221, 237)
+COLORS = {
+    'Square': (84, 99, 109), 
+    'Triangle': (198, 162, 59), 
+    'Diamond': (135, 79, 41), 
+    'Number': (204, 185, 162),
+    "White": (230, 221, 237)
     }
 MIN_STRETCH = 5  # minimum number of consecutive pixels
 
-def hex_to_rgb(hex_color):
-    '''Convert hex color string to RGB tuple. 54636d" -> (84, 99, 109)
-    '''
-    hex_color = hex_color.lstrip("#")
-
-    if len(hex_color) != 6:
-        raise ValueError(f"Invalid hex color: {hex_color}")
-
-    return tuple(
-        int(hex_color[i:i+2], 16)
-        for i in (0, 2, 4)
-    )
-
-def convert_colors(colors):
-    '''Convert dictionary of named hex colors into RGB tuples.'''
-    return {
-        name: hex_to_rgb(value)
-        for name, value in colors.items()
-    }
-
-# -----------------------------
-# Load image
-# -----------------------------
-
-def load_image(path):
-    img = Image.open(path).convert("RGB")
-    return np.array(img)
+COLORS = {k[0]: v for k, v in COLORS.items()}
 
 
-# -----------------------------
-# Find matching pixels
-# -----------------------------
-
-def color_mask(image, colors):
-    """
-    Returns True where pixel matches one of target colors exactly.
-
-    colors can be:
-        (r, g, b)
-        [(r1,g1,b1), (r2,g2,b2)]
-    """
+def color_mask(np_image, colors):
+    ''' Generate a True/False np array of the same shape as image, True where pixels match any of the colors
+    Colors can be [(R, G, B), ...] or (R, G, B)
+    ''' 
 
     if isinstance(colors, tuple):
         colors = [colors]
 
-    mask = np.zeros(image.shape[:2], dtype=bool)
+    mask = np.zeros(np_image.shape[:2], dtype=bool)
 
     for color in colors:
-        match = np.all(image == color, axis=2)
+        match = np.all(np_image == color, axis=2)
         mask |= match
 
     return mask
 
-# -----------------------------
-# Detect continuous ranges
-# -----------------------------
-
 def find_ranges(values, min_length):
-    '''Given a list of booleans, return continuous True ranges.'''
-
+    ''' Given a list of booleans, return continuous True ranges.
+    '''
 
     ranges = []
     start = None
@@ -133,9 +94,8 @@ def find_axis_ranges(mask, axis=0, min_pixels=5):
 
 
 def count_holes(mask):
-    """
-    Count enclosed empty regions inside a mask.
-    """
+    ''' Count enclosed empty regions inside a mask.
+    '''
 
     # invert:
     # True = empty space
@@ -172,43 +132,32 @@ def classify_cell(image):
     detected = {}
 
     # detect all colors present in the cell
-    for name, rgb in (TARGET_COLORS | WHITE_COLOR).items():
+    for name, rgb in COLORS.items():
 
         mask = color_mask(image_np, rgb)
 
         detected[name] = np.any(mask)
 
-    # -----------------------
-    # S / T / D logic
-    # -----------------------
-
+    # Square / triangle / diamond
     for name in ["S", "T", "D"]:
-
         if detected.get(name, False):
-
+            # If has white - it's the starting point
             if detected.get("W", False):
                 return name   # uppercase
+            # Otherwise midpoint
+            return name.lower()  # lowercase
 
-            else:
-                return name.lower()  # lowercase
-
-
-    # -----------------------
-    # N logic
-    # -----------------------
-
+    # Numbers logic
     if detected.get("N", False):
-        N_COLOR_VALUES = TARGET_COLORS["N"]
+        N_COLOR_VALUES = COLORS["N"]
         mask = color_mask(image_np, N_COLOR_VALUES)
-        holes = 0
         holes = count_holes(mask)
         return holes
-
 
     # nothing detected
     return " "
 
-def read_pic_into_puzzle(image, rows, cols):
+def classify_all_cells(image, rows, cols):
     ''' Read the image and return a list of string that solver can use
     '''
 
@@ -219,32 +168,34 @@ def read_pic_into_puzzle(image, rows, cols):
 
         for c, (x1, x2) in enumerate(cols):
 
-            # PIL crop box:
-            # (left, upper, right, lower)
-
-            cell = image.crop((
-                x1,
-                y1,
-                x2 + 1,
-                y2 + 1
-            ))
-
+            # Crop out a cell
+            cell = image.crop((x1, y1, x2 + 1, y2 + 1))
+            # Classify it and add to teh puzzle
             value = classify_cell(cell)
             puzzle[-1] += str(value)
 
     return puzzle
 
-if __name__ == "__main__":
 
+def read_pic_into_puzzle(image_path):
+    ''' Given the puzzle image, return a 2d list with decoded puzzle
+    '''
+    image = Image.open(image_path).convert("RGB")
+    image_np = np.array(image)
 
-    image = Image.open("lyne_example.png")
-    image_np = load_image("lyne_example.png")
-
-    mask = color_mask(image_np, list(TARGET_COLORS.values()))
+    only_node_colors = [v for k, v in COLORS.items() if k != "W"]
+    mask = color_mask(image_np, only_node_colors)
 
     rows = find_axis_ranges(mask, axis=0)
     cols = find_axis_ranges(mask, axis=1)
 
-    puzzle = read_pic_into_puzzle(image, rows, cols)
-    for line in puzzle:
+    puzzle = classify_all_cells(image, rows, cols)
+
+    return puzzle
+
+if __name__ == "__main__":
+
+    path = "lyne_example.png"
+    the_puzzle = read_pic_into_puzzle(path)
+    for line in the_puzzle:
         print(f"'{line}'")
