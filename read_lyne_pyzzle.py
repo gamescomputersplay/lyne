@@ -16,23 +16,35 @@ COLORS = {
     'Number': (204, 185, 162),
     "White": (230, 221, 237)
     }
+
+
 MIN_STRETCH = 5  # minimum number of consecutive pixels
 
 COLORS = {k[0]: v for k, v in COLORS.items()}
 
 
-def color_mask(np_image, colors):
-    ''' Generate a True/False np array of the same shape as image, True where pixels match any of the colors
-    Colors can be [(R, G, B), ...] or (R, G, B)
+def color_mask(np_image, colors, tolerance=1):
     ''' 
+    Generate a True/False np array of the same shape as image,
+    True where pixels match any of the colors within tolerance.
+
+    Colors can be [(R, G, B), ...] or (R, G, B)
+
+    tolerance: 0 = exact match; 1 = allow +/-1 per RGB channel
+    '''
 
     if isinstance(colors, tuple):
         colors = [colors]
 
     mask = np.zeros(np_image.shape[:2], dtype=bool)
 
+    # Convert once to avoid uint8 subtraction problems
+    np_image_int = np_image.astype(int)
+
     for color in colors:
-        match = np.all(np_image == color, axis=2)
+        color = np.array(color)
+        diff = np.abs(np_image_int - color)
+        match = np.all(diff <= tolerance, axis=2)
         mask |= match
 
     return mask
@@ -196,6 +208,7 @@ def read_pic_into_puzzle(image_path):
 if __name__ == "__main__":
 
     path = "lyne_example.png"
+    path = "lyne_screenshots/a-01.png"
     the_puzzle = read_pic_into_puzzle(path)
     for line in the_puzzle:
         print(f"'{line}'")
