@@ -3,8 +3,8 @@
 
 from dataclasses import dataclass
 from enum import Enum, auto
-from collections import defaultdict
-from collections import deque
+from collections import defaultdict, deque
+import time
 
 ## Legend:
 # d|s|t - diamond | square | triangle - basic node
@@ -12,16 +12,12 @@ from collections import deque
 # 2|3|4 - no shape node that has to be visited that many times
 # [space] - no node
 
-test_puzzle = [
+puzzle_f20 = [
     "T sSS",
     "tts3s",
     "tT22d",
     "Dd22D",
 ]
-# test_puzzle = [
-#     "Tt",
-#     "Tt",
-# ]
 puzzle_b1 = [
     "tt",
     "2 ",
@@ -272,6 +268,8 @@ class Puzzle:
     def export_solution(self, state):
         ''' Export a human friendly solution: a list of lists of coordinates
         '''
+        if state is None:
+            return []
 
         solution = []
 
@@ -555,22 +553,45 @@ class Solver:
     ''' Class to collect solving methods and statistics
     '''
 
-    def __init__(self,puzzle):
+    def __init__(self, puzzle, time_limit=10):
         self.puzzle = puzzle
+
+        # Search statistics
         self.states_explored = 0
+
+        # Solution status
         self.is_solved = False
         self.solution = None
+
+        # Time control
+        self.time_limit = time_limit
+        self.start_time = None
+        self.timed_out = False
+
+    def time_exceeded(self):
+        '''Check whether the solver has exceeded its time limit.
+        '''
+        if self.time_limit is None:
+            return False
+        return (time.time() - self.start_time) > self.time_limit
 
     def solve_bfs(self):
         ''' Breadth-first search, the simplest brute force method.
         Expected to explode even on a slightly non-trivial puzzles
         '''
 
+        self.start_time = time.time()
+
         queue = deque([
             GameState.from_puzzle(self.puzzle)
         ])
 
         while queue:
+
+            # Check timeout
+            if self.time_exceeded():
+                self.timed_out = True
+                return None
 
             state = queue.popleft()
 
@@ -599,38 +620,27 @@ class Solver:
         return None
 
     def print_stats(self):
-        ''' Brief stats for the solver status
-        '''
+        '''Brief stats for the solver status'''
+
         print(f"States explored: {self.states_explored}")
-        if self.solution is None:
+
+        if self.timed_out:
+            print("Search timed out")
+        elif self.solution is None:
             print("Puzzle is not solved")
         else:
             print("Puzzle is solved")
+
+        if self.start_time:
+            elapsed = time.time() - self.start_time
+            print(f"Time elapsed: {elapsed:.2f}s")
 
 
 def main():
     ''' Lyne solver
     '''
 
-    # puzzle = Puzzle(test_puzzle, verbose=True)
-
-    # state = GameState.from_puzzle(puzzle)
-    # state.print_info()
-    # print("Is solved:", state.is_solved())
-    # print("Is viable:", state.is_viable(puzzle))
-
-    # print("Available moves")
-    # moves = state.available_moves(puzzle)
-    # for move in moves:
-    #     print(" ", move)
-
-    # path = moves[0][0]
-
-    # state2 = state.apply_move(puzzle, path, 2)
-    # state2.print_info()
-    # print("Is solved:", state2.is_solved())
-    # print("Is viable:", state2.is_viable(puzzle))
-
+    # Solve one puzzle
     puzzle = Puzzle(puzzle_b1, verbose=False)
     solver = Solver(puzzle)
     solver.solve_bfs()
