@@ -2,7 +2,6 @@
 '''
 from PIL import Image
 import numpy as np
-from pathlib import Path
 from scipy.ndimage import label
 
 # -----------------------------
@@ -117,9 +116,6 @@ def count_holes(mask):
     labeled, count = label(empty)
 
     holes = 0
-
-    height, width = mask.shape
-
     for i in range(1, count + 1):
 
         region = labeled == i
@@ -138,7 +134,8 @@ def count_holes(mask):
     return holes
 
 def classify_cell(image):
-
+    ''' Classify image of one cropped out cell (node)
+    '''
     image_np = np.array(image)
 
     detected = {}
@@ -161,8 +158,8 @@ def classify_cell(image):
 
     # Numbers logic
     if detected.get("N", False):
-        N_COLOR_VALUES = COLORS["N"]
-        mask = color_mask(image_np, N_COLOR_VALUES)
+        n_color_value = COLORS["N"]
+        mask = color_mask(image_np, n_color_value)
         holes = count_holes(mask)
         return holes
 
@@ -175,10 +172,10 @@ def classify_all_cells(image, rows, cols):
 
     puzzle = []
 
-    for r, (y1, y2) in enumerate(rows):
+    for _, (y1, y2) in enumerate(rows):
         puzzle.append("")
 
-        for c, (x1, x2) in enumerate(cols):
+        for _, (x1, x2) in enumerate(cols):
 
             # Crop out a cell
             cell = image.crop((x1, y1, x2 + 1, y2 + 1))

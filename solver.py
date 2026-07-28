@@ -58,6 +58,8 @@ class Node:
 
     @property
     def position(self):
+        ''' Node coordinates, for the final solution export
+        '''
         return (self.col, self.row)
 
 class Puzzle:
@@ -268,6 +270,8 @@ class Puzzle:
         print(self.edge_overlaps)
 
     def export_solution(self, state):
+        ''' Export a human friendly solution: a list of lists of coordinates
+        '''
 
         solution = []
 
@@ -548,6 +552,8 @@ class GameState:
 
 
 class Solver:
+    ''' Class to collect solving methods and statistics
+    '''
 
     def __init__(self,puzzle):
         self.puzzle = puzzle
@@ -556,6 +562,9 @@ class Solver:
         self.solution = None
 
     def solve_bfs(self):
+        ''' Breadth-first search, the simplest brute force method.
+        Expected to explode even on a slightly non-trivial puzzles
+        '''
 
         queue = deque([
             GameState.from_puzzle(self.puzzle)
@@ -590,6 +599,8 @@ class Solver:
         return None
 
     def print_stats(self):
+        ''' Brief stats for the solver status
+        '''
         print(f"States explored: {self.states_explored}")
         if self.solution is None:
             print("Puzzle is not solved")
