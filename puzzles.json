@@ -1,0 +1,5486 @@
+[
+    {
+        "name": "a-01",
+        "puzzle": [
+            "TtT"
+        ]
+    },
+    {
+        "name": "a-02",
+        "puzzle": [
+            "D",
+            "d",
+            "D"
+        ]
+    },
+    {
+        "name": "a-03",
+        "puzzle": [
+            "T T",
+            "ttt"
+        ]
+    },
+    {
+        "name": "a-04",
+        "puzzle": [
+            "ddd",
+            "D D"
+        ]
+    },
+    {
+        "name": "a-05",
+        "puzzle": [
+            "TtT",
+            "DdD"
+        ]
+    },
+    {
+        "name": "a-06",
+        "puzzle": [
+            "Ttt",
+            "D T",
+            "ddD"
+        ]
+    },
+    {
+        "name": "a-07",
+        "puzzle": [
+            "TtD",
+            "Dtd",
+            "dTd",
+            "ddd"
+        ]
+    },
+    {
+        "name": "a-08",
+        "puzzle": [
+            "TtT",
+            "Dtt",
+            "ddd",
+            "Ddd"
+        ]
+    },
+    {
+        "name": "a-09",
+        "puzzle": [
+            "DDd",
+            "dTd",
+            "dTd",
+            "ddd"
+        ]
+    },
+    {
+        "name": "a-10",
+        "puzzle": [
+            "tTT",
+            "ttt",
+            "ddd",
+            "DDd"
+        ]
+    },
+    {
+        "name": "a-11",
+        "puzzle": [
+            "DTtD",
+            "dtTd",
+            " dd "
+        ]
+    },
+    {
+        "name": "a-12",
+        "puzzle": [
+            " d ",
+            "dTD",
+            "TDt",
+            " t "
+        ]
+    },
+    {
+        "name": "a-13",
+        "puzzle": [
+            "DdT",
+            "dDt",
+            "dtT"
+        ]
+    },
+    {
+        "name": "a-14",
+        "puzzle": [
+            " D ",
+            "T2T",
+            " D "
+        ]
+    },
+    {
+        "name": "a-15",
+        "puzzle": [
+            " T ",
+            "T2D",
+            " D "
+        ]
+    },
+    {
+        "name": "a-16",
+        "puzzle": [
+            "D T",
+            "d t",
+            "T2D"
+        ]
+    },
+    {
+        "name": "a-17",
+        "puzzle": [
+            "TD",
+            "2d",
+            "TD"
+        ]
+    },
+    {
+        "name": "a-18",
+        "puzzle": [
+            "TD",
+            "t2",
+            "t2",
+            "TD"
+        ]
+    },
+    {
+        "name": "a-19",
+        "puzzle": [
+            "ddd",
+            "TDd",
+            "T2D"
+        ]
+    },
+    {
+        "name": "a-20",
+        "puzzle": [
+            "ttT",
+            "d2D",
+            "dtT",
+            "d2D"
+        ]
+    },
+    {
+        "name": "a-21",
+        "puzzle": [
+            "TTtt",
+            "tdDt",
+            "td2t",
+            "tttD"
+        ]
+    },
+    {
+        "name": "a-22",
+        "puzzle": [
+            "DT",
+            "2t",
+            "d2",
+            "DT"
+        ]
+    },
+    {
+        "name": "a-23",
+        "puzzle": [
+            "DT",
+            "2d",
+            "2T",
+            "dD"
+        ]
+    },
+    {
+        "name": "a-24",
+        "puzzle": [
+            "ttDd",
+            "tDtd",
+            "2dd2",
+            "TddT"
+        ]
+    },
+    {
+        "name": "a-25",
+        "puzzle": [
+            "TDTt",
+            "dtdt",
+            "dD2t",
+            "dddt"
+        ]
+    },
+    {
+        "name": "b-01",
+        "puzzle": [
+            "tt",
+            "2 ",
+            "TT"
+        ]
+    },
+    {
+        "name": "b-02",
+        "puzzle": [
+            "t2t",
+            "2 t",
+            "TT "
+        ]
+    },
+    {
+        "name": "b-03",
+        "puzzle": [
+            "t2t",
+            "2T2",
+            "Ttt"
+        ]
+    },
+    {
+        "name": "b-04",
+        "puzzle": [
+            "DD",
+            "T2",
+            "2d",
+            "Tt"
+        ]
+    },
+    {
+        "name": "b-05",
+        "puzzle": [
+            " tt ",
+            "2TDT",
+            "d2dD"
+        ]
+    },
+    {
+        "name": "b-06",
+        "puzzle": [
+            "tT",
+            "2t",
+            "t2",
+            "tT"
+        ]
+    },
+    {
+        "name": "b-07",
+        "puzzle": [
+            "Tt",
+            "2t",
+            "22",
+            "Tt"
+        ]
+    },
+    {
+        "name": "b-08",
+        "puzzle": [
+            " 2t",
+            "t22",
+            "tT ",
+            "tT "
+        ]
+    },
+    {
+        "name": "b-09",
+        "puzzle": [
+            "TDS",
+            "tds",
+            "TDS"
+        ]
+    },
+    {
+        "name": "b-10",
+        "puzzle": [
+            "STtt",
+            "Dstt",
+            "ddsT",
+            "ddDS"
+        ]
+    },
+    {
+        "name": "b-11",
+        "puzzle": [
+            "dddd",
+            "D2dS",
+            "SsDs",
+            "Tt2T"
+        ]
+    },
+    {
+        "name": "b-12",
+        "puzzle": [
+            "sStt",
+            "s2TD",
+            "sD2d",
+            "sSdT"
+        ]
+    },
+    {
+        "name": "b-13",
+        "puzzle": [
+            "TtS",
+            "tD2",
+            "dTs",
+            "dDS"
+        ]
+    },
+    {
+        "name": "b-14",
+        "puzzle": [
+            "T2t",
+            "DdT",
+            "2DS",
+            "Ss "
+        ]
+    },
+    {
+        "name": "b-15",
+        "puzzle": [
+            "S2D",
+            "2Ts",
+            "tdS",
+            " TD"
+        ]
+    },
+    {
+        "name": "b-16",
+        "puzzle": [
+            "SdD",
+            "2dS",
+            "D2t",
+            " TT"
+        ]
+    },
+    {
+        "name": "b-17",
+        "puzzle": [
+            " TD",
+            "TS2",
+            "s2d",
+            "sSD"
+        ]
+    },
+    {
+        "name": "b-18",
+        "puzzle": [
+            "DTS",
+            " 22",
+            " s2",
+            "STD"
+        ]
+    },
+    {
+        "name": "b-19",
+        "puzzle": [
+            "SsD",
+            "S2D",
+            " 22",
+            " TT"
+        ]
+    },
+    {
+        "name": "b-20",
+        "puzzle": [
+            " ST",
+            " 22",
+            "T2S",
+            "DDd"
+        ]
+    },
+    {
+        "name": "b-21",
+        "puzzle": [
+            "TD ",
+            "S22",
+            "S2T",
+            " dD"
+        ]
+    },
+    {
+        "name": "b-22",
+        "puzzle": [
+            "DTS",
+            "22t",
+            "d2T",
+            "DSs"
+        ]
+    },
+    {
+        "name": "b-23",
+        "puzzle": [
+            "dSs",
+            "D2D",
+            "T22",
+            "STt"
+        ]
+    },
+    {
+        "name": "b-24",
+        "puzzle": [
+            "SdD",
+            "22S",
+            "D2T",
+            "tTt"
+        ]
+    },
+    {
+        "name": "b-25",
+        "puzzle": [
+            "TSD",
+            "2S2",
+            "tsd",
+            "D2T"
+        ]
+    },
+    {
+        "name": "c-01",
+        "puzzle": [
+            "TDT",
+            "S3S",
+            " D "
+        ]
+    },
+    {
+        "name": "c-02",
+        "puzzle": [
+            "TTt",
+            "23t",
+            "DtD"
+        ]
+    },
+    {
+        "name": "c-03",
+        "puzzle": [
+            "TtD",
+            "D3d",
+            "t2T"
+        ]
+    },
+    {
+        "name": "c-04",
+        "puzzle": [
+            "S2d",
+            "d3D",
+            "DSs"
+        ]
+    },
+    {
+        "name": "c-05",
+        "puzzle": [
+            "t2S",
+            "T3s",
+            "tST"
+        ]
+    },
+    {
+        "name": "c-06",
+        "puzzle": [
+            "S2S",
+            "s32",
+            "TTt"
+        ]
+    },
+    {
+        "name": "c-07",
+        "puzzle": [
+            "S2s",
+            "23D",
+            "SdD"
+        ]
+    },
+    {
+        "name": "c-08",
+        "puzzle": [
+            "Sds",
+            "23S",
+            "sDD"
+        ]
+    },
+    {
+        "name": "c-09",
+        "puzzle": [
+            "t2D",
+            "T32",
+            "TdD"
+        ]
+    },
+    {
+        "name": "c-10",
+        "puzzle": [
+            "D2S",
+            "23d",
+            "dDS"
+        ]
+    },
+    {
+        "name": "c-11",
+        "puzzle": [
+            "ttDd",
+            "t33T",
+            "DTdd"
+        ]
+    },
+    {
+        "name": "c-12",
+        "puzzle": [
+            "TS2s",
+            "t23S",
+            "ttTs"
+        ]
+    },
+    {
+        "name": "c-13",
+        "puzzle": [
+            "DSdD",
+            "d33S",
+            "ds2s"
+        ]
+    },
+    {
+        "name": "c-14",
+        "puzzle": [
+            "D22T",
+            "T32D",
+            "ttd "
+        ]
+    },
+    {
+        "name": "c-15",
+        "puzzle": [
+            "s2ss",
+            "S232",
+            " TST"
+        ]
+    },
+    {
+        "name": "c-16",
+        "puzzle": [
+            "DTtD",
+            " 232",
+            "t2Td"
+        ]
+    },
+    {
+        "name": "c-17",
+        "puzzle": [
+            "SD2d",
+            "s322",
+            "dDdS"
+        ]
+    },
+    {
+        "name": "c-18",
+        "puzzle": [
+            "TDdD",
+            "223t",
+            "d2Tt"
+        ]
+    },
+    {
+        "name": "c-19",
+        "puzzle": [
+            "Ts2T",
+            "t322",
+            "tSsS"
+        ]
+    },
+    {
+        "name": "c-20",
+        "puzzle": [
+            "t2dD",
+            "T32D",
+            "tt2T"
+        ]
+    },
+    {
+        "name": "c-21",
+        "puzzle": [
+            "DTdd",
+            "232t",
+            "dD2T"
+        ]
+    },
+    {
+        "name": "c-22",
+        "puzzle": [
+            "D2dD",
+            "d32t",
+            "dT2T"
+        ]
+    },
+    {
+        "name": "c-23",
+        "puzzle": [
+            "TttD",
+            "2D32",
+            "T2dd"
+        ]
+    },
+    {
+        "name": "c-24",
+        "puzzle": [
+            "T22T",
+            "s3St",
+            "ss2S"
+        ]
+    },
+    {
+        "name": "c-25",
+        "puzzle": [
+            "tTt",
+            "t4t",
+            "ttT"
+        ]
+    },
+    {
+        "name": "d-01",
+        "puzzle": [
+            "DtTS",
+            "d32t",
+            "SDsT"
+        ]
+    },
+    {
+        "name": "d-02",
+        "puzzle": [
+            "DSss",
+            "d23T",
+            "DStT"
+        ]
+    },
+    {
+        "name": "d-03",
+        "puzzle": [
+            "tTdd",
+            "t32D",
+            "TDSS"
+        ]
+    },
+    {
+        "name": "d-04",
+        "puzzle": [
+            "DTTS",
+            "d23S",
+            "dDts"
+        ]
+    },
+    {
+        "name": "d-05",
+        "puzzle": [
+            "sS2S",
+            "T3sD",
+            "dDtT"
+        ]
+    },
+    {
+        "name": "d-06",
+        "puzzle": [
+            "TtDd",
+            "S23D",
+            "sTSd"
+        ]
+    },
+    {
+        "name": "d-07",
+        "puzzle": [
+            "Dt2T",
+            "S2TS",
+            "D2ss"
+        ]
+    },
+    {
+        "name": "d-08",
+        "puzzle": [
+            "STDT",
+            "ss22",
+            "D2St"
+        ]
+    },
+    {
+        "name": "d-09",
+        "puzzle": [
+            "sdDS",
+            "222T",
+            "SDTt"
+        ]
+    },
+    {
+        "name": "d-10",
+        "puzzle": [
+            "Ss2T",
+            "dT22",
+            "DdSD"
+        ]
+    },
+    {
+        "name": "d-11",
+        "puzzle": [
+            "D2tS",
+            "Dd22",
+            "dTST"
+        ]
+    },
+    {
+        "name": "d-12",
+        "puzzle": [
+            "TDTS",
+            "222s",
+            "tSDd"
+        ]
+    },
+    {
+        "name": "d-13",
+        "puzzle": [
+            "T22D",
+            "DS3s",
+            " sST"
+        ]
+    },
+    {
+        "name": "d-14",
+        "puzzle": [
+            "dT2D",
+            "D32S",
+            "St T"
+        ]
+    },
+    {
+        "name": "d-15",
+        "puzzle": [
+            "Sd2T",
+            "D3tT",
+            "Dd2S"
+        ]
+    },
+    {
+        "name": "d-16",
+        "puzzle": [
+            "TD2D",
+            "t32s",
+            "tTSS"
+        ]
+    },
+    {
+        "name": "d-17",
+        "puzzle": [
+            "tD2D",
+            "T32d",
+            "TSsS"
+        ]
+    },
+    {
+        "name": "d-18",
+        "puzzle": [
+            "D2sT",
+            "D23S",
+            "S2T "
+        ]
+    },
+    {
+        "name": "d-19",
+        "puzzle": [
+            "DSss",
+            "T22S",
+            "D22T"
+        ]
+    },
+    {
+        "name": "d-20",
+        "puzzle": [
+            "D2dS",
+            "222s",
+            "TDST"
+        ]
+    },
+    {
+        "name": "d-21",
+        "puzzle": [
+            "dDTS",
+            "D2t2",
+            "T22S"
+        ]
+    },
+    {
+        "name": "d-22",
+        "puzzle": [
+            "DT2D",
+            "S22d",
+            "T2sS"
+        ]
+    },
+    {
+        "name": "d-23",
+        "puzzle": [
+            "s2SD",
+            "2T2D",
+            "St2T"
+        ]
+    },
+    {
+        "name": "d-24",
+        "puzzle": [
+            "TD2D",
+            "T2ss",
+            "S22S"
+        ]
+    },
+    {
+        "name": "d-25",
+        "puzzle": [
+            "T2TD",
+            "s32S",
+            "sS2D"
+        ]
+    },
+    {
+        "name": "e-01",
+        "puzzle": [
+            "sSDtT",
+            "s3StD",
+            "ssd2T"
+        ]
+    },
+    {
+        "name": "e-02",
+        "puzzle": [
+            "TtSsS",
+            "D3ts2",
+            "ddDTs"
+        ]
+    },
+    {
+        "name": "e-03",
+        "puzzle": [
+            "TDddD",
+            "tTSS2",
+            "tt22s"
+        ]
+    },
+    {
+        "name": "e-04",
+        "puzzle": [
+            "DDdtT",
+            "d222t",
+            "ddSTS"
+        ]
+    },
+    {
+        "name": "e-05",
+        "puzzle": [
+            "D2st ",
+            "dd32T",
+            "DTStS"
+        ]
+    },
+    {
+        "name": "e-06",
+        "puzzle": [
+            "S2d2T",
+            "ts3DD",
+            "TsSd "
+        ]
+    },
+    {
+        "name": "e-07",
+        "puzzle": [
+            "tDTd ",
+            "23d2S",
+            "TtSDs"
+        ]
+    },
+    {
+        "name": "e-08",
+        "puzzle": [
+            "tDdDs",
+            "t2T3s",
+            "T 2SS"
+        ]
+    },
+    {
+        "name": "e-09",
+        "puzzle": [
+            "DssST",
+            "2St3t",
+            "DdT2t"
+        ]
+    },
+    {
+        "name": "e-10",
+        "puzzle": [
+            "TSsDd",
+            "222Sd",
+            " t2TD"
+        ]
+    },
+    {
+        "name": "e-11",
+        "puzzle": [
+            "SDS2T",
+            "222tT",
+            "dddD "
+        ]
+    },
+    {
+        "name": "e-12",
+        "puzzle": [
+            "TSs2d",
+            "t23dd",
+            "tDSTD"
+        ]
+    },
+    {
+        "name": "e-13",
+        "puzzle": [
+            "DdSSs",
+            "222ts",
+            " DT2T"
+        ]
+    },
+    {
+        "name": "e-14",
+        "puzzle": [
+            "TdDS ",
+            "2D2Ss",
+            "t2T2s"
+        ]
+    },
+    {
+        "name": "e-15",
+        "puzzle": [
+            "T2sdD",
+            "St22S",
+            "T2ssD"
+        ]
+    },
+    {
+        "name": "e-16",
+        "puzzle": [
+            "d2DtS",
+            "dt222",
+            "DTtST"
+        ]
+    },
+    {
+        "name": "e-17",
+        "puzzle": [
+            "Dtt2S",
+            "22T2T",
+            "DdttS"
+        ]
+    },
+    {
+        "name": "e-18",
+        "puzzle": [
+            "s2t  ",
+            "2s32T",
+            "STDSD"
+        ]
+    },
+    {
+        "name": "e-19",
+        "puzzle": [
+            "t2DTS",
+            "Tt32s",
+            " t2DS"
+        ]
+    },
+    {
+        "name": "e-20",
+        "puzzle": [
+            "DDTd",
+            "S332",
+            "Ss2T"
+        ]
+    },
+    {
+        "name": "e-21",
+        "puzzle": [
+            "SD2d",
+            "T33S",
+            "DT2t"
+        ]
+    },
+    {
+        "name": "e-22",
+        "puzzle": [
+            "t 2S ",
+            "22T2T",
+            "Dt2DS"
+        ]
+    },
+    {
+        "name": "e-23",
+        "puzzle": [
+            "tdD2s",
+            "T2222",
+            "DSTS "
+        ]
+    },
+    {
+        "name": "e-24",
+        "puzzle": [
+            "TDT2s",
+            "D22S2",
+            "dSs2s"
+        ]
+    },
+    {
+        "name": "e-25",
+        "puzzle": [
+            "s2D T",
+            "2S22S",
+            "d2D2T"
+        ]
+    },
+    {
+        "name": "f-01",
+        "puzzle": [
+            "DddT",
+            "ssS2",
+            "D33t",
+            "ddST"
+        ]
+    },
+    {
+        "name": "f-02",
+        "puzzle": [
+            "Tt2T",
+            "SSDd",
+            "D23d",
+            "d2dd"
+        ]
+    },
+    {
+        "name": "f-03",
+        "puzzle": [
+            "sSsS",
+            "t2D2",
+            "t32d",
+            "TTdD"
+        ]
+    },
+    {
+        "name": "f-04",
+        "puzzle": [
+            "dd2Tt",
+            "S323t",
+            "DsDST"
+        ]
+    },
+    {
+        "name": "f-05",
+        "puzzle": [
+            "dDDsS",
+            "dd33S",
+            "T22tT"
+        ]
+    },
+    {
+        "name": "f-06",
+        "puzzle": [
+            "ST2d",
+            "s222",
+            "sDT2",
+            "ssSD"
+        ]
+    },
+    {
+        "name": "f-07",
+        "puzzle": [
+            "TtT ",
+            "222S",
+            "s23D",
+            "SsDd"
+        ]
+    },
+    {
+        "name": "f-08",
+        "puzzle": [
+            "tD2tS",
+            "2322T",
+            "TdDsS"
+        ]
+    },
+    {
+        "name": "f-09",
+        "puzzle": [
+            "TsSdd",
+            "23S2D",
+            "T22dD"
+        ]
+    },
+    {
+        "name": "f-10",
+        "puzzle": [
+            "TSt2D",
+            "s322D",
+            "T2ssS"
+        ]
+    },
+    {
+        "name": "f-11",
+        "puzzle": [
+            "TD  ",
+            "22SS",
+            "233D",
+            "sTss"
+        ]
+    },
+    {
+        "name": "f-12",
+        "puzzle": [
+            "Ts2Td",
+            "S322D",
+            "t2sSD"
+        ]
+    },
+    {
+        "name": "f-13",
+        "puzzle": [
+            " DSS",
+            "d22D",
+            "T3T2",
+            "ss2t"
+        ]
+    },
+    {
+        "name": "f-14",
+        "puzzle": [
+            "D2StT",
+            "dd3D2",
+            "S2T2t"
+        ]
+    },
+    {
+        "name": "f-15",
+        "puzzle": [
+            "ttSdd",
+            "T3sD2",
+            "S3sDd",
+            "Ts2d "
+        ]
+    },
+    {
+        "name": "f-16",
+        "puzzle": [
+            "DSsT",
+            "2dS2",
+            "s322",
+            "dDdT"
+        ]
+    },
+    {
+        "name": "f-17",
+        "puzzle": [
+            "DsTSt",
+            "S233T",
+            "D2s2t"
+        ]
+    },
+    {
+        "name": "f-18",
+        "puzzle": [
+            "sttT ",
+            "s33Dd",
+            "s2S2d",
+            "TSsDd"
+        ]
+    },
+    {
+        "name": "f-19",
+        "puzzle": [
+            " s22T",
+            "s232D",
+            "S2SDT"
+        ]
+    },
+    {
+        "name": "f-20",
+        "puzzle": [
+            "T sSS",
+            "tts3s",
+            "tT22d",
+            "Dd22D"
+        ]
+    },
+    {
+        "name": "f-21",
+        "puzzle": [
+            "ssd2D",
+            "2Dd22",
+            "ssS3t",
+            "S TTt"
+        ]
+    },
+    {
+        "name": "f-22",
+        "puzzle": [
+            "SsT2d",
+            "ssS22",
+            "TD22d",
+            " t2D "
+        ]
+    },
+    {
+        "name": "f-23",
+        "puzzle": [
+            "Ddd2T",
+            "2D2tS",
+            "dd22t",
+            " 2sST"
+        ]
+    },
+    {
+        "name": "f-24",
+        "puzzle": [
+            "Tt DD",
+            "t2t2S",
+            "S23d2",
+            "sT 2d"
+        ]
+    },
+    {
+        "name": "f-25",
+        "puzzle": [
+            " TSss",
+            "D222s",
+            "22 3T",
+            "dDtSt"
+        ]
+    },
+    {
+        "name": "g-01",
+        "puzzle": [
+            "tDdd ",
+            "ttD2d",
+            "2Tt22",
+            "tttTd"
+        ]
+    },
+    {
+        "name": "g-02",
+        "puzzle": [
+            "dd2sS",
+            "S2 ds",
+            "2sdDd",
+            "sss2D"
+        ]
+    },
+    {
+        "name": "g-03",
+        "puzzle": [
+            "tt2ST",
+            "2ts2s",
+            "t2s2T",
+            "sSt  "
+        ]
+    },
+    {
+        "name": "g-04",
+        "puzzle": [
+            "ssTS ",
+            "2tT2t",
+            "s2t2t",
+            "St2t "
+        ]
+    },
+    {
+        "name": "g-05",
+        "puzzle": [
+            " ddDD",
+            "d 2d2",
+            "t2t2d",
+            "t2TtT"
+        ]
+    },
+    {
+        "name": "g-06",
+        "puzzle": [
+            " dddD",
+            "Dd22d",
+            "d222s",
+            "S Sss"
+        ]
+    },
+    {
+        "name": "g-07",
+        "puzzle": [
+            "t2tT ",
+            "tt2tT",
+            " S22s",
+            "ss22S"
+        ]
+    },
+    {
+        "name": "g-08",
+        "puzzle": [
+            "dtTtt",
+            "d222 ",
+            "2D2tt",
+            "d2DT "
+        ]
+    },
+    {
+        "name": "g-09",
+        "puzzle": [
+            "sssTt",
+            "22Sst",
+            "22TSt",
+            "t22t "
+        ]
+    },
+    {
+        "name": "g-10",
+        "puzzle": [
+            "ttTsS",
+            " 22Ss",
+            "tT222",
+            " ts2s"
+        ]
+    },
+    {
+        "name": "g-11",
+        "puzzle": [
+            "s22St",
+            "ss222",
+            "s2Ttt",
+            "sSTt "
+        ]
+    },
+    {
+        "name": "g-12",
+        "puzzle": [
+            " Ddds",
+            " d22S",
+            "s222d",
+            "sD2sS"
+        ]
+    },
+    {
+        "name": "g-13",
+        "puzzle": [
+            "T2dT ",
+            "Dtd2t",
+            "D222t",
+            "dtt2d"
+        ]
+    },
+    {
+        "name": "g-14",
+        "puzzle": [
+            "ss2tT",
+            "t2s2s",
+            "t22Ss",
+            "tSt2T"
+        ]
+    },
+    {
+        "name": "g-15",
+        "puzzle": [
+            "ttDdt",
+            "DT222",
+            "dt22t",
+            "dd2T "
+        ]
+    },
+    {
+        "name": "g-16",
+        "puzzle": [
+            " dT2t",
+            "dd2 t",
+            "222DD",
+            "ddt2T"
+        ]
+    },
+    {
+        "name": "g-17",
+        "puzzle": [
+            "sT2tT",
+            "s22tt",
+            "s2S2t",
+            "sS2t "
+        ]
+    },
+    {
+        "name": "g-18",
+        "puzzle": [
+            "dd22d",
+            "dDSd2",
+            "dDs22",
+            "Sss2s"
+        ]
+    },
+    {
+        "name": "g-19",
+        "puzzle": [
+            "t2Tss",
+            "2ts22",
+            "S2s2s",
+            "tttTS"
+        ]
+    },
+    {
+        "name": "g-20",
+        "puzzle": [
+            "t22tT",
+            "22tst",
+            "S22Ss",
+            "Ttsss"
+        ]
+    },
+    {
+        "name": "g-21",
+        "puzzle": [
+            "ddddd",
+            "2dSs2",
+            "Sd22D",
+            "D2s2s"
+        ]
+    },
+    {
+        "name": "g-22",
+        "puzzle": [
+            "DddDT",
+            "2dTtt",
+            "d222t",
+            "dd22t"
+        ]
+    },
+    {
+        "name": "g-23",
+        "puzzle": [
+            "dDTtt",
+            "2Ddtt",
+            "2222t",
+            "Tt2dt"
+        ]
+    },
+    {
+        "name": "g-24",
+        "puzzle": [
+            "ttt2d",
+            "tt222",
+            "tt2d2",
+            "TDDTt"
+        ]
+    },
+    {
+        "name": "g-25",
+        "puzzle": [
+            "d2D2s",
+            "ds2s2",
+            "S2D2s",
+            "dddSs"
+        ]
+    },
+    {
+        "name": "h-01",
+        "puzzle": [
+            "TtStt",
+            "Sst2T",
+            "s23ss",
+            "ss2ss"
+        ]
+    },
+    {
+        "name": "h-02",
+        "puzzle": [
+            " DSs ",
+            "d2d3s",
+            "dD32S",
+            "dddss"
+        ]
+    },
+    {
+        "name": "h-03",
+        "puzzle": [
+            "ddddd",
+            "2d2DT",
+            "22t2 ",
+            "TDtt "
+        ]
+    },
+    {
+        "name": "h-04",
+        "puzzle": [
+            "D2d t",
+            "d3dTt",
+            "tD23t",
+            "Ttttt"
+        ]
+    },
+    {
+        "name": "h-05",
+        "puzzle": [
+            "dddTt",
+            "dDt32",
+            "D23dd",
+            "ttTdd"
+        ]
+    },
+    {
+        "name": "h-06",
+        "puzzle": [
+            "sSt2T",
+            "s23tT",
+            "2sS2 ",
+            "sstt "
+        ]
+    },
+    {
+        "name": "h-07",
+        "puzzle": [
+            "TdDdd",
+            "td24t",
+            " 32tt",
+            "ttDTt"
+        ]
+    },
+    {
+        "name": "h-08",
+        "puzzle": [
+            " D2td",
+            "T23dd",
+            "tt22d",
+            " TDdd"
+        ]
+    },
+    {
+        "name": "h-09",
+        "puzzle": [
+            "tts2T",
+            "t222S",
+            "tS22 ",
+            "ttTs "
+        ]
+    },
+    {
+        "name": "h-10",
+        "puzzle": [
+            " sDsS",
+            "Ds23 ",
+            "s3sdd",
+            "S22d "
+        ]
+    },
+    {
+        "name": "h-11",
+        "puzzle": [
+            " T tt",
+            "tTt2S",
+            "2s22s",
+            "t22Ss"
+        ]
+    },
+    {
+        "name": "h-12",
+        "puzzle": [
+            "ttSs ",
+            "s232 ",
+            "s33ST",
+            " ssT "
+        ]
+    },
+    {
+        "name": "h-13",
+        "puzzle": [
+            "ss2  ",
+            "s222s",
+            "sSS3T",
+            "  t2T"
+        ]
+    },
+    {
+        "name": "h-14",
+        "puzzle": [
+            "sSD2d",
+            "D322d",
+            "sS3ss",
+            " s  s"
+        ]
+    },
+    {
+        "name": "h-15",
+        "puzzle": [
+            " TtDT",
+            " D232",
+            "dd2t2",
+            " dd2d"
+        ]
+    },
+    {
+        "name": "h-16",
+        "puzzle": [
+            "T  Ts",
+            "t223s",
+            "S43ss",
+            "tttS "
+        ]
+    },
+    {
+        "name": "h-17",
+        "puzzle": [
+            " D 2t",
+            "dd322",
+            "d2dT2",
+            "TDdtt"
+        ]
+    },
+    {
+        "name": "h-18",
+        "puzzle": [
+            " sSTt",
+            "sS22t",
+            "s22Tt",
+            "s2t2t"
+        ]
+    },
+    {
+        "name": "h-19",
+        "puzzle": [
+            " 2Tt ",
+            "t23st",
+            "S223T",
+            " S ss"
+        ]
+    },
+    {
+        "name": "h-20",
+        "puzzle": [
+            "ddS2s",
+            "D2D22",
+            "s23ds",
+            "Sddd "
+        ]
+    },
+    {
+        "name": "h-21",
+        "puzzle": [
+            "d2ddd",
+            "T22tD",
+            "t32 t",
+            "t2DTt"
+        ]
+    },
+    {
+        "name": "h-22",
+        "puzzle": [
+            "  T2t",
+            "T23d2",
+            "dt23t",
+            "DDtt "
+        ]
+    },
+    {
+        "name": "h-23",
+        "puzzle": [
+            "  t2S",
+            "sTt32",
+            "S23tt",
+            "s2sTt"
+        ]
+    },
+    {
+        "name": "h-24",
+        "puzzle": [
+            "D222T",
+            "d2T3t",
+            "2ddtt",
+            "dddDt"
+        ]
+    },
+    {
+        "name": "h-25",
+        "puzzle": [
+            " tTtS",
+            "t22T2",
+            "S3s3s",
+            "s2tss"
+        ]
+    },
+    {
+        "name": "i-01",
+        "puzzle": [
+            "sssdDd",
+            "s2S22d",
+            "sssS2D"
+        ]
+    },
+    {
+        "name": "i-02",
+        "puzzle": [
+            "ttTss ",
+            "t22T2S",
+            "t2t2Ss"
+        ]
+    },
+    {
+        "name": "i-03",
+        "puzzle": [
+            " Ds2sS",
+            "dd2s2d",
+            "ddS22D"
+        ]
+    },
+    {
+        "name": "i-04",
+        "puzzle": [
+            "tttsss",
+            "T22T2S",
+            "Ss22tt"
+        ]
+    },
+    {
+        "name": "i-05",
+        "puzzle": [
+            " ddDTt",
+            "d2T222",
+            "D2dttt"
+        ]
+    },
+    {
+        "name": "i-06",
+        "puzzle": [
+            "ttD22D",
+            "tt222T",
+            "Tttdd "
+        ]
+    },
+    {
+        "name": "i-07",
+        "puzzle": [
+            "sSdd2d",
+            "22sS2d",
+            "ssD2dD"
+        ]
+    },
+    {
+        "name": "i-08",
+        "puzzle": [
+            "Ttt2dd",
+            "22td22",
+            "ttTDdD"
+        ]
+    },
+    {
+        "name": "i-09",
+        "puzzle": [
+            "  DdSS",
+            "dd2222",
+            "Ddd22s"
+        ]
+    },
+    {
+        "name": "i-10",
+        "puzzle": [
+            " 22ddD",
+            "t222Td",
+            "tD2tT "
+        ]
+    },
+    {
+        "name": "i-11",
+        "puzzle": [
+            "SDssS ",
+            "D222s ",
+            "d2d22s"
+        ]
+    },
+    {
+        "name": "i-12",
+        "puzzle": [
+            "Ss2 S ",
+            "st222s",
+            "Tt22tT"
+        ]
+    },
+    {
+        "name": "i-13",
+        "puzzle": [
+            "sttS2s",
+            "sS222 ",
+            "T2s2T "
+        ]
+    },
+    {
+        "name": "i-14",
+        "puzzle": [
+            "TSTsss",
+            "t222Ss",
+            "t222s "
+        ]
+    },
+    {
+        "name": "i-15",
+        "puzzle": [
+            "s222tT",
+            "s22S2S",
+            "Tttts "
+        ]
+    },
+    {
+        "name": "i-16",
+        "puzzle": [
+            "sT22ss",
+            "s222tS",
+            "ST2ttt"
+        ]
+    },
+    {
+        "name": "i-17",
+        "puzzle": [
+            "TttsSS",
+            "22t222",
+            "tttT2s"
+        ]
+    },
+    {
+        "name": "i-18",
+        "puzzle": [
+            "ssdDdS",
+            "2S2D22",
+            "ssd22d"
+        ]
+    },
+    {
+        "name": "i-19",
+        "puzzle": [
+            "t2dDdD",
+            "22TdTt",
+            "d22t2t"
+        ]
+    },
+    {
+        "name": "i-20",
+        "puzzle": [
+            "ddDdDd",
+            " 2222S",
+            "ddS22 "
+        ]
+    },
+    {
+        "name": "i-21",
+        "puzzle": [
+            "ddTt2d",
+            "D22dD2",
+            "tt22dT"
+        ]
+    },
+    {
+        "name": "i-22",
+        "puzzle": [
+            "dD SDs",
+            "222d2s",
+            "d22sSs"
+        ]
+    },
+    {
+        "name": "i-23",
+        "puzzle": [
+            "DttT2D",
+            "d2t2d2",
+            "d2d2tT"
+        ]
+    },
+    {
+        "name": "i-24",
+        "puzzle": [
+            "t2tDdD",
+            "2T2d2d",
+            "t22Tdd"
+        ]
+    },
+    {
+        "name": "i-25",
+        "puzzle": [
+            "tDdddd",
+            "T22222",
+            "Tt2Dd "
+        ]
+    },
+    {
+        "name": "j-01",
+        "puzzle": [
+            "T2t22t",
+            "ss2tst",
+            "sSSstT"
+        ]
+    },
+    {
+        "name": "j-02",
+        "puzzle": [
+            "ttTdDd",
+            "t3T32D",
+            "tttd2 "
+        ]
+    },
+    {
+        "name": "j-03",
+        "puzzle": [
+            "dD2tTt",
+            "d222tt",
+            "DdT2tt"
+        ]
+    },
+    {
+        "name": "j-04",
+        "puzzle": [
+            "tTd2Td",
+            "t22tdd",
+            "t22dDD"
+        ]
+    },
+    {
+        "name": "j-05",
+        "puzzle": [
+            "T ttss",
+            "tt322s",
+            " 22STS"
+        ]
+    },
+    {
+        "name": "j-06",
+        "puzzle": [
+            "dddsDS",
+            "D222ss",
+            "dd22Ss"
+        ]
+    },
+    {
+        "name": "j-07",
+        "puzzle": [
+            "dDTdtt",
+            "d33d3t",
+            "D2ttTt"
+        ]
+    },
+    {
+        "name": "j-08",
+        "puzzle": [
+            "sS D2d",
+            "22sSd2",
+            "s22 Dd"
+        ]
+    },
+    {
+        "name": "j-09",
+        "puzzle": [
+            " t22SS",
+            "Tt32ss",
+            " t22T "
+        ]
+    },
+    {
+        "name": "j-10",
+        "puzzle": [
+            "ttD2td",
+            "2T2d3d",
+            "D2ttTd"
+        ]
+    },
+    {
+        "name": "j-11",
+        "puzzle": [
+            "s2Sstt",
+            "ss222T",
+            "S2t2 T"
+        ]
+    },
+    {
+        "name": "j-12",
+        "puzzle": [
+            "ddSssS",
+            "2D222s",
+            "d2Ds2s"
+        ]
+    },
+    {
+        "name": "j-13",
+        "puzzle": [
+            "S2Sstt",
+            "s2233t",
+            "sssTtT"
+        ]
+    },
+    {
+        "name": "j-14",
+        "puzzle": [
+            "d222Ds",
+            "232dss",
+            "ddDSS "
+        ]
+    },
+    {
+        "name": "j-15",
+        "puzzle": [
+            "ttt2Dd",
+            "22322d",
+            "DT ddT"
+        ]
+    },
+    {
+        "name": "j-16",
+        "puzzle": [
+            "D2d2dd",
+            "2T2D2t",
+            "t2ddtT"
+        ]
+    },
+    {
+        "name": "j-17",
+        "puzzle": [
+            "d2d2tt",
+            "t23d2T",
+            " TD2Dt"
+        ]
+    },
+    {
+        "name": "j-18",
+        "puzzle": [
+            "t22d D",
+            "T3322d",
+            "ttDTd "
+        ]
+    },
+    {
+        "name": "j-19",
+        "puzzle": [
+            "Tdd2tT",
+            "t233d2",
+            "DdtD2t"
+        ]
+    },
+    {
+        "name": "j-20",
+        "puzzle": [
+            "tSt22s",
+            "t323ss",
+            "Tt2TtS"
+        ]
+    },
+    {
+        "name": "j-21",
+        "puzzle": [
+            "tTs2TS",
+            "233sSs",
+            "t2t2ss"
+        ]
+    },
+    {
+        "name": "j-22",
+        "puzzle": [
+            "tt2t2S",
+            "Tt233s",
+            "SsT2ss"
+        ]
+    },
+    {
+        "name": "j-23",
+        "puzzle": [
+            "ddTt2D",
+            "d3232t",
+            "dD2Ttt"
+        ]
+    },
+    {
+        "name": "j-24",
+        "puzzle": [
+            "T2dd2D",
+            "t2332d",
+            "DddTtt"
+        ]
+    },
+    {
+        "name": "j-25",
+        "puzzle": [
+            "d22DSs",
+            "222s4s",
+            "DSddss"
+        ]
+    },
+    {
+        "name": "k-01",
+        "puzzle": [
+            "dddd",
+            "D22T",
+            "Dt22",
+            "Tttt"
+        ]
+    },
+    {
+        "name": "k-02",
+        "puzzle": [
+            "d2dD",
+            "2d2s",
+            "d2Ss",
+            "DSss"
+        ]
+    },
+    {
+        "name": "k-03",
+        "puzzle": [
+            "dsss",
+            "d22s",
+            "22dS",
+            "dDSD"
+        ]
+    },
+    {
+        "name": "k-04",
+        "puzzle": [
+            "dSss",
+            "D2s2",
+            "S22s",
+            "Ddds"
+        ]
+    },
+    {
+        "name": "k-05",
+        "puzzle": [
+            "sStT",
+            "s22t",
+            "s22T",
+            " S2s"
+        ]
+    },
+    {
+        "name": "k-06",
+        "puzzle": [
+            "tt2T",
+            "Tss2",
+            "SS22",
+            " s2s"
+        ]
+    },
+    {
+        "name": "k-07",
+        "puzzle": [
+            "SSss",
+            "s222",
+            "d22d",
+            "dD D"
+        ]
+    },
+    {
+        "name": "k-08",
+        "puzzle": [
+            "d2sS",
+            "dd22",
+            "d22S",
+            "dDD "
+        ]
+    },
+    {
+        "name": "k-09",
+        "puzzle": [
+            "D2T ",
+            "dT2t",
+            "d222",
+            "dDtt"
+        ]
+    },
+    {
+        "name": "k-10",
+        "puzzle": [
+            "sTts",
+            "sS2s",
+            "t222",
+            " 2TS"
+        ]
+    },
+    {
+        "name": "k-11",
+        "puzzle": [
+            "SSsD",
+            "22d2",
+            "ss2s",
+            " s2D"
+        ]
+    },
+    {
+        "name": "k-12",
+        "puzzle": [
+            "Ttd ",
+            "t22D",
+            "tt22",
+            "D2dT"
+        ]
+    },
+    {
+        "name": "k-13",
+        "puzzle": [
+            "Tt2d",
+            "222d",
+            "T2td",
+            "tDD "
+        ]
+    },
+    {
+        "name": "k-14",
+        "puzzle": [
+            "dd2 ",
+            "dd2D",
+            "d2T2",
+            "DT2t"
+        ]
+    },
+    {
+        "name": "k-15",
+        "puzzle": [
+            "tt2d",
+            "t222",
+            "T2Td",
+            "dDtD"
+        ]
+    },
+    {
+        "name": "k-16",
+        "puzzle": [
+            "ttSs",
+            "T2t2",
+            "222s",
+            "STts"
+        ]
+    },
+    {
+        "name": "k-17",
+        "puzzle": [
+            "D2dS",
+            "dS2s",
+            "D2 2",
+            "ss2s"
+        ]
+    },
+    {
+        "name": "k-18",
+        "puzzle": [
+            "sTTt",
+            "22t2",
+            "S22t",
+            "Sst "
+        ]
+    },
+    {
+        "name": "k-19",
+        "puzzle": [
+            "dtTT",
+            "2222",
+            "d2dt",
+            "D dD"
+        ]
+    },
+    {
+        "name": "k-20",
+        "puzzle": [
+            "Dd2D",
+            "T222",
+            "t2Td",
+            "t tt"
+        ]
+    },
+    {
+        "name": "k-21",
+        "puzzle": [
+            "sSss",
+            "T22T",
+            "22ss",
+            " t2S"
+        ]
+    },
+    {
+        "name": "k-22",
+        "puzzle": [
+            "T2Dt",
+            "d22t",
+            "d2T2",
+            "dddD"
+        ]
+    },
+    {
+        "name": "k-23",
+        "puzzle": [
+            "T2ss",
+            "S22S",
+            "2sst",
+            "T2tt"
+        ]
+    },
+    {
+        "name": "k-24",
+        "puzzle": [
+            "ttdD",
+            "222D",
+            "T2dd",
+            "d2Td"
+        ]
+    },
+    {
+        "name": "k-25",
+        "puzzle": [
+            "sDdD",
+            "Ss2S",
+            "2d22",
+            "s2dd"
+        ]
+    },
+    {
+        "name": "l-01",
+        "puzzle": [
+            "ttsS",
+            "ttTs",
+            "DtTs",
+            "ddDS"
+        ]
+    },
+    {
+        "name": "l-02",
+        "puzzle": [
+            "sTtT",
+            "Sstt",
+            " d2s",
+            "DDdS"
+        ]
+    },
+    {
+        "name": "l-03",
+        "puzzle": [
+            "DStT",
+            "dstS",
+            "d2Ts",
+            "ss2D"
+        ]
+    },
+    {
+        "name": "l-04",
+        "puzzle": [
+            "Sd2T",
+            "2DTt",
+            "sdDt",
+            "sSd "
+        ]
+    },
+    {
+        "name": "l-05",
+        "puzzle": [
+            "ss D",
+            "sSt2",
+            "T22t",
+            "S DT"
+        ]
+    },
+    {
+        "name": "l-06",
+        "puzzle": [
+            "SDdd",
+            "sTd2",
+            "Ss2D",
+            "sttT"
+        ]
+    },
+    {
+        "name": "l-07",
+        "puzzle": [
+            "DTS ",
+            "d2ts",
+            " T22",
+            "DdS "
+        ]
+    },
+    {
+        "name": "l-08",
+        "puzzle": [
+            "D2tS",
+            "td 2",
+            " 2Ts",
+            "DTS "
+        ]
+    },
+    {
+        "name": "l-09",
+        "puzzle": [
+            "dS2d",
+            "d2T2",
+            "Dstd",
+            "STD "
+        ]
+    },
+    {
+        "name": "l-10",
+        "puzzle": [
+            " ddd",
+            "DT2D",
+            "t2st",
+            "ST2S"
+        ]
+    },
+    {
+        "name": "l-11",
+        "puzzle": [
+            "STtt",
+            "D2Tt",
+            "D22t",
+            "dddS"
+        ]
+    },
+    {
+        "name": "l-12",
+        "puzzle": [
+            " TtD",
+            "dd2S",
+            "D2T2",
+            " S2s"
+        ]
+    },
+    {
+        "name": "l-13",
+        "puzzle": [
+            "D2D ",
+            "22T ",
+            "tTtS",
+            "Ss2s"
+        ]
+    },
+    {
+        "name": "l-14",
+        "puzzle": [
+            "DS2s",
+            "dD2S",
+            " 22t",
+            " tTT"
+        ]
+    },
+    {
+        "name": "l-15",
+        "puzzle": [
+            "d2DT",
+            "2Dt2",
+            "Ss2t",
+            "ST  "
+        ]
+    },
+    {
+        "name": "l-16",
+        "puzzle": [
+            " d2 ",
+            "D22D",
+            "Tts2",
+            " STS"
+        ]
+    },
+    {
+        "name": "l-17",
+        "puzzle": [
+            "StT ",
+            "T22t",
+            "22Sd",
+            "dDD "
+        ]
+    },
+    {
+        "name": "l-18",
+        "puzzle": [
+            "tt2T",
+            " 2sS",
+            "tD22",
+            "TSsD"
+        ]
+    },
+    {
+        "name": "l-19",
+        "puzzle": [
+            "Dd2T",
+            " t22",
+            "Tds2",
+            "DsSS"
+        ]
+    },
+    {
+        "name": "l-20",
+        "puzzle": [
+            " 2tT",
+            "sS2T",
+            "D22S",
+            " D2d"
+        ]
+    },
+    {
+        "name": "l-21",
+        "puzzle": [
+            "Tt d",
+            "t22D",
+            "T22S",
+            "Ds2S"
+        ]
+    },
+    {
+        "name": "l-22",
+        "puzzle": [
+            "DdTD",
+            "222d",
+            "t22S",
+            "tsST"
+        ]
+    },
+    {
+        "name": "l-23",
+        "puzzle": [
+            "ddtT",
+            "D2DT",
+            "222s",
+            "d2SS"
+        ]
+    },
+    {
+        "name": "l-24",
+        "puzzle": [
+            "dDDT",
+            "S22t",
+            "22St",
+            "s2Tt"
+        ]
+    },
+    {
+        "name": "l-25",
+        "puzzle": [
+            "ttSs",
+            "T22T",
+            "2SD2",
+            "Dd2d"
+        ]
+    },
+    {
+        "name": "m-01",
+        "puzzle": [
+            "DdSss",
+            "T2tt2",
+            "tD2TS"
+        ]
+    },
+    {
+        "name": "m-02",
+        "puzzle": [
+            "sss2D",
+            "St2d2",
+            "TDTSs"
+        ]
+    },
+    {
+        "name": "m-03",
+        "puzzle": [
+            "S2DDT",
+            "s22tt",
+            "SsTtt"
+        ]
+    },
+    {
+        "name": "m-04",
+        "puzzle": [
+            "SD2dTt",
+            "ssDsdt",
+            " sS22T"
+        ]
+    },
+    {
+        "name": "m-05",
+        "puzzle": [
+            "DSTt ",
+            "S22tt",
+            "sD22T"
+        ]
+    },
+    {
+        "name": "m-06",
+        "puzzle": [
+            "dDT2t",
+            "Ddt2T",
+            "Ss22S"
+        ]
+    },
+    {
+        "name": "m-07",
+        "puzzle": [
+            "t2SSD",
+            "tt2T2",
+            "TDd2s"
+        ]
+    },
+    {
+        "name": "m-08",
+        "puzzle": [
+            "dS2tT",
+            "D2T2D",
+            "sSd2d"
+        ]
+    },
+    {
+        "name": "m-09",
+        "puzzle": [
+            "SSTtT",
+            "D222t",
+            "s2Dtt"
+        ]
+    },
+    {
+        "name": "m-10",
+        "puzzle": [
+            " tTd2s",
+            "t2T2s2",
+            "ttDSSD"
+        ]
+    },
+    {
+        "name": "m-11",
+        "puzzle": [
+            "tT2dDS",
+            "T2Sss2",
+            "D2d ss"
+        ]
+    },
+    {
+        "name": "m-12",
+        "puzzle": [
+            "tTdTD",
+            "S2222",
+            "D2S t"
+        ]
+    },
+    {
+        "name": "m-13",
+        "puzzle": [
+            "S2DDtt",
+            "s2d2TT",
+            "sd2St "
+        ]
+    },
+    {
+        "name": "m-14",
+        "puzzle": [
+            "sS2tT",
+            "2222S",
+            "TssDD"
+        ]
+    },
+    {
+        "name": "m-15",
+        "puzzle": [
+            "sdD2tt",
+            "S222DT",
+            "SssdtT"
+        ]
+    },
+    {
+        "name": "m-16",
+        "puzzle": [
+            "SsttTt",
+            "sTs222",
+            "ssSD2D"
+        ]
+    },
+    {
+        "name": "m-17",
+        "puzzle": [
+            "dTtS2s",
+            "D2222 ",
+            "DdtS T"
+        ]
+    },
+    {
+        "name": "m-18",
+        "puzzle": [
+            "D2T Ss",
+            "222d2s",
+            "ttTdDS"
+        ]
+    },
+    {
+        "name": "m-19",
+        "puzzle": [
+            "STttTD",
+            "s2222d",
+            "S2sDdd"
+        ]
+    },
+    {
+        "name": "m-20",
+        "puzzle": [
+            "t222D",
+            "TT22d",
+            "Ss2SD"
+        ]
+    },
+    {
+        "name": "m-21",
+        "puzzle": [
+            "tDdD2d",
+            "tT2222",
+            "TSs Ss"
+        ]
+    },
+    {
+        "name": "m-22",
+        "puzzle": [
+            " dDt2T",
+            "2t2Dsd",
+            "TdS22S"
+        ]
+    },
+    {
+        "name": "m-23",
+        "puzzle": [
+            "SsDT2T",
+            "ssd222",
+            "S22Dd "
+        ]
+    },
+    {
+        "name": "m-24",
+        "puzzle": [
+            "T2DS2s",
+            "2Td2D2",
+            "ttSs2s"
+        ]
+    },
+    {
+        "name": "m-25",
+        "puzzle": [
+            "dddD2T",
+            "D2d22T",
+            "S22S2t"
+        ]
+    },
+    {
+        "name": "n-01",
+        "puzzle": [
+            "ttsS ",
+            "tT22S",
+            "TDD2s"
+        ]
+    },
+    {
+        "name": "n-02",
+        "puzzle": [
+            "ddDtS",
+            "d2S22",
+            "D sTT"
+        ]
+    },
+    {
+        "name": "n-03",
+        "puzzle": [
+            " TS2s",
+            "tt2t2",
+            "tDTSD"
+        ]
+    },
+    {
+        "name": "n-04",
+        "puzzle": [
+            " T22T",
+            "dS22S",
+            "DdddD"
+        ]
+    },
+    {
+        "name": "n-05",
+        "puzzle": [
+            "D22tt",
+            "T22Dt",
+            "SSssT"
+        ]
+    },
+    {
+        "name": "n-06",
+        "puzzle": [
+            "dTtss",
+            "D2222",
+            "DtSTS"
+        ]
+    },
+    {
+        "name": "n-07",
+        "puzzle": [
+            "D2t2s",
+            "T22Ts",
+            "DSs2S"
+        ]
+    },
+    {
+        "name": "n-08",
+        "puzzle": [
+            "TTSss",
+            "222sS",
+            "tD22D"
+        ]
+    },
+    {
+        "name": "n-09",
+        "puzzle": [
+            "Ss22dd",
+            "Dd222T",
+            "dTDsS "
+        ]
+    },
+    {
+        "name": "n-10",
+        "puzzle": [
+            "S2tDDd",
+            "222T2d",
+            "tStTd "
+        ]
+    },
+    {
+        "name": "n-11",
+        "puzzle": [
+            "D2dddd",
+            "S22S d",
+            "T222TD"
+        ]
+    },
+    {
+        "name": "n-12",
+        "puzzle": [
+            "dDs2TS",
+            "d2222T",
+            "dSDt2 "
+        ]
+    },
+    {
+        "name": "n-13",
+        "puzzle": [
+            "SDtt2T",
+            "22T22D",
+            "Ssdd2t"
+        ]
+    },
+    {
+        "name": "n-14",
+        "puzzle": [
+            "s22sST",
+            "2S222D",
+            "dDtTdd"
+        ]
+    },
+    {
+        "name": "n-15",
+        "puzzle": [
+            "DSs22T",
+            "d222Ts",
+            "dddD2S"
+        ]
+    },
+    {
+        "name": "n-16",
+        "puzzle": [
+            "dDSttt",
+            "2222tT",
+            "D22sST"
+        ]
+    },
+    {
+        "name": "n-17",
+        "puzzle": [
+            "D d2DtT",
+            "t2d22St",
+            "Td222S "
+        ]
+    },
+    {
+        "name": "n-18",
+        "puzzle": [
+            "TS2sD2dd",
+            "2t2s2dSD",
+            "t2Tssss "
+        ]
+    },
+    {
+        "name": "n-19",
+        "puzzle": [
+            "Ss2td2T",
+            "222D2D2",
+            "SsTdddd"
+        ]
+    },
+    {
+        "name": "n-20",
+        "puzzle": [
+            "S22SDdd",
+            "s2t2dd2",
+            "T2sTd2D"
+        ]
+    },
+    {
+        "name": "n-21",
+        "puzzle": [
+            "s Tttd2d",
+            "sST2S222",
+            "sss22D2D"
+        ]
+    },
+    {
+        "name": "n-22",
+        "puzzle": [
+            "Ss2222tt",
+            "s2222tTt",
+            "sDd DStT"
+        ]
+    },
+    {
+        "name": "n-23",
+        "puzzle": [
+            "Tt22d2t ",
+            "s22Stt2T",
+            "sS2dD2dD"
+        ]
+    },
+    {
+        "name": "n-24",
+        "puzzle": [
+            "dd dt2tS",
+            "SD2T2t22",
+            "D2s2s2Tt"
+        ]
+    },
+    {
+        "name": "n-25",
+        "puzzle": [
+            " Sdd2T2t",
+            "22d2sD2t",
+            "Dd2Ss2tT"
+        ]
+    },
+    {
+        "name": "o-01",
+        "puzzle": [
+            "t2T",
+            "T2t"
+        ]
+    },
+    {
+        "name": "o-02",
+        "puzzle": [
+            "SsS",
+            "2ss",
+            "s2s"
+        ]
+    },
+    {
+        "name": "o-03",
+        "puzzle": [
+            "dd ",
+            "D2d",
+            "d2D"
+        ]
+    },
+    {
+        "name": "o-04",
+        "puzzle": [
+            "s2s",
+            "23S",
+            "sSs"
+        ]
+    },
+    {
+        "name": "o-05",
+        "puzzle": [
+            "D2D",
+            "d22",
+            " 2d"
+        ]
+    },
+    {
+        "name": "o-06",
+        "puzzle": [
+            "SS2 ",
+            "s23s",
+            "ssss"
+        ]
+    },
+    {
+        "name": "o-07",
+        "puzzle": [
+            " T2t",
+            "t23t",
+            " 2Tt"
+        ]
+    },
+    {
+        "name": "o-08",
+        "puzzle": [
+            "D2dd",
+            "222D",
+            " ddd"
+        ]
+    },
+    {
+        "name": "o-09",
+        "puzzle": [
+            "tt2t",
+            "T2T2",
+            "tt2t"
+        ]
+    },
+    {
+        "name": "o-10",
+        "puzzle": [
+            "D2d",
+            "222",
+            "d2D"
+        ]
+    },
+    {
+        "name": "o-11",
+        "puzzle": [
+            "sS2s",
+            "S3s2",
+            "ss2s"
+        ]
+    },
+    {
+        "name": "o-12",
+        "puzzle": [
+            "Dd d",
+            "D232",
+            " 22d"
+        ]
+    },
+    {
+        "name": "o-13",
+        "puzzle": [
+            "sS2s",
+            "s322",
+            "ss2S"
+        ]
+    },
+    {
+        "name": "o-14",
+        "puzzle": [
+            "d2DD",
+            "224d",
+            "d2dd"
+        ]
+    },
+    {
+        "name": "o-15",
+        "puzzle": [
+            "dddD",
+            "2322",
+            "d22D"
+        ]
+    },
+    {
+        "name": "o-16",
+        "puzzle": [
+            "ss2s",
+            "2s2s",
+            "s32s",
+            "ssSS"
+        ]
+    },
+    {
+        "name": "o-17",
+        "puzzle": [
+            "ss2s",
+            "233s",
+            "S22S"
+        ]
+    },
+    {
+        "name": "o-18",
+        "puzzle": [
+            "D22d",
+            "d33d",
+            "d22D"
+        ]
+    },
+    {
+        "name": "o-19",
+        "puzzle": [
+            "dddd",
+            "dD32",
+            "d332",
+            "dddD"
+        ]
+    },
+    {
+        "name": "o-20",
+        "puzzle": [
+            "D22d",
+            "dd22",
+            "d32d",
+            "dddD"
+        ]
+    },
+    {
+        "name": "o-21",
+        "puzzle": [
+            "s2ss",
+            "22s2",
+            "s22s",
+            "S2sS"
+        ]
+    },
+    {
+        "name": "o-22",
+        "puzzle": [
+            "T2tt",
+            "tT3t",
+            "222t",
+            "t22t"
+        ]
+    },
+    {
+        "name": "o-23",
+        "puzzle": [
+            "s2ss",
+            "s33s",
+            "23ss",
+            "S22S"
+        ]
+    },
+    {
+        "name": "o-24",
+        "puzzle": [
+            "DdDd",
+            "d24d",
+            "23d2",
+            "d22d"
+        ]
+    },
+    {
+        "name": "o-25",
+        "puzzle": [
+            "t22T",
+            "t33t",
+            "T22t"
+        ]
+    },
+    {
+        "name": "p-01",
+        "puzzle": [
+            "TdSS",
+            "T33D",
+            "Dt2s"
+        ]
+    },
+    {
+        "name": "p-02",
+        "puzzle": [
+            "Ds2S",
+            "S32t",
+            "D2TT"
+        ]
+    },
+    {
+        "name": "p-03",
+        "puzzle": [
+            "sSTD",
+            "T23d",
+            "D22S"
+        ]
+    },
+    {
+        "name": "p-04",
+        "puzzle": [
+            "T22S",
+            "D32D",
+            "STsd"
+        ]
+    },
+    {
+        "name": "p-05",
+        "puzzle": [
+            "TSTS",
+            "232D",
+            "ts2D"
+        ]
+    },
+    {
+        "name": "p-06",
+        "puzzle": [
+            "dSDT",
+            "d322",
+            "DT2S"
+        ]
+    },
+    {
+        "name": "p-07",
+        "puzzle": [
+            "TD2S",
+            "S322",
+            "DdsT"
+        ]
+    },
+    {
+        "name": "p-08",
+        "puzzle": [
+            "ST2D",
+            "D32s",
+            "TS2s"
+        ]
+    },
+    {
+        "name": "p-09",
+        "puzzle": [
+            "TD2D",
+            "t23s",
+            "S2ST"
+        ]
+    },
+    {
+        "name": "p-10",
+        "puzzle": [
+            "SdTD",
+            "T322",
+            "dD2S"
+        ]
+    },
+    {
+        "name": "p-11",
+        "puzzle": [
+            "ST2t",
+            "D22S",
+            "T22D"
+        ]
+    },
+    {
+        "name": "p-12",
+        "puzzle": [
+            "S2TS",
+            "223 ",
+            "T2DD"
+        ]
+    },
+    {
+        "name": "p-13",
+        "puzzle": [
+            "Ss2T",
+            "D4sD",
+            "222T",
+            "Ssdt"
+        ]
+    },
+    {
+        "name": "p-14",
+        "puzzle": [
+            " 2DS",
+            "d33T",
+            "s23t",
+            "SDdT"
+        ]
+    },
+    {
+        "name": "p-15",
+        "puzzle": [
+            "sSDD",
+            "T32d",
+            "2t3T",
+            "S2st"
+        ]
+    },
+    {
+        "name": "p-16",
+        "puzzle": [
+            "D2tt",
+            "224S",
+            "t3Ts",
+            "TdDS"
+        ]
+    },
+    {
+        "name": "p-17",
+        "puzzle": [
+            "DTsS",
+            "d32D",
+            "S33T",
+            "d2tt"
+        ]
+    },
+    {
+        "name": "p-18",
+        "puzzle": [
+            "SSTD",
+            "23dd",
+            "233t",
+            "sTDt"
+        ]
+    },
+    {
+        "name": "p-19",
+        "puzzle": [
+            "T2tD",
+            "s32S",
+            "S222",
+            "TtdD"
+        ]
+    },
+    {
+        "name": "p-20",
+        "puzzle": [
+            "STSt",
+            "D232",
+            "TD32",
+            "tt2d"
+        ]
+    },
+    {
+        "name": "p-21",
+        "puzzle": [
+            "TD2s",
+            "t3S2",
+            "223s",
+            "DsTS"
+        ]
+    },
+    {
+        "name": "p-22",
+        "puzzle": [
+            "S22S",
+            "T23s",
+            "Tt32",
+            "tDdD"
+        ]
+    },
+    {
+        "name": "p-23",
+        "puzzle": [
+            "D22s",
+            "t33T",
+            "T22D",
+            "SsSd"
+        ]
+    },
+    {
+        "name": "p-24",
+        "puzzle": [
+            "S2tS",
+            "Ts4T",
+            "d222",
+            "Dd2D"
+        ]
+    },
+    {
+        "name": "p-25",
+        "puzzle": [
+            "d2DD",
+            "T33T",
+            "d222",
+            "SSss"
+        ]
+    },
+    {
+        "name": "q-01",
+        "puzzle": [
+            "S22t",
+            "223S",
+            "TtTs"
+        ]
+    },
+    {
+        "name": "q-02",
+        "puzzle": [
+            "d22D",
+            "T322",
+            "tDdT"
+        ]
+    },
+    {
+        "name": "q-03",
+        "puzzle": [
+            "T2SS",
+            "t23s",
+            "t22T"
+        ]
+    },
+    {
+        "name": "q-04",
+        "puzzle": [
+            "S22S",
+            "D3s2",
+            "Dd2d"
+        ]
+    },
+    {
+        "name": "q-05",
+        "puzzle": [
+            "s22D",
+            "2d3s",
+            "S2SD"
+        ]
+    },
+    {
+        "name": "q-06",
+        "puzzle": [
+            "S22D",
+            "s23d",
+            "SD2d"
+        ]
+    },
+    {
+        "name": "q-07",
+        "puzzle": [
+            "tt2D",
+            "232T",
+            "D2tT"
+        ]
+    },
+    {
+        "name": "q-08",
+        "puzzle": [
+            "tTss",
+            "232S",
+            "T22S"
+        ]
+    },
+    {
+        "name": "q-09",
+        "puzzle": [
+            "dsSD",
+            "223S",
+            "d22D"
+        ]
+    },
+    {
+        "name": "q-10",
+        "puzzle": [
+            "T2Tt",
+            "223t",
+            "S2St"
+        ]
+    },
+    {
+        "name": "q-11",
+        "puzzle": [
+            "Dt2t",
+            "d3T2",
+            "D22T"
+        ]
+    },
+    {
+        "name": "q-12",
+        "puzzle": [
+            "T22t",
+            "232S",
+            "SsTs"
+        ]
+    },
+    {
+        "name": "q-13",
+        "puzzle": [
+            "S22T",
+            "t3t2",
+            "TS2t"
+        ]
+    },
+    {
+        "name": "q-14",
+        "puzzle": [
+            "D22t",
+            "D332",
+            "TTtt"
+        ]
+    },
+    {
+        "name": "q-15",
+        "puzzle": [
+            "s2dD",
+            "224S",
+            "D2sS"
+        ]
+    },
+    {
+        "name": "q-16",
+        "puzzle": [
+            "tt2s",
+            "S422",
+            "TT2S"
+        ]
+    },
+    {
+        "name": "q-17",
+        "puzzle": [
+            "TT2D",
+            "t422",
+            "tD2t"
+        ]
+    },
+    {
+        "name": "q-18",
+        "puzzle": [
+            "TttD",
+            "233T",
+            "D22t"
+        ]
+    },
+    {
+        "name": "q-19",
+        "puzzle": [
+            "dD2T",
+            "d422",
+            "Td2D"
+        ]
+    },
+    {
+        "name": "q-20",
+        "puzzle": [
+            "d2dD",
+            "S33D",
+            "s22S"
+        ]
+    },
+    {
+        "name": "q-21",
+        "puzzle": [
+            "D2SS",
+            "224d",
+            "D2sd"
+        ]
+    },
+    {
+        "name": "q-22",
+        "puzzle": [
+            "ss2s",
+            "T422",
+            "SS2T"
+        ]
+    },
+    {
+        "name": "q-23",
+        "puzzle": [
+            "D2Tt",
+            "224t",
+            "D2dT"
+        ]
+    },
+    {
+        "name": "q-24",
+        "puzzle": [
+            "D2Sd",
+            "224d",
+            "S2dD"
+        ]
+    },
+    {
+        "name": "q-25",
+        "puzzle": [
+            "T22T",
+            "233d",
+            "tDdD"
+        ]
+    },
+    {
+        "name": "r-01",
+        "puzzle": [
+            "TS2D",
+            "s32T",
+            "S2Dd"
+        ]
+    },
+    {
+        "name": "r-02",
+        "puzzle": [
+            "DSdD",
+            "232T",
+            "sT2S"
+        ]
+    },
+    {
+        "name": "r-03",
+        "puzzle": [
+            "T22T",
+            "d22D",
+            "DS2S"
+        ]
+    },
+    {
+        "name": "r-04",
+        "puzzle": [
+            "S22T",
+            "d33S",
+            "DdTD"
+        ]
+    },
+    {
+        "name": "r-05",
+        "puzzle": [
+            " 22S",
+            "222D",
+            "TDST"
+        ]
+    },
+    {
+        "name": "r-06",
+        "puzzle": [
+            "TtSd",
+            "S332",
+            "TD2D"
+        ]
+    },
+    {
+        "name": "r-07",
+        "puzzle": [
+            "S2DD",
+            "s33t",
+            "TS2T"
+        ]
+    },
+    {
+        "name": "r-08",
+        "puzzle": [
+            "Ts2S",
+            "222D",
+            "D2TS"
+        ]
+    },
+    {
+        "name": "r-09",
+        "puzzle": [
+            "sSSD",
+            "222D",
+            "T22T"
+        ]
+    },
+    {
+        "name": "r-10",
+        "puzzle": [
+            "SDTt",
+            "T222",
+            "S22D"
+        ]
+    },
+    {
+        "name": "r-11",
+        "puzzle": [
+            "DDTS",
+            "222t",
+            "S22T"
+        ]
+    },
+    {
+        "name": "r-12",
+        "puzzle": [
+            "Tt2D",
+            "ST22",
+            "S22D"
+        ]
+    },
+    {
+        "name": "r-13",
+        "puzzle": [
+            "DSDS",
+            "2d22",
+            "T22T"
+        ]
+    },
+    {
+        "name": "r-14",
+        "puzzle": [
+            "S22D",
+            "ST22",
+            "Dd2T"
+        ]
+    },
+    {
+        "name": "r-15",
+        "puzzle": [
+            "S22S",
+            "222s",
+            "DTDT"
+        ]
+    },
+    {
+        "name": "r-16",
+        "puzzle": [
+            "D22S",
+            "T22S",
+            "Td2D"
+        ]
+    },
+    {
+        "name": "r-17",
+        "puzzle": [
+            "d2TS",
+            "222D",
+            "SD2T"
+        ]
+    },
+    {
+        "name": "r-18",
+        "puzzle": [
+            "Dt2T",
+            "22ST",
+            "S22D"
+        ]
+    },
+    {
+        "name": "r-19",
+        "puzzle": [
+            "S22D",
+            "sS22",
+            "T2TD"
+        ]
+    },
+    {
+        "name": "r-20",
+        "puzzle": [
+            "t22S",
+            "2T2D",
+            "D2ST"
+        ]
+    },
+    {
+        "name": "r-21",
+        "puzzle": [
+            "D2TS",
+            "2s2D",
+            "T22S"
+        ]
+    },
+    {
+        "name": "r-22",
+        "puzzle": [
+            "DT2t",
+            "S2T2",
+            "D22S"
+        ]
+    },
+    {
+        "name": "r-23",
+        "puzzle": [
+            "d2DS",
+            "223T",
+            "TD2S"
+        ]
+    },
+    {
+        "name": "r-24",
+        "puzzle": [
+            "DSTs",
+            "D232",
+            "T22S"
+        ]
+    },
+    {
+        "name": "r-25",
+        "puzzle": [
+            "DTSs",
+            "S232",
+            "T22D"
+        ]
+    },
+    {
+        "name": "s-01",
+        "puzzle": [
+            "tTtt",
+            "t33t",
+            "T22t"
+        ]
+    },
+    {
+        "name": "s-02",
+        "puzzle": [
+            "Tttt",
+            "233t",
+            "tT2t"
+        ]
+    },
+    {
+        "name": "s-03",
+        "puzzle": [
+            "ttTt",
+            "t332",
+            "tt2T"
+        ]
+    },
+    {
+        "name": "s-04",
+        "puzzle": [
+            "t2tT",
+            "t332",
+            "ttTt"
+        ]
+    },
+    {
+        "name": "s-05",
+        "puzzle": [
+            "Tt2T",
+            "t4t2",
+            "tt2t"
+        ]
+    },
+    {
+        "name": "s-06",
+        "puzzle": [
+            "T2tT",
+            "t332",
+            "tttt"
+        ]
+    },
+    {
+        "name": "s-07",
+        "puzzle": [
+            "ttTt",
+            "t33t",
+            "t22T"
+        ]
+    },
+    {
+        "name": "s-08",
+        "puzzle": [
+            "t22T",
+            "t33t",
+            "ttTt"
+        ]
+    },
+    {
+        "name": "s-09",
+        "puzzle": [
+            "tT2t",
+            "t33t",
+            "t2Tt"
+        ]
+    },
+    {
+        "name": "s-10",
+        "puzzle": [
+            "tt2t",
+            "t4t2",
+            "Tt2T"
+        ]
+    },
+    {
+        "name": "s-11",
+        "puzzle": [
+            "tt2T",
+            "t42t",
+            "Tt2t"
+        ]
+    },
+    {
+        "name": "s-12",
+        "puzzle": [
+            "tT2t",
+            "t33T",
+            "tt2t"
+        ]
+    },
+    {
+        "name": "s-13",
+        "puzzle": [
+            " t2T",
+            "t22t",
+            "T2t "
+        ]
+    },
+    {
+        "name": "s-14",
+        "puzzle": [
+            "t2tT",
+            " 23 ",
+            "t2tT"
+        ]
+    },
+    {
+        "name": "s-15",
+        "puzzle": [
+            "ttTT",
+            "t332",
+            "t2tt"
+        ]
+    },
+    {
+        "name": "s-16",
+        "puzzle": [
+            "T2tt",
+            "T24t",
+            "t2tt"
+        ]
+    },
+    {
+        "name": "s-17",
+        "puzzle": [
+            "t2tt",
+            "2t4t",
+            "T2tT"
+        ]
+    },
+    {
+        "name": "s-18",
+        "puzzle": [
+            "tTtt",
+            "224t",
+            "T2tt"
+        ]
+    },
+    {
+        "name": "s-19",
+        "puzzle": [
+            "tTtt",
+            "233t",
+            "T2tt"
+        ]
+    },
+    {
+        "name": "s-20",
+        "puzzle": [
+            "tT2t",
+            "233t",
+            "Tttt"
+        ]
+    },
+    {
+        "name": "s-21",
+        "puzzle": [
+            "t2tT",
+            "2t4t",
+            "T2tt"
+        ]
+    },
+    {
+        "name": "s-22",
+        "puzzle": [
+            "ttTT",
+            "t332",
+            "t2tt"
+        ]
+    },
+    {
+        "name": "s-23",
+        "puzzle": [
+            "t2tt",
+            "t33T",
+            "tT2t"
+        ]
+    },
+    {
+        "name": "s-24",
+        "puzzle": [
+            "tt2t",
+            "t42T",
+            "tt2T"
+        ]
+    },
+    {
+        "name": "s-25",
+        "puzzle": [
+            "t22T",
+            "t33T",
+            "tttt"
+        ]
+    },
+    {
+        "name": "t-01",
+        "puzzle": [
+            "ss22tT",
+            "s4ss4S",
+            "tS2tt2",
+            "tt ssT"
+        ]
+    },
+    {
+        "name": "t-02",
+        "puzzle": [
+            "dDt2tT",
+            "d23tDt",
+            "233ttt",
+            "ddtttT"
+        ]
+    },
+    {
+        "name": "t-03",
+        "puzzle": [
+            "SstTTt",
+            "sS2322",
+            "sss33t",
+            "sssttt"
+        ]
+    },
+    {
+        "name": "t-04",
+        "puzzle": [
+            "Ttts2S",
+            "s4st2s",
+            "sst32S",
+            "Tt2ttt"
+        ]
+    },
+    {
+        "name": "t-05",
+        "puzzle": [
+            "dd2SdS",
+            "Dsd32D",
+            "ss33sd",
+            "s2dsss"
+        ]
+    },
+    {
+        "name": "t-06",
+        "puzzle": [
+            "DD2s2S",
+            "s2d3ss",
+            "d4ds3s",
+            "dSdss "
+        ]
+    },
+    {
+        "name": "t-07",
+        "puzzle": [
+            "ttttSt",
+            "T4s22t",
+            "ss23tT",
+            "S2tttt"
+        ]
+    },
+    {
+        "name": "t-08",
+        "puzzle": [
+            "ssSttt",
+            "s3Tt4t",
+            "2S232t",
+            "ssstT "
+        ]
+    },
+    {
+        "name": "t-09",
+        "puzzle": [
+            "tttST ",
+            "t3s3ss",
+            "tS3s3s",
+            "T2ts2s"
+        ]
+    },
+    {
+        "name": "t-10",
+        "puzzle": [
+            "tt2ddT",
+            "tdd33t",
+            "tD3d32",
+            "TdDdtt"
+        ]
+    },
+    {
+        "name": "t-11",
+        "puzzle": [
+            "sssd2d",
+            "s233dD",
+            "s42ddS",
+            "sDSsss"
+        ]
+    },
+    {
+        "name": "t-12",
+        "puzzle": [
+            "ddd2Ds",
+            "ds323s",
+            "S3dD3s",
+            "s dSss"
+        ]
+    },
+    {
+        "name": "t-13",
+        "puzzle": [
+            "ssssdd",
+            "Ss332d",
+            "ssS3s2",
+            "Dd2sdD"
+        ]
+    },
+    {
+        "name": "t-14",
+        "puzzle": [
+            "sst2sS",
+            "s33t32",
+            "sst3tt",
+            "SstTtT"
+        ]
+    },
+    {
+        "name": "t-15",
+        "puzzle": [
+            "ddDTtt",
+            "D3d23T",
+            "dd3t3t",
+            "d2ddtt"
+        ]
+    },
+    {
+        "name": "t-16",
+        "puzzle": [
+            "TTd2d ",
+            "d23tDd",
+            "d4tt3D",
+            "ddd2tt"
+        ]
+    },
+    {
+        "name": "t-17",
+        "puzzle": [
+            "sssSdD",
+            "sS23dd",
+            "s3322D",
+            "ssdddd"
+        ]
+    },
+    {
+        "name": "t-18",
+        "puzzle": [
+            "tTTddd",
+            "t32d4d",
+            "D224dD",
+            "ddttt "
+        ]
+    },
+    {
+        "name": "t-19",
+        "puzzle": [
+            "Sssttt",
+            "2ss33T",
+            "t33s2t",
+            "TtttSt"
+        ]
+    },
+    {
+        "name": "t-20",
+        "puzzle": [
+            "dDdTtt",
+            "d2d23t",
+            "dd3T4t",
+            "d2Dttt"
+        ]
+    },
+    {
+        "name": "t-21",
+        "puzzle": [
+            "ttTDdd",
+            "t2t23d",
+            "T433dd",
+            "ttddD "
+        ]
+    },
+    {
+        "name": "t-22",
+        "puzzle": [
+            "Dds2Sd",
+            "ss233D",
+            "sS33dd",
+            "sssssd"
+        ]
+    },
+    {
+        "name": "t-23",
+        "puzzle": [
+            "Ttddtt",
+            "D233tt",
+            "dd333T",
+            "ddDdtt"
+        ]
+    },
+    {
+        "name": "t-24",
+        "puzzle": [
+            "tTtddD",
+            "D33dT2",
+            "t3dt3d",
+            "tt2tdd"
+        ]
+    },
+    {
+        "name": "t-25",
+        "puzzle": [
+            "Ddt2TT",
+            "tt4d2t",
+            "t42d3d",
+            "ddddDd"
+        ]
+    },
+    {
+        "name": "u-01",
+        "puzzle": [
+            "SDd2sT",
+            "s322St",
+            "D24ttt",
+            "ssddtT"
+        ]
+    },
+    {
+        "name": "u-02",
+        "puzzle": [
+            "SddDtt",
+            "s32t2t",
+            "T4s2ST",
+            "Ds2sss"
+        ]
+    },
+    {
+        "name": "u-03",
+        "puzzle": [
+            "dddsSs",
+            "DDs32t",
+            "d23S32",
+            "dsTttT"
+        ]
+    },
+    {
+        "name": "u-04",
+        "puzzle": [
+            " 2tssS",
+            "d33tss",
+            "td33tT",
+            "TDDd2S"
+        ]
+    },
+    {
+        "name": "u-05",
+        "puzzle": [
+            "SdTd2D",
+            "D23Stt",
+            "sd33tT",
+            "s2sstt"
+        ]
+    },
+    {
+        "name": "u-06",
+        "puzzle": [
+            "ssDstt",
+            "TS33tT",
+            "D33s2s",
+            "d2d Ss"
+        ]
+    },
+    {
+        "name": "u-07",
+        "puzzle": [
+            "STt2tT",
+            "st3d3t",
+            "ss33dd",
+            "sDDs2S"
+        ]
+    },
+    {
+        "name": "u-08",
+        "puzzle": [
+            "tTSddD",
+            "Ttt33s",
+            "tt2322",
+            "ttSdDs"
+        ]
+    },
+    {
+        "name": "u-09",
+        "puzzle": [
+            "Tts2ss",
+            "S23s3D",
+            "s33dd ",
+            "tTdsSD"
+        ]
+    },
+    {
+        "name": "u-10",
+        "puzzle": [
+            "sSstDD",
+            "s33ST2",
+            "T23t2d",
+            "tttddd"
+        ]
+    },
+    {
+        "name": "u-11",
+        "puzzle": [
+            "ss2Tdd",
+            "S3t3t2",
+            "ss2d3t",
+            "SDdTtD"
+        ]
+    },
+    {
+        "name": "u-12",
+        "puzzle": [
+            "ddSttT",
+            "dd322t",
+            "2tS33t",
+            "DTDsss"
+        ]
+    },
+    {
+        "name": "u-13",
+        "puzzle": [
+            "ddtS2t",
+            "2tT33s",
+            "dDt23s",
+            "DTSsss"
+        ]
+    },
+    {
+        "name": "u-14",
+        "puzzle": [
+            "tttdS ",
+            "tt332d",
+            "2dt33D",
+            "DTtTsS"
+        ]
+    },
+    {
+        "name": "u-15",
+        "puzzle": [
+            "Ss2tT ",
+            "st3sdd",
+            "T3233d",
+            "ssSDDd"
+        ]
+    },
+    {
+        "name": "u-16",
+        "puzzle": [
+            "ssst2T",
+            "S333tt",
+            "sD23Dt",
+            "ssSddT"
+        ]
+    },
+    {
+        "name": "u-17",
+        "puzzle": [
+            "ssDt2t",
+            "S2d23T",
+            "sdD4dd",
+            "Ssdt2T"
+        ]
+    },
+    {
+        "name": "u-18",
+        "puzzle": [
+            "STdddT",
+            "s2t3d2",
+            "s33D3t",
+            "Sd dDt"
+        ]
+    },
+    {
+        "name": "u-19",
+        "puzzle": [
+            "sssd2 ",
+            "t4t32s",
+            "t23DSd",
+            "TTSddD"
+        ]
+    },
+    {
+        "name": "u-20",
+        "puzzle": [
+            "S2TDD ",
+            "sT2tdt",
+            "S3333t",
+            "sssdtt"
+        ]
+    },
+    {
+        "name": "u-21",
+        "puzzle": [
+            "TttDsD",
+            "TS32s2",
+            "s3t33d",
+            "sssssS"
+        ]
+    },
+    {
+        "name": "u-22",
+        "puzzle": [
+            "DstTdt",
+            "2S332t",
+            "s3s3ST",
+            "sDd ss"
+        ]
+    },
+    {
+        "name": "u-23",
+        "puzzle": [
+            "ss2Ddd",
+            "S3s3dT",
+            "tt323t",
+            "TSsDtt"
+        ]
+    },
+    {
+        "name": "u-24",
+        "puzzle": [
+            "ddddtT",
+            "S322St",
+            "D342Tt",
+            "Dssstt"
+        ]
+    },
+    {
+        "name": "u-25",
+        "puzzle": [
+            "T tsDs",
+            "S33T3s",
+            "t3S32D",
+            "tttddd"
+        ]
+    },
+    {
+        "name": "v-01",
+        "puzzle": [
+            "D22ddD",
+            "dd34d2",
+            "d22ddd"
+        ]
+    },
+    {
+        "name": "v-02",
+        "puzzle": [
+            "D2dD2d",
+            "dd333d",
+            "d22ddd"
+        ]
+    },
+    {
+        "name": "v-03",
+        "puzzle": [
+            "D22ddd",
+            "2d34Dd",
+            "d22ddd"
+        ]
+    },
+    {
+        "name": "v-04",
+        "puzzle": [
+            "dd2ddD",
+            "d3242D",
+            "dd2d2d"
+        ]
+    },
+    {
+        "name": "v-05",
+        "puzzle": [
+            "Ddd22d",
+            "233d32",
+            "ddDddd"
+        ]
+    },
+    {
+        "name": "v-06",
+        "puzzle": [
+            "Ddd2dd",
+            "232d4d",
+            "D22ddd"
+        ]
+    },
+    {
+        "name": "v-07",
+        "puzzle": [
+            "dDd22D",
+            "d3323d",
+            "ddd2dd"
+        ]
+    },
+    {
+        "name": "v-08",
+        "puzzle": [
+            "D2dd2d",
+            "d3242D",
+            "dd2ddd"
+        ]
+    },
+    {
+        "name": "v-09",
+        "puzzle": [
+            "d22ddd",
+            "D2243d",
+            "dDdd2d"
+        ]
+    },
+    {
+        "name": "v-10",
+        "puzzle": [
+            "dddd2d",
+            "d423Dd",
+            "dd222D"
+        ]
+    },
+    {
+        "name": "v-11",
+        "puzzle": [
+            "DdDddd",
+            "2333d2",
+            "ddd22d"
+        ]
+    },
+    {
+        "name": "v-12",
+        "puzzle": [
+            "dd2d2d",
+            "d423D2",
+            "dd2ddD"
+        ]
+    },
+    {
+        "name": "v-13",
+        "puzzle": [
+            "dddddD",
+            "d3332d",
+            "dd222D"
+        ]
+    },
+    {
+        "name": "v-14",
+        "puzzle": [
+            "dd22DD",
+            "d33d32",
+            "ddd2dd"
+        ]
+    },
+    {
+        "name": "v-15",
+        "puzzle": [
+            "Dd2Ddd",
+            "23233d",
+            "dd2ddd"
+        ]
+    },
+    {
+        "name": "v-16",
+        "puzzle": [
+            "Dd2d2d",
+            "23D33d",
+            "dd2ddd"
+        ]
+    },
+    {
+        "name": "v-17",
+        "puzzle": [
+            "dd22dd",
+            "23d332",
+            "ddddDD"
+        ]
+    },
+    {
+        "name": "v-18",
+        "puzzle": [
+            "d2dddd",
+            "d3323D",
+            "ddd22D"
+        ]
+    },
+    {
+        "name": "v-19",
+        "puzzle": [
+            "ddd2Dd",
+            "d3233d",
+            "dD2d2d"
+        ]
+    },
+    {
+        "name": "v-20",
+        "puzzle": [
+            "ddd2Dd",
+            "D4223d",
+            "ddd22d"
+        ]
+    },
+    {
+        "name": "v-21",
+        "puzzle": [
+            "d2dd2D",
+            "d3423D",
+            "ddd2dd"
+        ]
+    },
+    {
+        "name": "v-22",
+        "puzzle": [
+            "dd2ddd",
+            "23333d",
+            "D2dddD"
+        ]
+    },
+    {
+        "name": "v-23",
+        "puzzle": [
+            "D2dd2d",
+            "dd343d",
+            "D22ddd"
+        ]
+    },
+    {
+        "name": "v-24",
+        "puzzle": [
+            "D222dd",
+            "d3333d",
+            "Dddddd"
+        ]
+    },
+    {
+        "name": "v-25",
+        "puzzle": [
+            "ddd2Dd",
+            "d3333d",
+            "Ddd22d"
+        ]
+    },
+    {
+        "name": "w-01",
+        "puzzle": [
+            " Dd2ttTD",
+            "ddtt32t2",
+            "d32t3d3d",
+            "ddTttttd"
+        ]
+    },
+    {
+        "name": "w-02",
+        "puzzle": [
+            "ddddS2ss",
+            "dd33ds3s",
+            " d233sDd",
+            " dDdss2S"
+        ]
+    },
+    {
+        "name": "w-03",
+        "puzzle": [
+            " dsDdsSs",
+            "2s3322ss",
+            "s3d33 ds",
+            "D ddddsS"
+        ]
+    },
+    {
+        "name": "w-04",
+        "puzzle": [
+            " ssSss2S",
+            " ssts422",
+            "sst2333t",
+            "ssstTTtt"
+        ]
+    },
+    {
+        "name": "w-05",
+        "puzzle": [
+            "ssdds2dD",
+            "sss3Ds3d",
+            "ss2sd42s",
+            "Sd2dds2S"
+        ]
+    },
+    {
+        "name": "w-06",
+        "puzzle": [
+            "dddsdddS",
+            "22ds332D",
+            "d3sdSs3s",
+            "dD2sssss"
+        ]
+    },
+    {
+        "name": "w-07",
+        "puzzle": [
+            "Ssdd ddd",
+            "s23d3sDd",
+            "s4s2ss32",
+            "ddDSsd2d"
+        ]
+    },
+    {
+        "name": "w-08",
+        "puzzle": [
+            "ssssssSd",
+            "s23Dd33d",
+            "Ss2sd32d",
+            "s s2dddD"
+        ]
+    },
+    {
+        "name": "w-09",
+        "puzzle": [
+            "sssdD dd",
+            "S3D23d2d",
+            "2ss32d4d",
+            "Ssssdddd"
+        ]
+    },
+    {
+        "name": "w-10",
+        "puzzle": [
+            "TtDd2dDt",
+            "tdd223tt",
+            "d23dt33t",
+            "ddtttTdt"
+        ]
+    },
+    {
+        "name": "w-11",
+        "puzzle": [
+            "tT2t2ddd",
+            "t323dTdd",
+            "tt4d3ddd",
+            "D2dtddD "
+        ]
+    },
+    {
+        "name": "w-12",
+        "puzzle": [
+            " ssttT2t",
+            "Ts32ss3s",
+            " 3ts4tS2",
+            "ttt2tssS"
+        ]
+    },
+    {
+        "name": "w-13",
+        "puzzle": [
+            "sssss2dD",
+            "sDdd423s",
+            "2Sd2d33S",
+            "dddddsss"
+        ]
+    },
+    {
+        "name": "w-14",
+        "puzzle": [
+            "dDd2s s ",
+            "sdSsd3ds",
+            "s3Ss333d",
+            "ss2sDd2d"
+        ]
+    },
+    {
+        "name": "w-15",
+        "puzzle": [
+            "tt2ttsss",
+            "T233ts3s",
+            "ttt3ss32",
+            "TSsssSss"
+        ]
+    },
+    {
+        "name": "w-16",
+        "puzzle": [
+            "ddds2sss",
+            "d4d3s3Ss",
+            "ddds3D22",
+            " dDSd2ss"
+        ]
+    },
+    {
+        "name": "w-17",
+        "puzzle": [
+            "ttTtss2s",
+            "t4t3s22s",
+            "tt3s32tS",
+            " SsssttT"
+        ]
+    },
+    {
+        "name": "w-18",
+        "puzzle": [
+            "ttT ssss",
+            "t3ts2s3s",
+            "t42T2s32",
+            "tttsSsSs"
+        ]
+    },
+    {
+        "name": "w-19",
+        "puzzle": [
+            " dddtDtt",
+            "TD43t22t",
+            "d3d24ttT",
+            "dd2tttt "
+        ]
+    },
+    {
+        "name": "w-20",
+        "puzzle": [
+            "SsTtt ss",
+            "2s33ts3s",
+            "s323s2Ts",
+            "sstttstS"
+        ]
+    },
+    {
+        "name": "w-21",
+        "puzzle": [
+            "tTtts2ss",
+            "t3t34sss",
+            "tt33sT2s",
+            " tts2SS "
+        ]
+    },
+    {
+        "name": "w-22",
+        "puzzle": [
+            "dDttt22T",
+            "dd3dT33t",
+            "d4dt2t3t",
+            "ddddD tt"
+        ]
+    },
+    {
+        "name": "w-23",
+        "puzzle": [
+            "tTtt ddd",
+            "ttt22D4d",
+            "T333d3dd",
+            "ttD2tdd "
+        ]
+    },
+    {
+        "name": "w-24",
+        "puzzle": [
+            "Ssdssddd",
+            "sDsd4s3d",
+            "Sss2s33d",
+            " sss222D"
+        ]
+    },
+    {
+        "name": "w-25",
+        "puzzle": [
+            "dt2ttttt",
+            "d3t3t3tt",
+            "dd422D2T",
+            "dddTdddD"
+        ]
+    },
+    {
+        "name": "x-01",
+        "puzzle": [
+            "ssSss ss",
+            "ss2s333s",
+            "ssSs22ss"
+        ]
+    },
+    {
+        "name": "x-02",
+        "puzzle": [
+            "Ss 2s2Ss",
+            "ssss324s",
+            "sssss2ss"
+        ]
+    },
+    {
+        "name": "x-03",
+        "puzzle": [
+            "Ss2sssss",
+            "ss24S32 ",
+            "ss2ssss "
+        ]
+    },
+    {
+        "name": "x-04",
+        "puzzle": [
+            "ss22sssS",
+            "sSs3333s",
+            "  ssssss"
+        ]
+    },
+    {
+        "name": "x-05",
+        "puzzle": [
+            " ss2ss2S",
+            "Ss422s3s",
+            "ssssssss"
+        ]
+    },
+    {
+        "name": "x-06",
+        "puzzle": [
+            " Ss2sssS",
+            "s2ss423s",
+            "sss2ssss"
+        ]
+    },
+    {
+        "name": "x-07",
+        "puzzle": [
+            "ss s2SsS",
+            "ss23s3s2",
+            "s2ssssss"
+        ]
+    },
+    {
+        "name": "x-08",
+        "puzzle": [
+            "Ss2sss2s",
+            "sss4232S",
+            "sssssss "
+        ]
+    },
+    {
+        "name": "x-09",
+        "puzzle": [
+            "ssS2ss s",
+            "2ssS423s",
+            "sssss2ss"
+        ]
+    },
+    {
+        "name": "x-10",
+        "puzzle": [
+            "S2ss22ss",
+            "sS3ss33s",
+            "sssssss "
+        ]
+    },
+    {
+        "name": "x-11",
+        "puzzle": [
+            "SsS ssss",
+            "s232ss4s",
+            "sss2s2ss"
+        ]
+    },
+    {
+        "name": "x-12",
+        "puzzle": [
+            " sSsssss",
+            "s3ssS24s",
+            "ss2s22ss"
+        ]
+    },
+    {
+        "name": "x-13",
+        "puzzle": [
+            "Sss2 ssS",
+            "s242ss32",
+            "ssssssss"
+        ]
+    },
+    {
+        "name": "x-14",
+        "puzzle": [
+            " ssss2Ss",
+            "s3ss233s",
+            "ssss2ssS"
+        ]
+    },
+    {
+        "name": "x-15",
+        "puzzle": [
+            "Ssssssss",
+            "S234ssss",
+            " 22ss2ss"
+        ]
+    },
+    {
+        "name": "x-16",
+        "puzzle": [
+            "SssssSss",
+            "s4223sss",
+            "ss2ss2 s"
+        ]
+    },
+    {
+        "name": "x-17",
+        "puzzle": [
+            "sss2s2sS",
+            " s4s42ss",
+            " Ss2ssss"
+        ]
+    },
+    {
+        "name": "x-18",
+        "puzzle": [
+            "s22ss Ss",
+            "ss24s32s",
+            "Ssssssss"
+        ]
+    },
+    {
+        "name": "x-19",
+        "puzzle": [
+            "sS ssssS",
+            "s33s322s",
+            "sssss2ss"
+        ]
+    },
+    {
+        "name": "x-20",
+        "puzzle": [
+            "s22sss2s",
+            "ss24ss3s",
+            "SsssSss "
+        ]
+    },
+    {
+        "name": "x-21",
+        "puzzle": [
+            "sSsssss ",
+            "s33sS23s",
+            "sss2ss2s"
+        ]
+    },
+    {
+        "name": "x-22",
+        "puzzle": [
+            "ssss2SsS",
+            "23s4s2ss",
+            "ss2ssss "
+        ]
+    },
+    {
+        "name": "x-23",
+        "puzzle": [
+            "ssss2s s",
+            "S4s3s32s",
+            "ss2Ss ss"
+        ]
+    },
+    {
+        "name": "x-24",
+        "puzzle": [
+            "sss2Ssss",
+            "s24s3S3s",
+            " 2sssss "
+        ]
+    },
+    {
+        "name": "x-25",
+        "puzzle": [
+            "s2sssssS",
+            "ss24ss32",
+            "ssSs2ss "
+        ]
+    },
+    {
+        "name": "y-01",
+        "puzzle": [
+            " Tt2t2ss",
+            "dD2s3t32",
+            "ddDTS33S",
+            "ddddtttt"
+        ]
+    },
+    {
+        "name": "y-02",
+        "puzzle": [
+            "ttSsDSss",
+            "t32dsdDs",
+            "tt33T23d",
+            " ttTd22d"
+        ]
+    },
+    {
+        "name": "y-03",
+        "puzzle": [
+            "S22tdddd",
+            "s3t4DD2d",
+            "ss3tsd2d",
+            "T2TSsddd"
+        ]
+    },
+    {
+        "name": "y-04",
+        "puzzle": [
+            "DDsssst ",
+            "dS2ss322",
+            "d4sstS32",
+            "dddT2ssT"
+        ]
+    },
+    {
+        "name": "y-05",
+        "puzzle": [
+            " sst2t2T",
+            "sS2D23dd",
+            "sSs4t3Dt",
+            "ssss2stT"
+        ]
+    },
+    {
+        "name": "y-06",
+        "puzzle": [
+            "tttTDddD",
+            "t3s2Td4d",
+            "2t3tSdd2",
+            "t2sssS2d"
+        ]
+    },
+    {
+        "name": "y-07",
+        "puzzle": [
+            "TttddSdD",
+            "tS2sd3D2",
+            "t3s2s33d",
+            "Tss s2sd"
+        ]
+    },
+    {
+        "name": "y-08",
+        "puzzle": [
+            "sss2Sttt",
+            "D32d232t",
+            "ssSd3T3t",
+            "ssddDTtt"
+        ]
+    },
+    {
+        "name": "y-09",
+        "puzzle": [
+            "dddddtss",
+            "23D223ss",
+            "t33Ds2tt",
+            "TdSssStT"
+        ]
+    },
+    {
+        "name": "y-10",
+        "puzzle": [
+            "Tttdssss",
+            "t33d3sDs",
+            "2t32D2Ss",
+            "tTd2ssSs"
+        ]
+    },
+    {
+        "name": "y-11",
+        "puzzle": [
+            "DddDtttT",
+            "233ts32S",
+            "ddS3ts3s",
+            "  ssT2ss"
+        ]
+    },
+    {
+        "name": "y-12",
+        "puzzle": [
+            "Dss2sstt",
+            "s32d33Tt",
+            "DS32s2tt",
+            "ddddtTSt"
+        ]
+    },
+    {
+        "name": "y-13",
+        "puzzle": [
+            "Ss22tttT",
+            "dDd34T3t",
+            "d2d2sss2",
+            "DdddSstt"
+        ]
+    },
+    {
+        "name": "y-14",
+        "puzzle": [
+            "TTtDDsS ",
+            "S23323ss",
+            "tts24ddd",
+            "t d2tddd"
+        ]
+    },
+    {
+        "name": "y-15",
+        "puzzle": [
+            "s SdTtDT",
+            "Ss2s33tt",
+            "D2sd324t",
+            "dddsd2tt"
+        ]
+    },
+    {
+        "name": "y-16",
+        "puzzle": [
+            "DddssdSd",
+            "d2224s3d",
+            "t3t3t2sd",
+            "T tTtDsS"
+        ]
+    },
+    {
+        "name": "y-17",
+        "puzzle": [
+            "sssSt2Dt",
+            "s33td23t",
+            "Ds24t2tt",
+            "SsdddTT "
+        ]
+    },
+    {
+        "name": "y-18",
+        "puzzle": [
+            "dSsss2ts",
+            "dd3d3T3s",
+            "d2T3tt2s",
+            "DDdttS2t"
+        ]
+    },
+    {
+        "name": "y-19",
+        "puzzle": [
+            "DddsDTtt",
+            "T33S2d2t",
+            "d3tdt23s",
+            "ttttt2Ss"
+        ]
+    },
+    {
+        "name": "y-20",
+        "puzzle": [
+            "tt2sSDdd",
+            "t4ts4s2d",
+            "Tttss3d2",
+            "Ss2TDd2d"
+        ]
+    },
+    {
+        "name": "y-21",
+        "puzzle": [
+            "sds2sTss",
+            "S33ds2DS",
+            "t2t4dd3d",
+            "DTtt2td "
+        ]
+    },
+    {
+        "name": "y-22",
+        "puzzle": [
+            "ssssttDt",
+            "SDs2334t",
+            "dd2d232t",
+            "dsSTttTt"
+        ]
+    },
+    {
+        "name": "y-23",
+        "puzzle": [
+            "tttsdd2D",
+            "T3Sss2TD",
+            "s32ts33t",
+            "ssSs2ddd"
+        ]
+    },
+    {
+        "name": "y-24",
+        "puzzle": [
+            "sSsSdddd",
+            "s4sdD24t",
+            "ss2t2322",
+            "sTtDdddT"
+        ]
+    },
+    {
+        "name": "y-25",
+        "puzzle": [
+            "ttt2dddd",
+            "D42ST23S",
+            "t23dsd3s",
+            "tttTDsss"
+        ]
+    },
+    {
+        "name": "z-01",
+        "puzzle": [
+            "SssDDddd",
+            "s2sd2T4t",
+            "s3ST332t",
+            "ssst22t "
+        ]
+    },
+    {
+        "name": "z-02",
+        "puzzle": [
+            "ttss2d2 ",
+            "t4tts32d",
+            "2ss2d33D",
+            "TsSTDddS"
+        ]
+    },
+    {
+        "name": "z-03",
+        "puzzle": [
+            "t sSsdDD",
+            "2322dd2d",
+            "t23st24T",
+            "TSssttdd"
+        ]
+    },
+    {
+        "name": "z-04",
+        "puzzle": [
+            "tt2TdddS",
+            "T2t2ds3s",
+            "23D2d4ss",
+            "tDttds2S"
+        ]
+    },
+    {
+        "name": "z-05",
+        "puzzle": [
+            "DdddDddd",
+            "tts332sd",
+            "tt3s3t22",
+            "TSs2T2sS"
+        ]
+    },
+    {
+        "name": "z-06",
+        "puzzle": [
+            "D22sddDT",
+            "s32Sd33t",
+            "ss4d2td2",
+            " SsstttT"
+        ]
+    },
+    {
+        "name": "z-07",
+        "puzzle": [
+            "t2ttT2ss",
+            "D333T23S",
+            "2t3dtsss",
+            "ddtdDS s"
+        ]
+    },
+    {
+        "name": "z-08",
+        "puzzle": [
+            "tttssDdd",
+            "t2ss333d",
+            "TTS32332",
+            "  DdsdSs"
+        ]
+    },
+    {
+        "name": "z-09",
+        "puzzle": [
+            "ttDdssss",
+            "2t233s2S",
+            "tT33s3tT",
+            "tddt2DS "
+        ]
+    },
+    {
+        "name": "z-10",
+        "puzzle": [
+            "d2DddDST",
+            "ds2ttt3t",
+            "d3St243T",
+            "dsss2t2t"
+        ]
+    },
+    {
+        "name": "z-11",
+        "puzzle": [
+            "dDsdddtt",
+            "s23dTt3t",
+            "S33S23Td",
+            "s2s2sttD"
+        ]
+    },
+    {
+        "name": "z-12",
+        "puzzle": [
+            "ssdDd2T ",
+            "ss3422dt",
+            "2Ddt42tt",
+            "SsSTt2tt"
+        ]
+    },
+    {
+        "name": "z-13",
+        "puzzle": [
+            "dddTttD ",
+            "d3d2t3td",
+            "D3tt323d",
+            "Td2Sss2S"
+        ]
+    },
+    {
+        "name": "z-14",
+        "puzzle": [
+            "T22sdddD",
+            "t22s3sdd",
+            "tT42s32d",
+            "ttDsSSss"
+        ]
+    },
+    {
+        "name": "z-15",
+        "puzzle": [
+            "ssssDddD",
+            "S3Ts33dd",
+            "sttd323T",
+            " tS222dt"
+        ]
+    },
+    {
+        "name": "z-16",
+        "puzzle": [
+            "dTdDssSD",
+            "d422d33d",
+            "t32t2dds",
+            "Tt2ttssS"
+        ]
+    },
+    {
+        "name": "z-17",
+        "puzzle": [
+            "s22tTtdD",
+            "S3332t2D",
+            "S3t3tddd",
+            "sstttTdd"
+        ]
+    },
+    {
+        "name": "z-18",
+        "puzzle": [
+            "ttTTS2dD",
+            "tD2ds23d",
+            "d3t3332s",
+            "dddtSs s"
+        ]
+    },
+    {
+        "name": "z-19",
+        "puzzle": [
+            "sssSdtTt",
+            "D4d22322",
+            "sssTD33d",
+            "sS t2tdd"
+        ]
+    },
+    {
+        "name": "z-20",
+        "puzzle": [
+            "sSSDdttd",
+            "22ssd33d",
+            "s242td32",
+            "sTttDttT"
+        ]
+    },
+    {
+        "name": "z-21",
+        "puzzle": [
+            "D2ttssss",
+            "Dd3S223s",
+            "ddd3t33s",
+            "ddTt2StT"
+        ]
+    },
+    {
+        "name": "z-22",
+        "puzzle": [
+            "ss dDTtt",
+            "Ss3sd3St",
+            "d423D23t",
+            "ds2T2tss"
+        ]
+    },
+    {
+        "name": "z-23",
+        "puzzle": [
+            "t2tdds2S",
+            "223tdd2S",
+            "T3D4D3ss",
+            "ttdTdsss"
+        ]
+    },
+    {
+        "name": "z-24",
+        "puzzle": [
+            "STsTdddS",
+            "t3d33sd2",
+            "2tD3t33d",
+            "tttt2dDd"
+        ]
+    },
+    {
+        "name": "z-25",
+        "puzzle": [
+            "TtT"
+        ]
+    }
+]
