@@ -619,6 +619,51 @@ class Solver:
 
         return None
 
+    def solve_dfs(self):
+        ''' 
+        Depth-first search.
+        Explores one branch as far as possible before backtracking.
+        '''
+
+        self.start_time = time.time()
+
+        stack = [
+            GameState.from_puzzle(self.puzzle)
+        ]
+
+        while stack:
+
+            # Check timeout
+            if self.time_exceeded():
+                self.timed_out = True
+                return None
+
+            state = stack.pop()
+
+            self.states_explored += 1
+
+            if state.is_solved():
+                self.is_solved = True
+                self.solution = state
+                return state
+
+            if not state.is_viable(self.puzzle):
+                continue
+
+            for path, moves in state.available_moves(self.puzzle):
+
+                for edge_id in moves:
+
+                    new_state = state.apply_move(
+                        self.puzzle,
+                        path,
+                        edge_id
+                    )
+
+                    stack.append(new_state)
+
+        return None
+
     def print_stats(self):
         '''Brief stats for the solver status'''
 

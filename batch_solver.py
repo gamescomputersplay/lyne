@@ -116,6 +116,6 @@ def run_solver_batch(
 
 df = run_solver_batch(
     "puzzles.json",
-    "stats-bfs.xlsx",
-    Solver.solve_bfs
+    "stats-dfs.xlsx",
+    Solver.solve_dfs
 )
