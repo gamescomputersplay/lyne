@@ -534,6 +534,24 @@ class GameState:
 
         return True
 
+    def state_hash(self):
+        ''' Hash of a state, that include nodes, edges and frontiers
+        (No need to hash paths before the frontiers)
+        '''
+        return hash(
+            (
+                tuple(self.remaining_visits),
+                tuple(self.edge_available),
+                tuple(
+                    (path.shape.value, path.current_node)
+                    for path in sorted(
+                        self.active_paths,
+                        key=lambda p: (p.shape.value, p.current_node)
+                    )
+                )
+            )
+        )
+
     def print_info(self):
         ''' List current state information: remaining visits and available edges
         '''
@@ -575,6 +593,7 @@ class Solver:
             return False
         return (time.time() - self.start_time) > self.time_limit
 
+
     def solve_bfs(self):
         ''' Breadth-first search, the simplest brute force method.
         Expected to explode even on a slightly non-trivial puzzles
@@ -582,9 +601,9 @@ class Solver:
 
         self.start_time = time.time()
 
-        queue = deque([
-            GameState.from_puzzle(self.puzzle)
-        ])
+        # Initiate the queue with teh starting GameState
+        initial = GameState.from_puzzle(self.puzzle)
+        queue = deque([initial])
 
         while queue:
 
@@ -615,6 +634,60 @@ class Solver:
                         edge_id
                     )
 
+                    # Add state to the queue if not cached
+                    queue.append(new_state)
+
+        return None
+
+    def solve_bfs_cache(self):
+        ''' Breadth-first search, the simplest brute force method.
+        Expected to explode even on a slightly non-trivial puzzles
+        '''
+
+        self.start_time = time.time()
+
+        # Initiate the queue with teh starting GameState
+        initial = GameState.from_puzzle(self.puzzle)
+        queue = deque([initial])
+
+        # Initialize the cache
+        visited = set()
+        visited.add(initial.state_hash())
+
+        while queue:
+
+            # Check timeout
+            if self.time_exceeded():
+                self.timed_out = True
+                return None
+
+            state = queue.popleft()
+
+            self.states_explored += 1
+
+            if state.is_solved():
+                self.is_solved = True
+                self.solution = state
+                return state
+
+            if not state.is_viable(self.puzzle):
+                continue
+
+            for path, moves in state.available_moves(self.puzzle):
+
+                for edge_id in moves:
+
+                    new_state = state.apply_move(
+                        self.puzzle,
+                        path,
+                        edge_id
+                    )
+
+                    # Add state to the queue if not cached
+                    state_id = new_state.state_hash()
+                    if state_id in visited:
+                        continue
+                    visited.add(state_id)
                     queue.append(new_state)
 
         return None
@@ -663,6 +736,61 @@ class Solver:
                     stack.append(new_state)
 
         return None
+
+    def solve_dfs_cache(self):
+        ''' 
+        Depth-first search.
+        Explores one branch as far as possible before backtracking.
+        '''
+
+        self.start_time = time.time()
+
+        # Initiate the queue with teh starting GameState
+        initial = GameState.from_puzzle(self.puzzle)
+        stack = deque([initial])
+
+        # Initialize the cache
+        visited = set()
+        visited.add(initial.state_hash())
+
+        while stack:
+
+            # Check timeout
+            if self.time_exceeded():
+                self.timed_out = True
+                return None
+
+            state = stack.pop()
+
+            self.states_explored += 1
+
+            if state.is_solved():
+                self.is_solved = True
+                self.solution = state
+                return state
+
+            if not state.is_viable(self.puzzle):
+                continue
+
+            for path, moves in state.available_moves(self.puzzle):
+
+                for edge_id in moves:
+
+                    new_state = state.apply_move(
+                        self.puzzle,
+                        path,
+                        edge_id
+                    )
+
+                    # Add state to the queue if not cached
+                    state_id = new_state.state_hash()
+                    if state_id in visited:
+                        continue
+                    visited.add(state_id)
+                    stack.append(new_state)
+
+        return None
+
 
     def print_stats(self):
         '''Brief stats for the solver status'''
