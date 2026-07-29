@@ -740,7 +740,7 @@ class Solver:
     def solve_dfs_cache(self):
         ''' 
         Depth-first search.
-        Explores one branch as far as possible before backtracking.
+        + Caching
         '''
 
         self.start_time = time.time()
@@ -773,6 +773,67 @@ class Solver:
                 continue
 
             for path, moves in state.available_moves(self.puzzle):
+
+                for edge_id in moves:
+
+                    new_state = state.apply_move(
+                        self.puzzle,
+                        path,
+                        edge_id
+                    )
+
+                    # Add state to the queue if not cached
+                    state_id = new_state.state_hash()
+                    if state_id in visited:
+                        continue
+                    visited.add(state_id)
+                    stack.append(new_state)
+
+        return None
+
+
+    def solve_dfs_mrv(self):
+        ''' 
+        Depth-first search.
+        + Caching
+        + MRV (Most constrained Value): Pick a frontier with fewest possible moves
+        '''
+
+        self.start_time = time.time()
+
+        # Initiate the queue with teh starting GameState
+        initial = GameState.from_puzzle(self.puzzle)
+        stack = deque([initial])
+
+        # Initialize the cache
+        visited = set()
+        visited.add(initial.state_hash())
+
+        while stack:
+
+            # Check timeout
+            if self.time_exceeded():
+                self.timed_out = True
+                return None
+
+            state = stack.pop()
+
+            self.states_explored += 1
+
+            if state.is_solved():
+                self.is_solved = True
+                self.solution = state
+                return state
+
+            if not state.is_viable(self.puzzle):
+                continue
+
+            available = state.available_moves(self.puzzle)
+
+            # Try the most constrained frontier first
+            available.sort(key=lambda item: len(item[1]))
+
+            for path, moves in available:
 
                 for edge_id in moves:
 
