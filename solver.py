@@ -23,12 +23,17 @@ puzzle_b1 = [
     "2 ",
     "TT",
 ]
-# puzzle_b14 = [
-#     "T2t",
-#     "DdT",
-#     "2DS",
-#     "Ss ",
-# ]
+puzzle_e10 = [
+            "TSsDd",
+            "222Sd",
+            " t2TD"
+        ]
+puzzle_a20 = [
+            "ttT",
+            "d2D",
+            "dtT",
+            "d2D"
+        ]
 
 class NodeShape(Enum):
     ''' Enumeration for the node shapes
@@ -384,9 +389,13 @@ class GameState:
         def can_enter_node(path, destination):
             ''' Can a path go into that destination node
             '''
+            destination_shape = puzzle.nodes[destination].shape
+            if destination_shape != NodeShape.ANY and destination_shape != path.shape:
+                return False
             # Node has remaining visits - legit
             if self.remaining_visits[destination] > 0:
                 return True
+
 
             # If does not have remaining visits,
             # but it is a frontier of the same shape - legit
@@ -820,11 +829,6 @@ class Solver:
 
             self.states_explored += 1
 
-            if state.is_solved():
-                self.is_solved = True
-                self.solution = state
-                return state
-
             if not state.is_viable(self.puzzle):
                 continue
 
@@ -849,6 +853,11 @@ class Solver:
                         continue
                     visited.add(state_id)
                     stack.append(new_state)
+
+                    if new_state.is_solved():
+                        self.is_solved = True
+                        self.solution = new_state
+                        return new_state
 
         return None
 
@@ -875,9 +884,10 @@ def main():
     '''
 
     # Solve one puzzle
-    puzzle = Puzzle(puzzle_b1, verbose=False)
+    puzzle = Puzzle(puzzle_a20, verbose=True)
     solver = Solver(puzzle)
-    solver.solve_bfs()
+
+    solver.solve_dfs_mrv()
     solver.print_stats()
     human_solution = puzzle.export_solution(solver.solution)
     for line in human_solution:
