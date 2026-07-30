@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from enum import Enum, auto
 from collections import defaultdict, deque
 import time
+import json
 
 ## Legend:
 # d|s|t - diamond | square | triangle - basic node
@@ -12,27 +13,16 @@ import time
 # 2|3|4 - no shape node that has to be visited that many times
 # [space] - no node
 
-puzzle_f20 = [
-    "T sSS",
-    "tts3s",
-    "tT22d",
-    "Dd22D",
-]
+
 puzzle_b1 = [
     "tt",
     "2 ",
     "TT",
 ]
-puzzle_e10 = [
-            "TSsDd",
-            "222Sd",
-            " t2TD"
-        ]
-puzzle_a20 = [
-            "ttT",
-            "d2D",
-            "dtT",
-            "d2D"
+puzzle_e23 = [
+            "tdD2s",
+            "T2222",
+            "DSTS "
         ]
 
 class NodeShape(Enum):
@@ -778,8 +768,6 @@ class Solver:
                 self.solution = state
                 return state
 
-            if not state.is_viable(self.puzzle):
-                continue
 
             for path, moves in state.available_moves(self.puzzle):
 
@@ -796,6 +784,8 @@ class Solver:
                     if state_id in visited:
                         continue
                     visited.add(state_id)
+                    if not new_state.is_viable(self.puzzle):
+                        continue
                     stack.append(new_state)
 
         return None
@@ -829,13 +819,10 @@ class Solver:
 
             self.states_explored += 1
 
-            if not state.is_viable(self.puzzle):
-                continue
-
             available = state.available_moves(self.puzzle)
 
-            # Try the most constrained frontier first
-            available.sort(key=lambda item: len(item[1]))
+            # Try the  constrained frontier (one available move) first
+            available.sort(key=lambda item: len(item[1]) != 1)
 
             for path, moves in available:
 
@@ -852,12 +839,75 @@ class Solver:
                     if state_id in visited:
                         continue
                     visited.add(state_id)
+                    if not new_state.is_viable(self.puzzle):
+                        continue
                     stack.append(new_state)
 
                     if new_state.is_solved():
                         self.is_solved = True
                         self.solution = new_state
                         return new_state
+
+        return None
+
+    def choose_next_state(self, stack):
+        # self.counter += 1
+        # print(len(stack))
+        if len(stack) % 100 == 0:
+             return stack.pop(0)
+        return stack.pop()
+
+    def solve_dfs_diverse(self):
+        ''' 
+        Depth-first search.
+        + Caching
+        '''
+
+        self.start_time = time.time()
+
+        # Initiate the queue with teh starting GameState
+        initial = GameState.from_puzzle(self.puzzle)
+        stack = [initial,]
+
+        # Initialize the cache
+        visited = set()
+        visited.add(initial.state_hash())
+
+        while stack:
+
+            # Check timeout
+            if self.time_exceeded():
+                self.timed_out = True
+                return None
+
+            state = self.choose_next_state(stack)
+
+            self.states_explored += 1
+
+            if state.is_solved():
+                self.is_solved = True
+                self.solution = state
+                return state
+
+            if not state.is_viable(self.puzzle):
+                continue
+
+            for path, moves in state.available_moves(self.puzzle):
+
+                for edge_id in moves:
+
+                    new_state = state.apply_move(
+                        self.puzzle,
+                        path,
+                        edge_id
+                    )
+
+                    # Add state to the queue if not cached
+                    state_id = new_state.state_hash()
+                    if state_id in visited:
+                        continue
+                    visited.add(state_id)
+                    stack.append(new_state)
 
         return None
 
@@ -882,12 +932,18 @@ class Solver:
 def main():
     ''' Lyne solver
     '''
+    puzzle_file = "puzzles.json"
+    with open(puzzle_file, "r", encoding="utf-8") as f:
+        puzzles = json.load(f)
+        for puzzle in puzzles:
+            if puzzle["name"] == "f-02":
+                puzzle_text = puzzle["puzzle"]
 
     # Solve one puzzle
-    puzzle = Puzzle(puzzle_a20, verbose=True)
+    puzzle = Puzzle(puzzle_text, verbose=True)
     solver = Solver(puzzle)
 
-    solver.solve_dfs_mrv()
+    solver.solve_dfs_diverse()
     solver.print_stats()
     human_solution = puzzle.export_solution(solver.solution)
     for line in human_solution:
