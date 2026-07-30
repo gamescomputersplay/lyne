@@ -434,6 +434,15 @@ class GameState:
                 return path
         return None
 
+    def find_destination_for_move(self, puzzle, path, edge_id):
+        # Find destination node
+        a, b = puzzle.edges[edge_id]
+        if path.current_node == a:
+            destination = b
+        else:
+            destination = a
+        return destination
+
     def apply_move(self, puzzle, path, edge_id):
         ''' Create a new state with a move applied.
         input: the puzzle,
@@ -447,13 +456,7 @@ class GameState:
         path_index = self.active_paths.index(path)
         new_path = new_state.active_paths[path_index]
 
-        # Find destination node
-        a, b = puzzle.edges[edge_id]
-
-        if new_path.current_node == a:
-            destination = b
-        else:
-            destination = a
+        destination = self.find_destination_for_move(puzzle, path, edge_id)
 
         # Consume destination visit
         if new_state.remaining_visits[destination] > 0:
@@ -790,6 +793,67 @@ class Solver:
 
         return None
 
+    def solve_dfs_lcv(self):
+        ''' 
+        Depth-first search.
+        + Caching
+        '''
+
+        self.start_time = time.time()
+
+        # Initiate the queue with teh starting GameState
+        initial = GameState.from_puzzle(self.puzzle)
+        stack = deque([initial])
+
+        # Initialize the cache
+        visited = set()
+        visited.add(initial.state_hash())
+
+        while stack:
+
+            # Check timeout
+            if self.time_exceeded():
+                self.timed_out = True
+                return None
+
+            state = stack.pop()
+
+            self.states_explored += 1
+
+            for path, moves in state.available_moves(self.puzzle):
+
+                # Prefer the move to a node with more remaining visits
+                moves.sort(
+                    key=lambda edge_id: state.remaining_visits[
+                        state.find_destination_for_move(self.puzzle, path, edge_id)
+                    ],
+                    reverse=True
+                )
+
+                for edge_id in moves:
+
+                    new_state = state.apply_move(
+                        self.puzzle,
+                        path,
+                        edge_id
+                    )
+
+                    if new_state.is_solved():
+                        self.is_solved = True
+                        self.solution = new_state
+                        return new_state
+
+                    # Add state to the queue if not cached
+                    state_id = new_state.state_hash()
+                    if state_id in visited:
+                        continue
+                    visited.add(state_id)
+                    if not new_state.is_viable(self.puzzle):
+                        continue
+                    stack.append(new_state)
+
+        return None
+
 
     def solve_dfs_mrv(self):
         ''' 
@@ -943,7 +1007,7 @@ def main():
     puzzle = Puzzle(puzzle_text, verbose=True)
     solver = Solver(puzzle)
 
-    solver.solve_dfs_diverse()
+    solver.solve_dfs_lcv()
     solver.print_stats()
     human_solution = puzzle.export_solution(solver.solution)
     for line in human_solution:
