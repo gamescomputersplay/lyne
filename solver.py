@@ -497,9 +497,9 @@ class GameState:
             new_state.edge_available[overlapping_edge] = False
 
         # # If no remaining visits at source node, disable all edges from there
-        # if self.remaining_visits[source] == 0:
-        #     for edge_id_to_disable in puzzle.node_edges[source]:
-        #         new_state.edge_available[edge_id_to_disable] = False
+        if self.remaining_visits[source] == 0:
+            for edge_id_to_disable in puzzle.node_edges[source]:
+                new_state.edge_available[edge_id_to_disable] = False
 
         # Extend path
         new_path.current_node = destination
@@ -1031,7 +1031,7 @@ def main():
     with open(puzzle_file, "r", encoding="utf-8") as f:
         puzzles = json.load(f)
         for puzzle in puzzles:
-            if puzzle["name"] == "a-01":
+            if puzzle["name"] == "h-14":
                 puzzle_text = puzzle["puzzle"]
 
     # Solve one puzzle
