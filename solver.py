@@ -837,7 +837,7 @@ class Solver:
                             edge_id
                         )
                     )
-            candidate_moves.sort(key=lambda x: x[0], reverse=True)
+            random.shuffle(candidate_moves)
 
             for _, path, edge_id in candidate_moves:
                     
@@ -894,9 +894,7 @@ class Solver:
 
             available = state.available_moves(self.puzzle)
             # Try the  constrained frontier (one available move) first
-            # available.sort(key=lambda item: len(item[1]) != 1)
-            import random
-            random.shuffle(available)
+            available.sort(key=lambda item: len(item[1]) != 1)
             #print(len(stack))
 
             for path, moves in available:
@@ -928,8 +926,9 @@ class Solver:
     def choose_next_state(self, stack):
         # self.counter += 1
         # print(len(stack))
-        if len(stack) % 100 == 0:
-             return stack.pop(0)
+        #if random.random() < 0.01:  # 10% chance to pick the first element
+        if self.states_explored % 100 == 0:  # Every 100 states, pick the first element 
+            return stack.pop(0)
         return stack.pop()
 
     def solve_dfs_diverse(self):
@@ -1011,7 +1010,7 @@ def main():
     with open(puzzle_file, "r", encoding="utf-8") as f:
         puzzles = json.load(f)
         for puzzle in puzzles:
-            if puzzle["name"] == "e-23":
+            if puzzle["name"] == "f-22":
                 puzzle_text = puzzle["puzzle"]
 
     # Solve one puzzle
