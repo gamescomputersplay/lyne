@@ -113,8 +113,11 @@ def run_solver_batch(
 
     return pd.DataFrame(results)
 
-puzzles_file = "puzzles a-f.json"
+puzzles_file = "puzzles a-h.json"
 
+run_solver_batch(puzzles_file,
+    "solve_dfs_diverse.xlsx",
+    Solver.solve_dfs_diverse)
 
 run_solver_batch(puzzles_file,
     "stats_dfs_lcv.xlsx",
@@ -141,6 +144,3 @@ run_solver_batch(puzzles_file,
     "stats_dfs_mrv.xlsx",
     Solver.solve_dfs_mrv)
 
-run_solver_batch(puzzles_file,
-    "solve_dfs_diverse.xlsx",
-    Solver.solve_dfs_diverse)

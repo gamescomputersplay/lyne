@@ -923,11 +923,8 @@ class Solver:
 
         return None
 
-    def choose_next_state(self, stack):
-        # self.counter += 1
-        # print(len(stack))
-        #if random.random() < 0.01:  # 10% chance to pick the first element
-        if self.states_explored % 100 == 0:  # Every 100 states, pick the first element 
+    def choose_next_state(self, stack, reset_every=100):
+        if self.states_explored % reset_every == 0:  # Every `reset_every` states, pick the first element
             return stack.pop(0)
         return stack.pop()
 
@@ -954,7 +951,7 @@ class Solver:
                 self.timed_out = True
                 return None
 
-            state = self.choose_next_state(stack)
+            state = self.choose_next_state(stack, reset_every=int(len(self.puzzle.nodes)*1.1))
 
             self.states_explored += 1
 
@@ -1015,9 +1012,9 @@ def main():
 
     # Solve one puzzle
     puzzle = Puzzle(puzzle_text, verbose=True)
-    solver = Solver(puzzle)
+    solver = Solver(puzzle, time_limit=20)
 
-    solver.solve_dfs_mrv()
+    solver.solve_dfs_diverse()
     solver.print_stats()
     human_solution = puzzle.export_solution(solver.solution)
     for line in human_solution:
