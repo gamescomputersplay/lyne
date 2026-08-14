@@ -456,6 +456,7 @@ class GameState:
         path_index = self.active_paths.index(path)
         new_path = new_state.active_paths[path_index]
 
+        source = new_path.current_node
         destination = self.find_destination_for_move(puzzle, path, edge_id)
 
         # Consume destination visit
@@ -495,6 +496,11 @@ class GameState:
             overlapping_edge = puzzle.edge_overlaps[edge_id]
             new_state.edge_available[overlapping_edge] = False
 
+        # # If no remaining visits at source node, disable all edges from there
+        # if self.remaining_visits[source] == 0:
+        #     for edge_id_to_disable in puzzle.node_edges[source]:
+        #         new_state.edge_available[edge_id_to_disable] = False
+
         # Extend path
         new_path.current_node = destination
         new_path.edges.append(edge_id)
@@ -510,6 +516,20 @@ class GameState:
             # All paths were connected
             and len(self.active_paths) == 0
         )
+
+    def is_viable_by_shapes(self, puzzle):
+        ''' Compare the shapes of the remaining nodes and the shapes of the active paths.
+        If there are shapes in remaining nodes, but not in active paths, the puzzle is not viable.
+        '''
+        shapes_in_puzzle = set()
+        for node in puzzle.nodes:
+            if self.remaining_visits[node.id] > 0 and node.shape != NodeShape.ANY:
+                shapes_in_puzzle.add(node.shape)
+        shapes_in_paths = set()
+        for path in self.active_paths:
+            shapes_in_paths.add(path.shape)
+        return shapes_in_puzzle <= shapes_in_paths
+        
 
     def is_viable(self, puzzle):
         '''Return False if the puzzle can no longer be solved.
@@ -533,6 +553,10 @@ class GameState:
         for _, moves in self.available_moves(puzzle):
             if len(moves) == 0:
                 return False
+
+        # Check that the shapes of the remaining nodes and the active paths match
+        if not self.is_viable_by_shapes(puzzle):
+            return False
 
         return True
 
@@ -1007,7 +1031,7 @@ def main():
     with open(puzzle_file, "r", encoding="utf-8") as f:
         puzzles = json.load(f)
         for puzzle in puzzles:
-            if puzzle["name"] == "f-22":
+            if puzzle["name"] == "a-01":
                 puzzle_text = puzzle["puzzle"]
 
     # Solve one puzzle
