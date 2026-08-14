@@ -820,18 +820,27 @@ class Solver:
 
             self.states_explored += 1
 
+            candidate_moves = []
+
             for path, moves in state.available_moves(self.puzzle):
-
-                # Prefer the move to a node with more remaining visits
-                moves.sort(
-                    key=lambda edge_id: state.remaining_visits[
-                        state.find_destination_for_move(self.puzzle, path, edge_id)
-                    ],
-                    reverse=True
-                )
-
                 for edge_id in moves:
+                    destination = state.find_destination_for_move(
+                        self.puzzle,
+                        path,
+                        edge_id
+                    )
 
+                    candidate_moves.append(
+                        (
+                            state.remaining_visits[destination],
+                            path,
+                            edge_id
+                        )
+                    )
+            candidate_moves.sort(key=lambda x: x[0], reverse=True)
+
+            for _, path, edge_id in candidate_moves:
+                    
                     new_state = state.apply_move(
                         self.puzzle,
                         path,
@@ -884,9 +893,11 @@ class Solver:
             self.states_explored += 1
 
             available = state.available_moves(self.puzzle)
-
             # Try the  constrained frontier (one available move) first
-            available.sort(key=lambda item: len(item[1]) != 1)
+            # available.sort(key=lambda item: len(item[1]) != 1)
+            import random
+            random.shuffle(available)
+            #print(len(stack))
 
             for path, moves in available:
 
@@ -1000,14 +1011,14 @@ def main():
     with open(puzzle_file, "r", encoding="utf-8") as f:
         puzzles = json.load(f)
         for puzzle in puzzles:
-            if puzzle["name"] == "f-02":
+            if puzzle["name"] == "e-23":
                 puzzle_text = puzzle["puzzle"]
 
     # Solve one puzzle
     puzzle = Puzzle(puzzle_text, verbose=True)
     solver = Solver(puzzle)
 
-    solver.solve_dfs_lcv()
+    solver.solve_dfs_mrv()
     solver.print_stats()
     human_solution = puzzle.export_solution(solver.solution)
     for line in human_solution:

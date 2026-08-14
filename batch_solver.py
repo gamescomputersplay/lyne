@@ -117,6 +117,10 @@ puzzles_file = "puzzles.json"
 
 
 run_solver_batch(puzzles_file,
+    "solve_dfs_lcv.xlsx",
+    Solver.solve_dfs_lcv)
+
+run_solver_batch(puzzles_file,
     "stats_bfs.xlsx",
     Solver.solve_bfs)
 
