@@ -76,8 +76,8 @@ def run_solver_batch(
 
             result = {
                 "name": name,
-                "solved": solver.solution is not None,
-                "timed_out": solver.timed_out,
+                "solved": 0 if solver.solution is None else 1,
+                "timed_out": 1 if solver.timed_out else 0,
                 "time_seconds": round(elapsed, 3),
                 "states_explored": solver.states_explored
             }
@@ -117,8 +117,12 @@ puzzles_file = "puzzles.json"
 
 
 run_solver_batch(puzzles_file,
-    "solve_dfs_lcv.xlsx",
+    "stats_dfs_lcv.xlsx",
     Solver.solve_dfs_lcv)
+
+run_solver_batch(puzzles_file,
+    "stats_dfs_cache.xlsx",
+    Solver.solve_dfs_cache)
 
 run_solver_batch(puzzles_file,
     "stats_bfs.xlsx",
@@ -132,9 +136,6 @@ run_solver_batch(puzzles_file,
     "stats_dfs.xlsx",
     Solver.solve_dfs)
 
-run_solver_batch(puzzles_file,
-    "stats_dfs_cache.xlsx",
-    Solver.solve_dfs_cache)
 
 run_solver_batch(puzzles_file,
     "stats_dfs_mrv.xlsx",
