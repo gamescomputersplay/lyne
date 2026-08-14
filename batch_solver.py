@@ -116,31 +116,13 @@ def run_solver_batch(
 puzzles_file = "puzzles.json"
 
 run_solver_batch(puzzles_file,
-    "solve_dfs_diverse.xlsx",
-    Solver.solve_dfs_diverse)
-
-run_solver_batch(puzzles_file,
-    "stats_dfs_lcv.xlsx",
-    Solver.solve_dfs_lcv)
-
-run_solver_batch(puzzles_file,
-    "stats_dfs_cache.xlsx",
-    Solver.solve_dfs_cache)
+    "solve_dfs_restart.xlsx",
+    Solver.solve_dfs_restart)
 
 run_solver_batch(puzzles_file,
     "stats_bfs.xlsx",
     Solver.solve_bfs)
 
 run_solver_batch(puzzles_file,
-    "stats_bfs_cache.xlsx",
-    Solver.solve_bfs_cache)
-
-run_solver_batch(puzzles_file,
     "stats_dfs.xlsx",
     Solver.solve_dfs)
-
-
-run_solver_batch(puzzles_file,
-    "stats_dfs_mrv.xlsx",
-    Solver.solve_dfs_mrv)
-
