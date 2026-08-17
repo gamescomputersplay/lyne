@@ -67,7 +67,7 @@ def run_solver_batch(
                 verbose=False
             )
 
-            solver = Solver(puzzle)
+            solver = Solver(puzzle, time_limit=timeout)
 
             solver_method(solver)
 
