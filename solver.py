@@ -729,10 +729,12 @@ class Solver:
 
 
     def choose_next_state(self, stack, reset_every=100):
+        if self.states_explored < 1000:
+            return stack.pop(0)
         if self.states_explored % reset_every:
             return stack.pop()
         depths = [1]
-        depths = [0.10, 0.25, 0.10, 0.25, 0.10, 0.5, 0.10, 0.25, 0.10, 0.25, 0.10, 1] #617
+        depths = [0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.75, 1] #620
 
         depth = depths[(self.states_explored // reset_every) % len(depths)]
         idx = int((1 - depth) * len(stack))

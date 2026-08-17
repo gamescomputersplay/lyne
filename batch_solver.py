@@ -117,12 +117,12 @@ puzzles_file = "puzzles.json"
 
 run_solver_batch(puzzles_file,
     "solve_dfs_restart.xlsx",
-    Solver.solve_dfs_restart)
+    Solver.solve_dfs_restart, timeout=10)
 
 run_solver_batch(puzzles_file,
     "stats_bfs.xlsx",
-    Solver.solve_bfs)
+    Solver.solve_bfs, timeout=10)
 
 run_solver_batch(puzzles_file,
     "stats_dfs.xlsx",
-    Solver.solve_dfs)
+    Solver.solve_dfs, timeout=10)
