@@ -732,8 +732,7 @@ class Solver:
         if self.states_explored % reset_every:
             return stack.pop()
         depths = [1]
-        depths = [0.10, 0.25, 0.10, 0.25, 0.10, 0.25, 0.10, 0.50, 0.10, 0.25, 0.10, 0.75, 1]
-        depths = [0.25, 0.5, 0.25, 0.5, 0.25, 1]
+        depths = [0.10, 0.25, 0.10, 0.25, 0.10, 0.5, 0.10, 0.25, 0.10, 0.25, 0.10, 1] #617
 
         depth = depths[(self.states_explored // reset_every) % len(depths)]
         idx = int((1 - depth) * len(stack))
@@ -761,7 +760,7 @@ class Solver:
                 self.timed_out = True
                 return None
 
-            state = self.choose_next_state(stack, reset_every=int(len(self.puzzle.nodes)))
+            state = self.choose_next_state(stack, reset_every=int(len(self.puzzle.nodes))*1)
 
             self.states_explored += 1
 
@@ -817,7 +816,7 @@ def main():
     with open(puzzle_file, "r", encoding="utf-8") as f:
         puzzles = json.load(f)
         for puzzle in puzzles:
-            if puzzle["name"] == "n-25":
+            if puzzle["name"] == "u-01":
                 puzzle_text = puzzle["puzzle"]
 
     # Solve one puzzle
