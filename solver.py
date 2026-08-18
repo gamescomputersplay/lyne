@@ -6,6 +6,7 @@ from enum import Enum, auto
 from collections import defaultdict, deque
 import time
 import json
+import random
 
 ## Legend:
 # d|s|t - diamond | square | triangle - basic node
@@ -401,10 +402,12 @@ class GameState:
 
         result = []
 
+        random.shuffle(self.active_paths)
         for path in self.active_paths:
             moves = []
             current = path.current_node
 
+            random.shuffle(puzzle.node_edges[current])
             for edge_id in puzzle.node_edges[current]:
                 if not self.edge_available[edge_id]:
                     continue
@@ -611,6 +614,8 @@ class Solver:
         self.time_limit = time_limit
         self.start_time = None
         self.timed_out = False
+
+        random.seed(0)
 
     def time_exceeded(self):
         '''Check whether the solver has exceeded its time limit.
