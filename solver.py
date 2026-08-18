@@ -532,7 +532,7 @@ class GameState:
         for path in self.active_paths:
             shapes_in_paths.add(path.shape)
         return shapes_in_puzzle <= shapes_in_paths
-        
+
 
     def is_viable(self, puzzle):
         '''Return False if the puzzle can no longer be solved.
@@ -733,15 +733,26 @@ class Solver:
 
 
 
-    def choose_next_state(self, stack, reset_every=100):
-        if self.states_explored < 1000:
-            return stack.pop(0)
-        if self.states_explored % reset_every:
-            return stack.pop()
-        depths = [1]
-        depths = [0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.75, 1] #620
+    def choose_next_state(self, stack):
+        puzzle_size = len(self.puzzle.nodes)
 
-        depth = depths[(self.states_explored // reset_every) % len(depths)]
+        # BFS in the beginning
+        if self.states_explored < puzzle_size * 20:
+            return stack.pop(0)
+        # BFS done, shuffle those states
+        if self.states_explored == puzzle_size * 20:
+            random.shuffle(stack)
+            return stack.pop()
+
+        # Most of the time - DFS
+        if self.states_explored % int(puzzle_size):
+            return stack.pop()
+
+        # But occasionally, reset to a previous state, or even to the one of teh BFS states
+        depths = [1]
+        depths = [0.10, 0.25, 0.5] * 3 + [0.75, 1] 
+
+        depth = depths[(self.states_explored // puzzle_size) % len(depths)]
         idx = int((1 - depth) * len(stack))
         return stack.pop(idx)
 
@@ -767,7 +778,7 @@ class Solver:
                 self.timed_out = True
                 return None
 
-            state = self.choose_next_state(stack, reset_every=int(len(self.puzzle.nodes))*1)
+            state = self.choose_next_state(stack)
 
             self.states_explored += 1
 
