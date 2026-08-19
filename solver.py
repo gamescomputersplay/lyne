@@ -615,8 +615,6 @@ class Solver:
         self.start_time = None
         self.timed_out = False
 
-        random.seed(0)
-
     def time_exceeded(self):
         '''Check whether the solver has exceeded its time limit.
         '''
@@ -737,20 +735,20 @@ class Solver:
         puzzle_size = len(self.puzzle.nodes)
 
         # BFS in the beginning
-        if self.states_explored < puzzle_size * 20:
+        if self.states_explored < puzzle_size**2 * 2:
             return stack.pop(0)
         # BFS done, shuffle those states
-        if self.states_explored == puzzle_size * 20:
+        if self.states_explored == puzzle_size**2 * 2:
             random.shuffle(stack)
             return stack.pop()
 
         # Most of the time - DFS
-        if self.states_explored % int(puzzle_size):
+        if self.states_explored % puzzle_size:
             return stack.pop()
 
         # But occasionally, reset to a previous state, or even to the one of teh BFS states
         depths = [1]
-        depths = [0.10, 0.25, 0.5] * 3 + [0.75, 1] 
+        depths = [0.10, 0.25, 0.5] * (len(str(len(stack)))-1) + [0.75, 1] 
 
         depth = depths[(self.states_explored // puzzle_size) % len(depths)]
         idx = int((1 - depth) * len(stack))
@@ -760,7 +758,7 @@ class Solver:
         ''' 
         Depth-first search with custom logic to choose the next state (regular restarts)
         '''
-
+        random.seed(0)
         self.start_time = time.time()
 
         # Initiate the queue with teh starting GameState
@@ -834,7 +832,7 @@ def main():
     with open(puzzle_file, "r", encoding="utf-8") as f:
         puzzles = json.load(f)
         for puzzle in puzzles:
-            if puzzle["name"] == "u-01":
+            if puzzle["name"] == "w-16":
                 puzzle_text = puzzle["puzzle"]
 
     # Solve one puzzle
