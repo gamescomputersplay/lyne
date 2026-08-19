@@ -1,3 +1,6 @@
+''' Batch testing of the Lyne solver on all 650 puzzles
+'''
+
 import json
 import time
 from pathlib import Path
@@ -60,41 +63,25 @@ def run_solver_batch(
 
         start = time.time()
 
-        try:
+        puzzle = Puzzle(
+            item["puzzle"],
+            verbose=False
+        )
 
-            puzzle = Puzzle(
-                item["puzzle"],
-                verbose=False
-            )
+        solver = Solver(puzzle, time_limit=timeout)
 
-            solver = Solver(puzzle, time_limit=timeout)
+        solver_method(solver)
 
-            solver_method(solver)
-
-            elapsed = time.time() - start
+        elapsed = time.time() - start
 
 
-            result = {
-                "name": name,
-                "solved": 0 if solver.solution is None else 1,
-                "timed_out": 1 if solver.timed_out else 0,
-                "time_seconds": round(elapsed, 3),
-                "states_explored": solver.states_explored
-            }
-
-
-        except Exception as e:
-
-            # Keep going if one puzzle breaks
-            result = {
-                "name": name,
-                "solved": False,
-                "timed_out": False,
-                "time_seconds": None,
-                "states_explored": None,
-                "error": str(e)
-            }
-
+        result = {
+            "name": name,
+            "solved": 0 if solver.solution is None else 1,
+            "timed_out": 1 if solver.timed_out else 0,
+            "time_seconds": round(elapsed, 3),
+            "states_explored": solver.states_explored
+        }
 
         results.append(result)
 
@@ -113,16 +100,16 @@ def run_solver_batch(
 
     return pd.DataFrame(results)
 
-puzzles_file = "puzzles.json"
+PUZZLE_FILE = "puzzles.json"
 
-run_solver_batch(puzzles_file,
+run_solver_batch(PUZZLE_FILE,
     "solve_dfs_restart.xlsx",
     Solver.solve_dfs_restart, timeout=10)
 
-run_solver_batch(puzzles_file,
+run_solver_batch(PUZZLE_FILE,
     "stats_bfs.xlsx",
     Solver.solve_bfs, timeout=10)
 
-run_solver_batch(puzzles_file,
+run_solver_batch(PUZZLE_FILE,
     "stats_dfs.xlsx",
     Solver.solve_dfs, timeout=10)

@@ -15,17 +15,6 @@ import random
 # [space] - no node
 
 
-puzzle_b1 = [
-    "tt",
-    "2 ",
-    "TT",
-]
-puzzle_e23 = [
-            "tdD2s",
-            "T2222",
-            "DSTS "
-        ]
-
 class NodeShape(Enum):
     ''' Enumeration for the node shapes
     '''
@@ -438,7 +427,8 @@ class GameState:
         return None
 
     def find_destination_for_move(self, puzzle, path, edge_id):
-        # Find destination node
+        ''' Given path and edge (move parameters), find destination node
+        '''
         a, b = puzzle.edges[edge_id]
         if path.current_node == a:
             destination = b
@@ -732,6 +722,9 @@ class Solver:
 
 
     def choose_next_state(self, stack):
+        ''' In the "reset state" strategy, choose next state
+        (BFS, then DFS, sometimes reset to a previous state)
+        '''
         puzzle_size = len(self.puzzle.nodes)
 
         # BFS in the beginning
@@ -748,7 +741,7 @@ class Solver:
 
         # But occasionally, reset to a previous state, or even to the one of teh BFS states
         depths = [1]
-        depths = [0.10, 0.25, 0.5] * (len(str(len(stack)))-1) + [0.75, 1] 
+        depths = [0.10, 0.25, 0.5] * (len(str(len(stack)))-1) + [0.75, 1]
 
         depth = depths[(self.states_explored // puzzle_size) % len(depths)]
         idx = int((1 - depth) * len(stack))
@@ -829,6 +822,7 @@ def main():
     ''' Lyne solver
     '''
     puzzle_file = "puzzles.json"
+    puzzle_text = ""
     with open(puzzle_file, "r", encoding="utf-8") as f:
         puzzles = json.load(f)
         for puzzle in puzzles:
