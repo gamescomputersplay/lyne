@@ -97,6 +97,10 @@ def run_solver_batch(
 
         print(result)
 
+    # Print stats summary
+    solved_count = sum(r["solved"] for r in results)
+    print(f"Total puzzles solved: {solved_count} / {len(puzzles)}",
+          f" ({solved_count / len(puzzles) * 100:.1f}%)")
 
     return pd.DataFrame(results)
 
@@ -106,10 +110,10 @@ run_solver_batch(PUZZLE_FILE,
     "solve_dfs_restart.xlsx",
     Solver.solve_dfs_restart, timeout=10)
 
-run_solver_batch(PUZZLE_FILE,
-    "stats_bfs.xlsx",
-    Solver.solve_bfs, timeout=10)
+# run_solver_batch(PUZZLE_FILE,
+#     "stats_bfs.xlsx",
+#     Solver.solve_bfs, timeout=10)
 
-run_solver_batch(PUZZLE_FILE,
-    "stats_dfs.xlsx",
-    Solver.solve_dfs, timeout=10)
+# run_solver_batch(PUZZLE_FILE,
+#     "stats_dfs.xlsx",
+#     Solver.solve_dfs, timeout=10)
