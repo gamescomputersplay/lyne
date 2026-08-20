@@ -849,10 +849,10 @@ class Solver:
         puzzle_size = len(self.puzzle.nodes)
 
         # BFS in the beginning
-        if self.states_explored < puzzle_size**2 * 2:
+        if self.states_explored < puzzle_size**2 * 5:
             return stack.pop(0)
         # BFS done, shuffle those states
-        if self.states_explored == puzzle_size**2 * 2:
+        if self.states_explored == puzzle_size**2 * 5:
             random.shuffle(stack)
             return stack.pop()
 
@@ -862,7 +862,7 @@ class Solver:
 
         # But occasionally, reset to a previous state, or even to the one of teh BFS states
         depths = [1]
-        depths = [0.10, 0.25, 0.5] * (len(str(len(stack)))-1) + [0.75, 1]
+        depths = [0.10, 0.25, 0.5] * 3 + [0.75, 1]
 
         depth = depths[(self.states_explored // puzzle_size) % len(depths)]
         idx = int((1 - depth) * len(stack))
@@ -946,7 +946,7 @@ def main():
     ''' Lyne solver
     '''
     puzzle_file = "puzzles.json"
-    puzzle_name = "w-03"
+    puzzle_name = "f-01"
     puzzle_text = ""
     with open(puzzle_file, "r", encoding="utf-8") as f:
         puzzles = json.load(f)
@@ -956,17 +956,13 @@ def main():
 
     # Solve one puzzle
     puzzle = Puzzle(puzzle_text, verbose=True)
-    solver = Solver(puzzle, time_limit=20)
+    solver = Solver(puzzle, time_limit=100)
 
     solver.solve_dfs_restart()
     solver.print_stats()
     human_solution = puzzle.export_solution(solver.solution)
     for line in human_solution:
         print(line)
-
-    from batch_solver import save_puzzle
-    if solver.solution is not None:
-        save_puzzle(puzzle_name, puzzle_text, human_solution)
 
 if __name__ == "__main__":
     main()
