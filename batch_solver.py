@@ -9,6 +9,34 @@ import pandas as pd
 
 from solver import Solver, Puzzle
 
+def save_puzzle(puzzle_name, puzzle_text, solution, filename="solutions.json"):
+    path = Path(filename)
+
+    # Load existing data, or start with an empty dict
+    if path.exists():
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    else:
+        data = {}
+
+    # Don't overwrite an existing puzzle
+    if puzzle_name in data:
+        return False
+
+    data[puzzle_name] = {
+        "text": puzzle_text,
+        "solution": str(solution)
+    }
+
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(
+            dict(sorted(data.items())),
+            f,
+            indent=2
+        )
+
+    return True
+
 def run_solver_batch(
     puzzle_file,
     output_file,
@@ -53,6 +81,7 @@ def run_solver_batch(
     for item in puzzles:
 
         name = item["name"]
+        puzzle_text = item["puzzle"]
 
         if name in completed:
             print(f"Skipping {name} (already done)")
@@ -64,7 +93,7 @@ def run_solver_batch(
         start = time.time()
 
         puzzle = Puzzle(
-            item["puzzle"],
+            puzzle_text,
             verbose=False
         )
 
@@ -97,6 +126,12 @@ def run_solver_batch(
 
         print(result)
 
+        # Save to teh solutions file
+        if solver.solution is not None:
+            human_solution = puzzle.export_solution(solver.solution)
+            save_puzzle(name, puzzle_text, human_solution)
+
+
     # Print stats summary
     solved_count = sum(r["solved"] for r in results)
     print(f"Total puzzles solved: {solved_count} / {len(puzzles)}",
@@ -104,16 +139,23 @@ def run_solver_batch(
 
     return pd.DataFrame(results)
 
-PUZZLE_FILE = "puzzles.json"
+if __name__ == "__main__":
 
-run_solver_batch(PUZZLE_FILE,
-    "solve_dfs_restart.xlsx",
-    Solver.solve_dfs_restart, timeout=10)
+    PUZZLE_FILE = "puzzles.json"
 
-# run_solver_batch(PUZZLE_FILE,
-#     "stats_bfs.xlsx",
-#     Solver.solve_bfs, timeout=10)
+    run_solver_batch(PUZZLE_FILE,
+        "solve_dfs_restart.xlsx",
+        Solver.solve_dfs_restart, timeout=60)
 
-# run_solver_batch(PUZZLE_FILE,
-#     "stats_dfs.xlsx",
-#     Solver.solve_dfs, timeout=10)
+    # run_solver_batch(PUZZLE_FILE,
+    #     "stats_bfs.xlsx",
+    #     Solver.solve_bfs, timeout=10)
+
+    # run_solver_batch(PUZZLE_FILE,
+    #     "stats_dfs.xlsx",
+    #     Solver.solve_dfs, timeout=10)
+
+
+    with open("solutions.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+        print(f"Total solutions so far: {len(data)}")
