@@ -186,10 +186,10 @@ def classify_all_cells(image, rows, cols):
     return puzzle
 
 
-def read_pic_into_puzzle(image_path):
+def read_pic_into_puzzle(image):
     ''' Given the puzzle image, return a 2d list with decoded puzzle
     '''
-    image = Image.open(image_path).convert("RGB")
+    
     image_np = np.array(image)
 
     only_node_colors = [v for k, v in COLORS.items() if k != "W"]
@@ -200,12 +200,14 @@ def read_pic_into_puzzle(image_path):
 
     puzzle = classify_all_cells(image, rows, cols)
 
-    return puzzle
+    return puzzle, rows, cols
 
 if __name__ == "__main__":
 
     path = "lyne_example.png"
-    path = "lyne_screenshots/a-01.png"
-    the_puzzle = read_pic_into_puzzle(path)
+    path = "lyne_screenshots/c-01.png"
+    image = Image.open(path).convert("RGB")
+
+    the_puzzle, _, _ = read_pic_into_puzzle(image)
     for line in the_puzzle:
         print(f"'{line}'")
