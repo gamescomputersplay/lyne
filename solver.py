@@ -66,6 +66,13 @@ class Puzzle:
         # Overlapping edges (crossing diagonally)
         self.edge_overlaps = self.generate_edge_overlaps()
 
+        # Neighbor nodes (which nodes are connected with one edge)
+        self.neighbor_nodes = self.generate_neighbor_nodes()
+
+        # Generate shortcut edges (so given ABC nodes: AB is a shortcut for [BC, AC]
+        # This dict is: {node: {far_edge: (near_edge1, near_edge2),...},...),
+        self.shortcuts = self.generate_shortcuts()
+
         if verbose:
             self.print_info()
 
@@ -223,6 +230,42 @@ class Puzzle:
 
         return edge_overlaps
 
+    def generate_neighbor_nodes(self):
+        ''' Generate a dict: {node_id: {a, b, c}, ...}
+        With neighbors of this node
+        '''
+        neighbor_nodes = {}
+        for node in self.nodes:
+            node_id = node.id
+            neighbors = set()
+            for edge_id in self.node_edges[node_id]:
+                a, b = self.edges[edge_id]
+                if node_id == a:
+                    neighbors.add(b)
+                else:
+                    neighbors.add(a)
+            neighbor_nodes[node_id] = neighbors
+        return neighbor_nodes
+
+    def generate_shortcuts(self):
+        ''' Generate dict of shortcuts: which pairs of edges this edge is a shortcut for
+        This dict is: {node: {far_edge: (near_edge1, near_edge2),...},...),
+        '''
+        shortcuts = {}
+        for edge_id, (a, b) in enumerate(self.edges):
+            neighbors_a = self.neighbor_nodes[a]
+            neighbors_b = self.neighbor_nodes[b]
+            shared_neighbors = neighbors_a.intersection(neighbors_b)
+            for shared_neighbor in shared_neighbors:
+                shortcut_1 = self.edges.index((min(a, shared_neighbor), max(a, shared_neighbor)))
+                shortcut_2 = self.edges.index((min(b, shared_neighbor), max(b, shared_neighbor)))
+
+                #shortcuts[(shared_neighbor, edge_id)] = (shortcut_1, shortcut_2)
+                if shared_neighbor not in shortcuts:
+                    shortcuts[shared_neighbor] = {}
+                shortcuts[shared_neighbor][edge_id]= (shortcut_1, shortcut_2)
+        return shortcuts
+
     def print_info(self):
         ''' Nice print of puzzle internal data structure
         '''
@@ -249,6 +292,17 @@ class Puzzle:
 
         print("\nEdge overlaps:")
         print(self.edge_overlaps)
+
+        print("\nNeighbor nodes:")
+        for node_id, neighbors in self.neighbor_nodes.items():
+            print(f"  {node_id}: {neighbors}")
+
+        print("\nShortcuts node:, (far_edge (near_edge1, near_edge2))")
+        for node_id, shortcuts in self.shortcuts.items():
+            for far_edge, (near_edge1, near_edge2) in shortcuts.items():
+                print(f"  {node_id}: {far_edge, (near_edge1, near_edge2)}")
+
+        print("\n")
 
     def export_solution(self, state):
         ''' Export a human friendly solution: a list of lists of coordinates
@@ -499,6 +553,73 @@ class GameState:
         new_path.edges.append(edge_id)
 
         return new_state
+
+    def expand_path(self, puzzle):
+        ''' If path can be expanded to an orphaned node, do it
+        '''
+
+        # Find orphan nodes (1 remaining visit, 0 available edges)
+        for node_id, remaining in enumerate(self.remaining_visits):
+            if remaining != 1:
+                continue
+            available_edges = sum(
+                self.edge_available[edge_id]
+                for edge_id in puzzle.node_edges[node_id]
+            )
+            if available_edges != 0:
+                continue
+
+            for far_edge, (near_edge1, near_edge2) in puzzle.shortcuts[node_id].items():
+                # Find far_edge in a path with the same shape
+                for path in self.active_paths + self.complete_paths:
+                    if path.shape != puzzle.nodes[node_id].shape:
+                        continue
+                    if far_edge not in path.edges:
+                        continue
+                    # Check if the near paths are not blocked
+                    if near_edge1 in puzzle.edge_overlaps and not self.edge_available[puzzle.edge_overlaps[near_edge1]]:
+                        continue
+                    if near_edge2 in puzzle.edge_overlaps and not self.edge_available[puzzle.edge_overlaps[near_edge2]]:
+                        continue
+                    #print(node_id, ":", far_edge, (near_edge1, near_edge2))
+                    #print(path)
+
+                    # Find the first node of the edge to replace (first in path order)
+                    # That is, either node, same for -1 and -2 element:
+                    edge_index_to_replace = path.edges.index(far_edge)
+                    if edge_index_to_replace > 0:
+                        first_node_to_replace = next(iter(set(puzzle.edges[path.edges[edge_index_to_replace]]) & set(puzzle.edges[path.edges[edge_index_to_replace-1]])))
+                    # If this is a first edge in the path, it would be teh starting point of the path
+                    else:
+                        first_node_to_replace = path.start_node
+                    # Figure out the right order
+                    if first_node_to_replace in puzzle.edges[near_edge1]:
+                        replacement_1, replacement_2 = near_edge1, near_edge2
+                    else:
+                        replacement_1, replacement_2 = near_edge2, near_edge1
+
+                    # Do the replacement
+                    path.edges[edge_index_to_replace:edge_index_to_replace + 1] = [replacement_1, replacement_2]
+                    #print("replaced:", path)
+                    # Mark the visit
+                    self.remaining_visits[node_id] -= 1
+
+                    # Disable conflicting edges
+                    for replacement in [replacement_1, replacement_2]:
+                        if replacement in puzzle.edge_overlaps:
+                            overlapping_edge = puzzle.edge_overlaps[replacement]
+                            self.edge_available[overlapping_edge] = False
+
+                    # # If no remaining visits at source node, disable all edges from there
+                    if self.remaining_visits[node_id] == 0:
+                        for edge_id_to_disable in puzzle.node_edges[node_id]:
+                            self.edge_available[edge_id_to_disable] = False
+
+                    # Enable edge that we have replaced
+                    self.edge_available[far_edge] = True
+                    return True
+
+        return False
 
     def is_solved(self):
         ''' Check whether the puzzle has been solved.
@@ -791,6 +912,9 @@ class Solver:
                         edge_id
                     )
 
+                    while new_state.expand_path(self.puzzle):
+                        pass
+
                     # Add state to the queue if not cached
                     state_id = new_state.state_hash()
                     if state_id in visited:
@@ -822,11 +946,12 @@ def main():
     ''' Lyne solver
     '''
     puzzle_file = "puzzles.json"
+    puzzle_name = "w-03"
     puzzle_text = ""
     with open(puzzle_file, "r", encoding="utf-8") as f:
         puzzles = json.load(f)
         for puzzle in puzzles:
-            if puzzle["name"] == "w-16":
+            if puzzle["name"] == puzzle_name:
                 puzzle_text = puzzle["puzzle"]
 
     # Solve one puzzle
@@ -838,6 +963,10 @@ def main():
     human_solution = puzzle.export_solution(solver.solution)
     for line in human_solution:
         print(line)
+
+    from batch_solver import save_puzzle
+    if solver.solution is not None:
+        save_puzzle(puzzle_name, puzzle_text, human_solution)
 
 if __name__ == "__main__":
     main()
