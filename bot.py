@@ -13,7 +13,7 @@ SOLUTIONS_FILE = "solutions.json"
 
 def range_middle(r):
     """Return the middle coordinate of a range."""
-    return (r.start + r.stop - 1) / 2
+    return (r[0] + r[1] - 1) / 2
 
 
 def logical_to_screen(x, y, rows, cols):
@@ -42,7 +42,7 @@ def find_solution(puzzle_text, solutions_file=SOLUTIONS_FILE):
     return None, None
 
 
-def play_solution(solution, rows, cols, duration=0.15):
+def play_solution(solution, rows, cols, duration=0.03):
     """
     Play a solution by dragging through each path.
 
@@ -73,6 +73,7 @@ def play_solution(solution, rows, cols, duration=0.15):
 
         for point in points[1:]:
             pyautogui.moveTo(*point, duration=duration)
+            time.sleep(0.01)
 
         pyautogui.mouseUp()
 
@@ -106,8 +107,8 @@ def main():
     print(solution)
 
     # Give yourself a moment to make sure the game is ready
-    print("Starting in 2 seconds...")
-    time.sleep(2)
+    print("Starting in 0.1 second...")
+    time.sleep(.1)
 
     # Play it
     play_solution(solution, rows, cols)
