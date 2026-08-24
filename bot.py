@@ -7,6 +7,7 @@ import pyautogui
 
 
 from read_lyne_pyzzle import read_pic_into_puzzle
+from solver import Solver, Puzzle
 
 SOLUTIONS_FILE = "solutions.json"
 
@@ -100,8 +101,17 @@ def main():
     puzzle_id, solution = find_solution(puzzle_text)
 
     if solution is None:
-        print("No solution found in solutions.json")
-        return
+        print("Haven't found archived solution, trying to solve the puzzle")
+        # Solve one puzzle
+        puzzle = Puzzle(puzzle_text, verbose=True)
+        solver = Solver(puzzle, time_limit=100)
+
+        solver.solve_dfs_restart()
+        solution = puzzle.export_solution(solver.solution)
+
+        if not solution:
+            print("No solution found in solutions.json")
+            return
 
     print(f"Found solution: {puzzle_id}")
     print(solution)
