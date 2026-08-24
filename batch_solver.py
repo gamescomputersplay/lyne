@@ -144,16 +144,16 @@ if __name__ == "__main__":
     PUZZLE_FILE = "puzzles.json"
 
     run_solver_batch(PUZZLE_FILE,
+        "stats_bfs.xlsx",
+        Solver.solve_bfs, timeout=10)
+
+    run_solver_batch(PUZZLE_FILE,
+        "stats_dfs.xlsx",
+        Solver.solve_dfs, timeout=10)
+
+    run_solver_batch(PUZZLE_FILE,
         "solve_dfs_restart.xlsx",
-        Solver.solve_dfs_restart, timeout=60)
-
-    # run_solver_batch(PUZZLE_FILE,
-    #     "stats_bfs.xlsx",
-    #     Solver.solve_bfs, timeout=10)
-
-    # run_solver_batch(PUZZLE_FILE,
-    #     "stats_dfs.xlsx",
-    #     Solver.solve_dfs, timeout=10)
+        Solver.solve_dfs_restart, timeout=10)
 
 
     with open("solutions.json", "r", encoding="utf-8") as f:

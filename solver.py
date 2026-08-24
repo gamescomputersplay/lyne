@@ -863,7 +863,8 @@ class Solver:
         # But occasionally, reset to a previous state, or even to the one of teh BFS states
         depths = [1]
         depths = [0.10, 0.25, 0.5] * 3 + [0.75, 1]
-
+        depths = [0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.75, 1]
+        
         depth = depths[(self.states_explored // puzzle_size) % len(depths)]
         idx = int((1 - depth) * len(stack))
         return stack.pop(idx)
@@ -912,8 +913,8 @@ class Solver:
                         edge_id
                     )
 
-                    while new_state.expand_path(self.puzzle):
-                        pass
+                    # while new_state.expand_path(self.puzzle):
+                    #     pass
 
                     # Add state to the queue if not cached
                     state_id = new_state.state_hash()
