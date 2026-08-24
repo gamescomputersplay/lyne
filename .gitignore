@@ -219,6 +219,7 @@ __marimo__/
 
 .DS_Store
 /lyne_screenshots/
+/lyne_themes/
 read_all_*
 lyne_example.png
 *.xlsx
