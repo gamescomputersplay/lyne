@@ -14,6 +14,10 @@ import random
 # 2|3|4 - no shape node that has to be visited that many times
 # [space] - no node
 
+STRATEGY = "BFS"
+STRATEGY = "DFS"
+STRATEGY = "RESTART"
+STRATEGY = "SMART RESTART"
 
 class NodeShape(Enum):
     ''' Enumeration for the node shapes
@@ -740,123 +744,23 @@ class Solver:
         return (time.time() - self.start_time) > self.time_limit
 
 
-    def solve_bfs(self):
-        ''' Breadth-first search, the simplest brute force method.
-        Expected to explode even on a slightly non-trivial puzzles
-        '''
-
-        self.start_time = time.time()
-
-        # Initiate the queue with teh starting GameState
-        initial = GameState.from_puzzle(self.puzzle)
-        queue = deque([initial])
-
-        # Initialize the cache
-        visited = set()
-        visited.add(initial.state_hash())
-
-        while queue:
-
-            # Check timeout
-            if self.time_exceeded():
-                self.timed_out = True
-                return None
-
-            state = queue.popleft()
-
-            self.states_explored += 1
-
-            if state.is_solved():
-                self.is_solved = True
-                self.solution = state
-                return state
-
-            if not state.is_viable(self.puzzle):
-                continue
-
-            for path, moves in state.available_moves(self.puzzle):
-
-                for edge_id in moves:
-
-                    new_state = state.apply_move(
-                        self.puzzle,
-                        path,
-                        edge_id
-                    )
-
-                    # Add state to the queue if not cached
-                    state_id = new_state.state_hash()
-                    if state_id in visited:
-                        continue
-                    visited.add(state_id)
-                    queue.append(new_state)
-
-        return None
-
-
-    def solve_dfs(self):
-        ''' Depth-first search.
-        '''
-
-        self.start_time = time.time()
-
-        # Initiate the queue with teh starting GameState
-        initial = GameState.from_puzzle(self.puzzle)
-        stack = deque([initial])
-
-        # Initialize the cache
-        visited = set()
-        visited.add(initial.state_hash())
-
-        while stack:
-
-            # Check timeout
-            if self.time_exceeded():
-                self.timed_out = True
-                return None
-
-            state = stack.pop()
-
-            self.states_explored += 1
-
-            if state.is_solved():
-                self.is_solved = True
-                self.solution = state
-                return state
-
-
-            for path, moves in state.available_moves(self.puzzle):
-
-                for edge_id in moves:
-
-                    new_state = state.apply_move(
-                        self.puzzle,
-                        path,
-                        edge_id
-                    )
-
-                    # Add state to the queue if not cached
-                    state_id = new_state.state_hash()
-                    if state_id in visited:
-                        continue
-                    visited.add(state_id)
-                    if not new_state.is_viable(self.puzzle):
-                        continue
-                    stack.append(new_state)
-
-        return None
-
-
-
     def choose_next_state(self, stack):
         ''' In the "reset state" strategy, choose next state
         (BFS, then DFS, sometimes reset to a previous state)
         '''
+        if STRATEGY == "BFS":
+            return stack.popleft()
+        if STRATEGY == "DFS":
+            return stack.pop()
+
         puzzle_size = len(self.puzzle.nodes)
+
+        if STRATEGY == "RESTART":
+            puzzle_size = int(puzzle_size * 1.1)
 
         # BFS in the beginning
         if self.states_explored < puzzle_size**2 * 5:
-            return stack.pop(0)
+            return stack.popleft()
         # BFS done, shuffle those states
         if self.states_explored == puzzle_size**2 * 5:
             random.shuffle(stack)
@@ -867,15 +771,19 @@ class Solver:
             return stack.pop()
 
         # But occasionally, reset to a previous state, or even to the one of teh BFS states
-        depths = [1]
-        depths = [0.10, 0.25, 0.5] * 3 + [0.75, 1]
-        depths = [0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.75, 1]
+        if STRATEGY == "RESTART":
+            depths = [1]
+        elif STRATEGY == "SMART RESTART":
+            #depths = [0.10, 0.25, 0.5] * 3 + [0.75, 1]
+            depths = [0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.75, 1]
 
         depth = depths[(self.states_explored // puzzle_size) % len(depths)]
         idx = int((1 - depth) * len(stack))
-        return stack.pop(idx)
+        item = stack[idx]
+        del stack[idx]
+        return item
 
-    def solve_dfs_restart(self):
+    def solve(self):
         ''' 
         Depth-first search with custom logic to choose the next state (regular restarts)
         '''
@@ -884,7 +792,8 @@ class Solver:
 
         # Initiate the queue with teh starting GameState
         initial = GameState.from_puzzle(self.puzzle)
-        stack = [initial,]
+
+        stack = deque([initial])
 
         # Initialize the cache
         visited = set()
@@ -963,13 +872,16 @@ def main():
 
     # Solve one puzzle
     puzzle = Puzzle(puzzle_text, verbose=True)
-    solver = Solver(puzzle, time_limit=100)
 
-    solver.solve_dfs_restart()
-    solver.print_stats()
-    human_solution = puzzle.export_solution(solver.solution)
-    for line in human_solution:
-        print(line)
+    for STRATEGY in ["BFS", "DFS", "RESTART", "SMART RESTART"]:
+        print(f"\nUsing strategy: {STRATEGY}")
+        solver = Solver(puzzle, time_limit=100)
+
+        solver.solve()
+        solver.print_stats()
+        human_solution = puzzle.export_solution(solver.solution)
+        for line in human_solution:
+            print(line)
 
 if __name__ == "__main__":
     main()

@@ -7,42 +7,12 @@ from pathlib import Path
 
 import pandas as pd
 
-from solver import Solver, Puzzle
+import solver
 
-def save_puzzle(puzzle_name, puzzle_text, solution, filename="solutions.json"):
-    ''' Save puzzle solution in a separate json file (if solution is not there yet)
-    '''
-    path = Path(filename)
-
-    # Load existing data, or start with an empty dict
-    if path.exists():
-        with open(path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-    else:
-        data = {}
-
-    # Don't overwrite an existing puzzle
-    if puzzle_name in data:
-        return False
-
-    data[puzzle_name] = {
-        "text": puzzle_text,
-        "solution": str(solution)
-    }
-
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(
-            dict(sorted(data.items())),
-            f,
-            indent=2
-        )
-
-    return True
 
 def run_solver_batch(
     puzzle_file,
     output_file,
-    solver_method,
     timeout=None
 ):
     """
@@ -94,24 +64,24 @@ def run_solver_batch(
 
         start = time.time()
 
-        puzzle = Puzzle(
+        puzzle = solver.Puzzle(
             puzzle_text,
             verbose=False
         )
 
-        solver = Solver(puzzle, time_limit=timeout)
+        sol = solver.Solver(puzzle, time_limit=timeout)
 
-        solver_method(solver)
+        sol.solve()
 
         elapsed = time.time() - start
 
 
         result = {
             "name": name,
-            "solved": 0 if solver.solution is None else 1,
-            "timed_out": 1 if solver.timed_out else 0,
+            "solved": 0 if sol.solution is None else 1,
+            "timed_out": 1 if sol.timed_out else 0,
             "time_seconds": round(elapsed, 3),
-            "states_explored": solver.states_explored
+            "states_explored": sol.states_explored
         }
 
         results.append(result)
@@ -128,12 +98,6 @@ def run_solver_batch(
 
         print(result)
 
-        # Save to teh solutions file
-        if solver.solution is not None:
-            human_solution = puzzle.export_solution(solver.solution)
-            save_puzzle(name, puzzle_text, human_solution)
-
-
     # Print stats summary
     solved_count = sum(r["solved"] for r in results)
     print(f"Total puzzles solved: {solved_count} / {len(puzzles)}",
@@ -145,19 +109,8 @@ if __name__ == "__main__":
 
     PUZZLE_FILE = "puzzles.json"
 
-    run_solver_batch(PUZZLE_FILE,
-        "stats_bfs.xlsx",
-        Solver.solve_bfs, timeout=10)
-
-    run_solver_batch(PUZZLE_FILE,
-        "stats_dfs.xlsx",
-        Solver.solve_dfs, timeout=10)
-
-    run_solver_batch(PUZZLE_FILE,
-        "solve_dfs_restart.xlsx",
-        Solver.solve_dfs_restart, timeout=10)
-
-
-    with open("solutions.json", "r", encoding="utf-8") as file:
-        json_data = json.load(file)
-        print(f"Total solutions so far: {len(json_data)}")
+    for STRATEGY in ["BFS", "DFS", "RESTART", "SMART RESTART"]:
+        solver.STRATEGY = STRATEGY
+        run_solver_batch(PUZZLE_FILE,
+            f"stats_{STRATEGY}.xlsx",
+            timeout=10)

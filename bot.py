@@ -106,7 +106,7 @@ def main():
         puzzle = Puzzle(puzzle_text, verbose=True)
         solver = Solver(puzzle, time_limit=100)
 
-        solver.solve_dfs_restart()
+        solver.solve()
         solution = puzzle.export_solution(solver.solution)
 
         if not solution:
