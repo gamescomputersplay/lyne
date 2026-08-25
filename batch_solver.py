@@ -10,6 +10,8 @@ import pandas as pd
 from solver import Solver, Puzzle
 
 def save_puzzle(puzzle_name, puzzle_text, solution, filename="solutions.json"):
+    ''' Save puzzle solution in a separate json file (if solution is not there yet)
+    '''
     path = Path(filename)
 
     # Load existing data, or start with an empty dict
@@ -156,6 +158,6 @@ if __name__ == "__main__":
         Solver.solve_dfs_restart, timeout=10)
 
 
-    with open("solutions.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-        print(f"Total solutions so far: {len(data)}")
+    with open("solutions.json", "r", encoding="utf-8") as file:
+        json_data = json.load(file)
+        print(f"Total solutions so far: {len(json_data)}")

@@ -577,9 +577,11 @@ class GameState:
                     if far_edge not in path.edges:
                         continue
                     # Check if the near paths are not blocked
-                    if near_edge1 in puzzle.edge_overlaps and not self.edge_available[puzzle.edge_overlaps[near_edge1]]:
+                    if near_edge1 in puzzle.edge_overlaps and \
+                       not self.edge_available[puzzle.edge_overlaps[near_edge1]]:
                         continue
-                    if near_edge2 in puzzle.edge_overlaps and not self.edge_available[puzzle.edge_overlaps[near_edge2]]:
+                    if near_edge2 in puzzle.edge_overlaps and \
+                       not self.edge_available[puzzle.edge_overlaps[near_edge2]]:
                         continue
                     #print(node_id, ":", far_edge, (near_edge1, near_edge2))
                     #print(path)
@@ -588,8 +590,11 @@ class GameState:
                     # That is, either node, same for -1 and -2 element:
                     edge_index_to_replace = path.edges.index(far_edge)
                     if edge_index_to_replace > 0:
-                        first_node_to_replace = next(iter(set(puzzle.edges[path.edges[edge_index_to_replace]]) & set(puzzle.edges[path.edges[edge_index_to_replace-1]])))
-                    # If this is a first edge in the path, it would be teh starting point of the path
+                        first_node_to_replace = \
+                            next(iter(set(puzzle.edges[path.edges[edge_index_to_replace]]) \
+                                 & set(puzzle.edges[path.edges[edge_index_to_replace-1]])))
+                    # If this is a first edge in the path,
+                    # it would be the starting point of the path
                     else:
                         first_node_to_replace = path.start_node
                     # Figure out the right order
@@ -599,7 +604,8 @@ class GameState:
                         replacement_1, replacement_2 = near_edge2, near_edge1
 
                     # Do the replacement
-                    path.edges[edge_index_to_replace:edge_index_to_replace + 1] = [replacement_1, replacement_2]
+                    path.edges[edge_index_to_replace:edge_index_to_replace + 1] = \
+                        [replacement_1, replacement_2]
                     #print("replaced:", path)
                     # Mark the visit
                     self.remaining_visits[node_id] -= 1
@@ -864,7 +870,7 @@ class Solver:
         depths = [1]
         depths = [0.10, 0.25, 0.5] * 3 + [0.75, 1]
         depths = [0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.75, 1]
-        
+
         depth = depths[(self.states_explored // puzzle_size) % len(depths)]
         idx = int((1 - depth) * len(stack))
         return stack.pop(idx)
