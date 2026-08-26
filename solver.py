@@ -759,10 +759,10 @@ class Solver:
             puzzle_size = int(puzzle_size * 1.1)
 
         # BFS in the beginning
-        if self.states_explored < puzzle_size**2 * 5:
+        if self.states_explored < puzzle_size**2:
             return stack.popleft()
         # BFS done, shuffle those states
-        if self.states_explored == puzzle_size**2 * 5:
+        if self.states_explored == puzzle_size**2:
             random.shuffle(stack)
             return stack.pop()
 
@@ -771,9 +771,8 @@ class Solver:
             return stack.pop()
 
         # But occasionally, reset to a previous state, or even to the one of teh BFS states
-        if STRATEGY == "RESTART":
-            depths = [1]
-        elif STRATEGY == "SMART RESTART":
+        depths = [1]
+        if STRATEGY == "SMART RESTART":
             #depths = [0.10, 0.25, 0.5] * 3 + [0.75, 1]
             depths = [0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.10, 0.25, 0.5, 0.75, 1]
 
