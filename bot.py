@@ -94,38 +94,41 @@ def main():
     for line in puzzle_text:
         print(f"  {line}")
 
-    print(f"Rows: {rows}")
-    print(f"Cols: {cols}")
+    # print(f"Rows: {rows}")
+    # print(f"Cols: {cols}")
 
     # Find solution
     puzzle_id, solution = find_solution(puzzle_text)
 
-    if solution is None:
+    if solution is not None:
+        print(f"Found archived solution: {puzzle_id}")
+    else:
         print("Haven't found archived solution, trying to solve the puzzle")
         # Solve one puzzle
-        puzzle = Puzzle(puzzle_text, verbose=True)
-        solver = Solver(puzzle, time_limit=100)
+        puzzle = Puzzle(puzzle_text, verbose=False)
+        solver = Solver(puzzle, time_limit=10)
 
         solver.solve()
         solution = puzzle.export_solution(solver.solution)
 
-        if not solution:
-            print("No solution found in solutions.json")
+        if solution is None:
+            print("No solution found!")
             return
 
-    print(f"Found solution: {puzzle_id}")
-    print(solution)
+    print("Solution:")
+    for line in solution:
+        print(line)
 
     # Give yourself a moment to make sure the game is ready
-    print("Starting in 0.1 second...")
+    print("Playing the solution...")
     time.sleep(.1)
 
     # Play it
     play_solution(solution, rows, cols)
 
-    print("Done!")
+    print("Done!\n")
 
 
 if __name__ == "__main__":
     keyboard.add_hotkey('f10', main)
-    keyboard.wait('esc')
+    keyboard.wait()
