@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>{{ title }}</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .letters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .letter-block {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .letter {
+            font-size: 28px;
+            font-weight: bold;
+            width: 35px;
+            text-align: center;
+        }
+
+        .level-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 25px);
+            grid-template-rows: repeat(5, 25px);
+            gap: 2px;
+        }
+
+        .level {
+            width: 25px;
+            height: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 9px;
+            color: rgba(0, 0, 0, 0.6);
+
+            border: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>{{ title }}</h1>
+
+    <div class="stats">
+        Solved: <strong>{{ solved_count }}</strong>
+        / {{ total_count }}
+        ({{ "%.1f"|format(solved_percent) }}%)
+    </div>
+
+    <div class="letters">
+
+        {% for group in letters %}
+
+            <div class="letter-block">
+
+                <div class="letter">
+                    {{ group.letter }}
+                </div>
+
+                <div class="level-grid">
+
+                    {% for level in group.levels %}
+
+                        <div
+                            class="level"
+                            style="background-color: {{ level.color }}"
+                            title="{{ level.name }}{% if level.time_seconds is not none %} — {{ "%.2f"|format(level.time_seconds) }}s{% else %} — not solved{% endif %}"
+                        >
+                            {{ level.name.split("-")[1] }}
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>
