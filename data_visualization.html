@@ -66,6 +66,36 @@
             border: 1px solid rgba(0, 0, 0, 0.15);
         }
 
+        .level {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+    transform: scale(0.4);
+    animation: revealCell 0.35s ease-out forwards;
+}
+
+@keyframes revealCell {
+    0% {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
     </style>
 </head>
 
@@ -80,34 +110,32 @@
     </div>
 
     <div class="letters">
+    {% set ns = namespace(cell_index=0) %}
 
-        {% for group in letters %}
+    {% for group in letters %}
+    <div class="letter-block">
+        <div class="letter">
+            {{ group.letter }}
+        </div>
 
-            <div class="letter-block">
-
-                <div class="letter">
-                    {{ group.letter }}
+        <div class="level-grid">
+            {% for level in group.levels %}
+                <div
+                    class="level"
+                    style="
+                        background-color: {{ level.color }};
+                        animation-delay: {{ ns.cell_index * 0.01 }}s;
+                    "
+                    title="{{ level.name }}{% if level.time_seconds is not none %} — {{ "%.2f"|format(level.time_seconds) }}s{% else %} — not solved{% endif %}"
+                >
+                    {{ level.name.split("-")[1] }}
                 </div>
 
-                <div class="level-grid">
-
-                    {% for level in group.levels %}
-
-                        <div
-                            class="level"
-                            style="background-color: {{ level.color }}"
-                            title="{{ level.name }}{% if level.time_seconds is not none %} — {{ "%.2f"|format(level.time_seconds) }}s{% else %} — not solved{% endif %}"
-                        >
-                            {{ level.name.split("-")[1] }}
-                        </div>
-
-                    {% endfor %}
-
-                </div>
-
-            </div>
-
-        {% endfor %}
+                {% set ns.cell_index = ns.cell_index + 1 %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
 
     </div>
 

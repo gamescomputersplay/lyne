@@ -5,9 +5,12 @@ from jinja2 import Environment, FileSystemLoader
 
 
 DATA_FILE = "stats_SMART RESTART.xlsx"
+TITLE = "SMART RESTART"
+
 TEMPLATE_DIR = "."
 TEMPLATE_FILE = "data_visualization.html"
 OUTPUT_FILE = DATA_FILE.split(".")[0] + ".html"
+
 
 MAX_TIME = 10.0
 
@@ -97,7 +100,7 @@ def main():
     template = env.get_template(TEMPLATE_FILE)
 
     html = template.render(
-        title="Puzzle Results",
+        title=TITLE,
         letters=letters,
         solved_count=solved_count,
         total_count=total_count,
