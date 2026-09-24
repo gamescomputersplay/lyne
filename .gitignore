@@ -220,8 +220,12 @@ __marimo__/
 .DS_Store
 /lyne_screenshots/
 /lyne_themes/
+/solution_pics/
+/solution_pics_combined/
 read_all_*
 lyne_example.png
+Arial Bold.ttf
+icon.png
 *.xlsx
 *.html
 !data_visualization.html
